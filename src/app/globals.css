@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #ffffff;
+  --main-blue: #000080;
+}
+
+.bg-main-blue {
+  background-color: var(--main-blue) !important;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #ffffff;
+    --foreground: #ededed;
+    --main-blue: #032492;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-rubik), Arial, Helvetica, sans-serif;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-smooth {
+  0%,
+  15% {
+    transform: translateX(100%);
+  }
+  20%,
+  35% {
+    transform: translateX(60%);
+  }
+  40%,
+  55% {
+    transform: translateX(20%);
+  }
+  60%,
+  75% {
+    transform: translateX(-20%);
+  }
+  80%,
+  95% {
+    transform: translateX(-60%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-continuous {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.33%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+}
+
+.animate-marquee-smooth {
+  animation: marquee-smooth 10s ease-in-out infinite;
+}
+
+.animate-marquee-scroll {
+  animation: marquee-scroll 15s linear infinite;
+}
+
+.animate-marquee-continuous {
+  animation: marquee-continuous 30s linear infinite;
+}
