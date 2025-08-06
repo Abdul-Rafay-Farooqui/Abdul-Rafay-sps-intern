@@ -1,9 +1,9 @@
 "use client";
-import Form from "@/app/components/products/Form";
-import Header from "@/app/components/products/Header";
-import Support from "@/app/components/products/Support";
-import Solutions from "@/app/components/products/Solutions";
-import Why from "@/app/components/products/Why";
+import Form from "@/components/products/Form";
+import Header from "@/components/products/Header";
+import Support from "@/components/products/Support";
+import Solutions from "@/components/products/Solutions";
+import Why from "@/components/products/Why";
 import React from "react";
 
 const page = () => {
@@ -77,41 +77,41 @@ const page = () => {
   };
   const solutionsContent = {
     maintitle: "Tenable Solutions for IT & OT Asset Security",
-  leftContent: [
-    {
-    title: "Tenable.ot",
-    points: [
-      "Real-time monitoring and anomaly detection for OT environments with comprehensive asset inventory.",
-      "Protects critical infrastructure through detailed risk assessments.",
+    leftContent: [
+      {
+        title: "Tenable.ot",
+        points: [
+          "Real-time monitoring and anomaly detection for OT environments with comprehensive asset inventory.",
+          "Protects critical infrastructure through detailed risk assessments.",
+        ],
+      },
+      {
+        title: "Tenable.io",
+        points: [
+          "Cloud-based vulnerability management with continuous visibility across IT assets.",
+          "Automates compliance reporting to streamline security processes.",
+        ],
+      },
     ],
-  },
-  {
-    title: "Tenable.io",
-    points: [
-      "Cloud-based vulnerability management with continuous visibility across IT assets.",
-      "Automates compliance reporting to streamline security processes.",
+    rightContent: [
+      {
+        title: "Tenable.sc",
+        points: [
+          "On-premises vulnerability management with integration into existing workflows.",
+          "Prioritizes risk mitigation with actionable insights.",
+        ],
+      },
+      {
+        title: "Tenable Lumin",
+        points: [
+          "Provides cyber exposure scoring to quantify and prioritize risk.",
+          "Aligns risk metrics with business objectives for informed decision-making.",
+        ],
+      },
     ],
-  },
-  ],
-  rightContent:[
-    {
-    title: "Tenable.sc",
-    points: [
-      "On-premises vulnerability management with integration into existing workflows.",
-      "Prioritizes risk mitigation with actionable insights.",
-    ],
-  },
-  {
-    title: "Tenable Lumin",
-    points: [
-      "Provides cyber exposure scoring to quantify and prioritize risk.",
-      "Aligns risk metrics with business objectives for informed decision-making.",
-    ],
-  },
-  ],
-  image: "/images/tenable2.jpg",
-  imagealt: "tenable",
-  }
+    image: "/images/tenable2.jpg",
+    imagealt: "tenable",
+  };
   return (
     <div>
       <Header
@@ -126,13 +126,13 @@ const page = () => {
         image={whysectionContent.image}
         imagealt={whysectionContent.imagealt}
       />
-        <Solutions 
+      <Solutions
         maintitle={solutionsContent.maintitle}
         leftContent={solutionsContent.leftContent}
         rightContent={solutionsContent.rightContent}
         image={solutionsContent.image}
         imagealt={solutionsContent.imagealt}
-        />
+      />
       <Support
         maintitle={supportcontent.maintitle}
         maintext={supportcontent.maintext}

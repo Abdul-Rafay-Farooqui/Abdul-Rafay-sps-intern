@@ -1,9 +1,9 @@
 "use client";
-import Form from "@/app/components/products/Form";
-import Header from "@/app/components/products/Header";
-import Support from "@/app/components/products/Support";
-import Solutions from "@/app/components/products/Solutions";
-import Why from "@/app/components/products/Why";
+import Form from "@/components/products/Form";
+import Header from "@/components/products/Header";
+import Support from "@/components/products/Support";
+import Solutions from "@/components/products/Solutions";
+import Why from "@/components/products/Why";
 import React from "react";
 
 const page = () => {

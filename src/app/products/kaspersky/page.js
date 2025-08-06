@@ -1,10 +1,10 @@
 "use client";
-import Form from "@/app/components/products/Form";
-import Header from "@/app/components/products/Header";
-import Why from "@/app/components/products/Why";
-import Products from "@/app/components/products/kaspersky/Products";
-import Services from "@/app/components/products/kaspersky/Services";
-import Support from "@/app/components/products/Support";
+import Form from "@/components/products/Form";
+import Header from "@/components/products/Header";
+import Why from "@/components/products/Why";
+import Products from "@/components/products/kaspersky/Products";
+import Services from "@/components/products/kaspersky/Services";
+import Support from "@/components/products/Support";
 import React from "react";
 
 const page = () => {

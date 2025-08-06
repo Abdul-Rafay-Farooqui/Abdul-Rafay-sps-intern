@@ -1,9 +1,9 @@
 "use client";
-import Form from "@/app/components/products/Form";
-import Header from "@/app/components/products/Header";
-import Solutions from "@/app/components/products/microsoft/Solutions";
-import Support from "@/app/components/products/Support";
-import Why from "@/app/components/products/Why";
+import Form from "@/components/products/Form";
+import Header from "@/components/products/Header";
+import Solutions from "@/components/products/microsoft/Solutions";
+import Support from "@/components/products/Support";
+import Why from "@/components/products/Why";
 
 const page = () => {
   const headerContent = {
