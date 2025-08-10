@@ -1,153 +1,161 @@
 import React, { useState } from "react";
+import {
+  FaShieldAlt,
+  FaCogs,
+  FaSearch,
+  FaDatabase,
+  FaClipboardCheck,
+  FaBell,
+  FaUserGraduate,
+  FaRegFileAlt,
+} from "react-icons/fa";
+
 
 const Service = () => {
-  const [selectedOption, setSelectedOption] = useState(1);
-  const [isOpen, setIsOpen] = useState(false);
+  const [openId, setOpenId] = useState(null);
+
+  const toggleAccordion = (id) => {
+    setOpenId(openId === id ? null : id);
+  };
 
   const options = [
     {
       id: 1,
-      label: "Security Policy Management for IT and OT assets as a Service",
-      heading: "Security Policy Management for IT and OT assets",
+      icon: <FaShieldAlt className="text-[#0C67D8] text-3xl" />,
+      title: "Security Policy Management",
+      short: "Robust IT & OT security frameworks tailored to your needs.",
       content:
-        "Security Policy Management as a service (SPMaaS) is designed to help organizations establish robust security frameworks tailored to their IT and OT environments. We assist in crafting comprehensive policies, manuals, and standard operating procedures that align with regulatory standards and industry best practices. Regular reviews and updates ensure your policies evolve to address emerging threats and vulnerabilities. By enhancing governance, risk management, and operational effectiveness, we empower your organization to maintain compliance, protect critical assets, and foster a culture of proactive cybersecurity. ",
+        "Security Policy Management as a Service (SPMaaS) helps organizations establish robust frameworks, policies, and SOPs that meet regulatory standards while evolving with emerging threats.Security Policy Management as a service (SPMaaS) is designed to help organizations establish robust security frameworks tailored to their IT and OT environments. We assist in crafting comprehensive policies, manuals, and standard operating procedures that align with regulatory standards and industry best practices. Regular reviews and updates ensure your policies evolve to address emerging threats and vulnerabilities. By enhancing governance, risk management, and operational effectiveness, we empower your organization to maintain compliance, protect critical assets, and foster a culture of proactive cybersecurity.",
       link: "/services/security-policy-management",
     },
     {
       id: 2,
-      label: "Security controls implementation and improvement as a Service",
-      heading: "Security Controls Implementation and Improvement",
+      icon: <FaCogs className="text-[#0C67D8] text-3xl" />,
+      title: "Security Controls Implementation",
+      short: "Access, network, and encryption controls for compliance.",
       content:
-        "SPS's Security Controls Implementation and Improvement as a Service ensures robust protection for IT and OT assets in line with NEPRA cybersecurity policies. We establish and enhance access management, network security, encryption, intrusion detection, and traceability controls. Additionally, we provide secure remote and physical access protocols, regular data backups, and proactive identity theft prevention. Through continuous monitoring and employee training, we help safeguard critical infrastructure while ensuring compliance and operational resilience.",
+        "SPS’s Security Controls Implementation and Improvement as a Service ensures robust protection for IT and OT assets in line with NEPRA cybersecurity policies. We establish and enhance access management, network security, encryption, intrusion detection, and traceability controls. Additionally, we provide secure remote and physical access protocols, regular data backups, and proactive identity theft prevention. Through continuous monitoring and employee training, we help safeguard critical infrastructure while ensuring compliance and operational resilience.",
       link: "/services/security-controls",
     },
     {
       id: 3,
-      label: "Security Risk Vulnerability Assessment as a Service",
-      heading: "Security Risk Vulnerability Assessment",
+      icon: <FaSearch className="text-[#0C67D8] text-3xl" />,
+      title: "Risk & Vulnerability Assessment",
+      short: "Identify and mitigate potential security threats.",
       content:
-        "SPS's Data Management as a Service ensures the accuracy, security, and authenticity of your critical data in compliance with NEPRA regulations. We implement strict access controls, validate data integrity, and safeguard sensitive information, enabling authorized access and ensuring seamless, secure data exchange within the power sector.",
+        "SPS’s Data Management as a Service ensures the accuracy, security, and authenticity of your critical data in compliance with NEPRA regulations. We implement strict access controls, validate data integrity, and safeguard sensitive information, enabling authorized access and ensuring seamless, secure data exchange within the power sector.",
       link: "/services/vulnerability-assessment",
     },
     {
       id: 4,
-      label: "Data Management as a Service",
-      heading: "Data Management",
+      icon: <FaDatabase className="text-[#0C67D8] text-3xl" />,
+      title: "Data Management",
+      short: "Secure, manage, and leverage your data effectively.",
       content:
         "Managing your data effectively is crucial for security, compliance, and operational efficiency. we offer Data Management as a Service to help you secure, manage, and leverage your data in line with regulatory requirements and industry best practices.",
       link: "/services/data-management",
     },
     {
       id: 5,
-      label: "Audit and Risk Assessment as a Service",
-      heading: "Audit and Risk Assessment",
+      icon: <FaClipboardCheck className="text-[#0C67D8] text-3xl" />,
+      title: "Audit & Risk Assessment",
+      short: "Ensure compliance through specialized audits.",
       content:
-        "SPS's Audit and Risk Assessment as a Service ensures compliance with NEPRA regulations by conducting specialized audits and risk evaluations. We assess vulnerabilities, review interconnections between power sector stakeholders, and provide insights to manage risks and ensure regulatory alignment. ",
+        "SPS’s Audit and Risk Assessment as a Service ensures compliance with NEPRA regulations by conducting specialized audits and risk evaluations. We assess vulnerabilities, review interconnections between power sector stakeholders, and provide insights to manage risks and ensure regulatory alignment.",
       link: "/services/audit-risk-assessment",
     },
     {
       id: 6,
-      label: "Monitoring and incident response as a Service",
-      heading: "Monitoring and Incident Response",
+      icon: <FaBell className="text-[#0C67D8] text-3xl" />,
+      title: "Monitoring & Incident Response",
+      short: "Proactive monitoring and rapid threat response.",
       content:
-        "SPS's Monitoring and Incident Response as a Service ensures continuous monitoring of IT and OT systems, rapid response to security incidents, and compliance with NEPRA regulations. We implement proactive security controls, incident management plans, and log management to detect and address vulnerabilities promptly, safeguarding your critical infrastructure. ",
+        "SPS’s Monitoring and Incident Response as a Service ensures continuous monitoring of IT and OT systems, rapid response to security incidents, and compliance with NEPRA regulations. We implement proactive security controls, incident management plans, and log management to detect and address vulnerabilities promptly, safeguarding your critical infrastructure.",
       link: "/services/monitoring-incident-response",
     },
     {
       id: 7,
-      label: "Awareness and Training as a Service",
-      heading: "Awareness and Training",
+      icon: <FaUserGraduate className="text-[#0C67D8] text-3xl" />,
+      title: "Awareness & Training",
+      short: "Equip teams with essential cybersecurity skills.",
       content:
-        "SPS's Awareness and Training as a Service equips your organization with essential cybersecurity knowledge, focusing on risk mitigation, compliance, and secure IT and OT asset management. We offer comprehensive training on roles, responsibilities, legal requirements, user authentication, and dispute resolution, ensuring your team is prepared to handle evolving security threats and stay compliant with regulatory standards. ",
+        "SPS’s Awareness and Training as a Service equips your organization with essential cybersecurity knowledge, focusing on risk mitigation, compliance, and secure IT and OT asset management. We offer comprehensive training on roles, responsibilities, legal requirements, user authentication, and dispute resolution, ensuring your team is prepared to handle evolving security threats and stay compliant with regulatory standards.",
       link: "/services/awareness-training",
     },
     {
       id: 8,
-      label: "Regulatory Reporting as a Service",
-      heading: "Regulatory Reporting and Communications",
+      icon: <FaRegFileAlt className="text-[#0C67D8] text-3xl" />,
+      title: "Regulatory Reporting",
+      short: "Timely compliance reporting and communications.",
       content:
-        "Regulatory Reporting as a Service ensures your organization meets all compliance requirements by providing a structured approach to reporting cybersecurity incidents and security breaches to the relevant authorities. Our service includes timely submission of detailed breach reports, including impact assessments on business operations, IT and OT assets, and users. We help establish a standardized mechanism for incident reporting, ranking, and using the appropriate tools, in consultation with PowerCert, ensuring all breaches are reported to the Authority within 72 hours and on a quarterly basis thereafter. ",
+        "Regulatory Reporting as a Service ensures your organization meets all compliance requirements by providing a structured approach to reporting cybersecurity incidents and security breaches to the relevant authorities. Our service includes timely submission of detailed breach reports, including impact assessments on business operations, IT and OT assets, and users. We help establish a standardized mechanism for incident reporting, ranking, and using the appropriate tools, in consultation with PowerCert, ensuring all breaches are reported to the Authority within 72 hours and on a quarterly basis thereafter.",
       link: "/services/regulatory-reporting",
     },
   ];
 
-  const selectedContent = options.find(
-    (option) => option.id === selectedOption
-  );
-
   return (
-    <div className="w-full py-8 md:py-16 bg-gray-50">
-      <div className="max-w-6xl mx-auto px-4">
-        {/* Rounded Dropdown */}
-        <div className="w-full md:w-[80%] mx-auto mb-8 md:mb-12">
-          <div className="relative">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="w-full bg-white rounded-full shadow-blue-500/50 shadow-lg border border-gray-200 py-3 md:py-4 px-4 md:px-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-200"
-            >
-              <p className="text-blue-600 font-medium text-sm md:text-base truncate">
-                {selectedContent.label}
-              </p>
-              <svg
-                className={`w-4 h-4 md:w-5 md:h-5 text-blue-600 transition-transform duration-200 flex-shrink-0 ${
-                  isOpen ? "rotate-180" : ""
-                }`}
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
-            </button>
-
-            {/* Dropdown Menu */}
-            {isOpen && (
-              <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-2xl shadow-blue-500/50 shadow-lg border border-gray-200 overflow-hidden z-10 max-h-60 overflow-y-auto">
-                {options.map((option) => (
-                  <button
-                    key={option.id}
-                    onClick={() => {
-                      setSelectedOption(option.id);
-                      setIsOpen(false);
-                    }}
-                    className={`w-full py-2 md:py-3 px-4 md:px-6 text-left hover:bg-gray-50 transition-colors duration-200 ${
-                      selectedOption === option.id
-                        ? "bg-blue-50 text-blue-500 font-semibold"
-                        : "text-blue-500"
-                    }`}
-                  >
-                    <p className="text-xs md:text-sm">{option.label}</p>
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
+    <section className="w-full py-16 to-white">
+      <div className="max-w-4xl mx-auto px-4">
+        {/* Heading */}
+        <div className="text-center mb-10">
+          <h2 className="text-3xl md:text-4xl font-bold text-black">Our Services</h2>
+          <p className="mt-3 text-gray-600 max-w-2xl mx-auto">
+            We offer a comprehensive suite of cybersecurity and compliance services designed to protect your IT and OT environments.
+          </p>
         </div>
 
-        {/* Content Section */}
-        <div className="w-full max-w-4xl mx-auto">
-          <div className="bg-white rounded-2xl shadow-blue-500/50 shadow-lg p-6 md:p-8 border border-gray-200">
-            <h2 className="text-xl md:text-2xl font-semibold text-gray-800 mb-4 md:mb-6">
-              {selectedContent.heading}
-            </h2>
-            <p className="text-base md:text-lg text-gray-600 leading-relaxed">
-              {selectedContent.content}{" "}
-              <a
-                href={selectedContent.link}
-                className="text-[#0000FF] cursor-pointer hover:underline"
+        {/* Accordion */}
+        <div className="space-y-4">
+          {options.map((service) => (
+            <div
+              key={service.id}
+              className="bg-[#e8ecf1]  rounded-2xl shadow-sm overflow-hidden transition-all"
+            >
+              {/* Header */}
+              <button
+                onClick={() => toggleAccordion(service.id)}
+                className="flex items-center justify-between w-full p-5 text-left"
               >
-                Learn More {">"}
-              </a>
-            </p>
-          </div>
+                <div className="flex items-center gap-4">
+                  {service.icon}
+                  <div>
+                    <h3 className="text-lg font-semibold text-[#0C67D8]">{service.title}</h3>
+                    <p className="text-gray-600 text-sm">{service.short}</p>
+                  </div>
+                </div>
+                <svg
+                    className={`w-5 h-5 text-[#0C67D8] transform transition-transform duration-300 ${
+                      openId === service.id ? "rotate-180" : ""
+                    }`}
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+              </button>
+
+              {/* Content */}
+              <div
+                className={`transition-all duration-500 ease-in-out ${
+                  openId === service.id ? "max-h-[300px] opacity-100 p-5 pt-0" : "max-h-0 opacity-0 p-0"
+                } overflow-hidden`}
+              >
+                <p className="text-gray-600 mb-4">{service.content}</p>
+                <a
+                  href={service.link}
+                  className="inline-block px-5 py-2 bg-[#0C67D8] text-white rounded-full hover:bg-blue-700 transition"
+                >
+                  Learn More &gt;
+                </a>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
