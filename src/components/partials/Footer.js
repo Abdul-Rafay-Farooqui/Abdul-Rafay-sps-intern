@@ -15,7 +15,7 @@ const Footer = () => {
         <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 py-12 md:py-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 ">
             {/* Left Side - Logo and Company Description */}
-            <div className="space-y-4 md:space-y-6">
+            <div className="space-y-4 md:space-y-6 flex flex-col items-center lg:items-start justify-center lg:justify-start">
               {/* Logo */}
               <div className="items-center">
                 <img
@@ -26,7 +26,7 @@ const Footer = () => {
               </div>
 
               {/* Company Description */}
-              <div>
+              <div className="text-center lg:text-left flex justify-center lg:justify-start">
                 <p className="text-gray-300 w-[70%] leading-relaxed text-sm md:text-[16px]">
                   Empowering the Power Sector to Comply with NEPRA Cyber Security Regulations.
                 </p>
@@ -34,10 +34,10 @@ const Footer = () => {
             </div>
 
             {/* Right Side - Pages & Contact at the end */}
-            <div className="flex flex-col mt-4 mr-10 justify-self-end h-full">
+            <div className="flex flex-col mt-4 lg:mr-10 justify-self-center lg:justify-self-end h-full">
               <div className="flex flex-col md:flex-row md:gap-40">
                 {/* Pages */}
-                <div>
+                <div className="text-center lg:text-left lg:mb-0 mb-8">
                   <h3 className="text-white text-xl md:text-2xl pb-5">Qiuck Links</h3>
                   <div className="flex flex-col gap-2 md:gap-3">
                     <a
@@ -79,7 +79,7 @@ const Footer = () => {
                   </div>
                 </div>
                 {/* Contact Info */}
-                <div className="">
+                <div className="text-center lg:text-left">
                   <h3 className="text-white text-xl md:text-2xl  pb-5">
                     Contact
                   </h3>
@@ -95,7 +95,7 @@ const Footer = () => {
           </div>
 
           {/* Social Icons at the very end */}
-          <div className="flex gap-12 mt-8 justify-self-end">
+          <div className="flex gap-12 mt-8 justify-self-center lg:justify-self-end">
             <a
               href="https://twitter.com/"
               target="_blank"
