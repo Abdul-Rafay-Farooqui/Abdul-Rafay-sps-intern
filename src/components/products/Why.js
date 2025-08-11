@@ -1,37 +1,58 @@
+"use client";
 import React from "react";
 
 const Why = ({ maintitle, maintext, contentarray = [], image, imagealt }) => {
   return (
-    <section className="flex flex-col lg:flex-row justify-between items-center px-6 py-12 bg-[#fffff] rounded-xl border border-gray-200 m-4 shadow-xl shadow-blue-500/30">
-      <div className="w-full lg:w-[66%] flex flex-col justify-center">
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 text-left lg:text-left">
-          {maintitle}
-        </h2>
-        {maintext && (
-          <p className="text-base text-gray-900 mb-6 text-left lg:text-left">
-            {maintext}
-          </p>
-        )}
-        <div className="text-gray-900 text-base space-y-6 text-left lg:text-left">
-          {contentarray.map((item, idx) => (
-            <div key={idx}>
-              {item.title && <h3 className="text-xl mb-2">{item.title}</h3>}
-              {item.heading && (
-                <h4 className=" text-lg mb-1">{item.heading}</h4>
-              )}
-              {item.text && <p>{item.text}</p>}
-            </div>
-          ))}
+    <section className="relative py-16 px-4 md:px-12 bg-gradient-to-tr from-blue-100 via-wheat to-white">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
+        {/* Left: Content */}
+        <div className="w-full lg:w-2/3 flex flex-col justify-center">
+          <div className="flex items-center mb-8">
+            <span className="inline-block w-2 h-12 bg-blue-600 rounded-full mr-4 animate-pulse"></span>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight drop-shadow-lg">
+              {maintitle}
+            </h2>
+          </div>
+          {maintext && (
+            <p className="text-lg text-gray-800 mb-10 font-medium">
+              {maintext}
+            </p>
+          )}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {contentarray.map((item, idx) => (
+              <div
+                key={idx}
+                className="bg-white rounded-2xl shadow-lg border border-blue-100 p-6 flex flex-col  transition-all duration-200 hover:shadow-2xl hover:border-blue-400"
+              >
+                {item.title && (
+                  <h3 className="text-2xl  text-black mb-2">
+                    {item.title}
+                  </h3>
+                )}
+                {item.heading && (
+                  <h4 className="text-lg font-semibold text-gray-800 mb-1">
+                    {item.heading}
+                  </h4>
+                )}
+                {item.text && (
+                  <p className="text-base text-gray-700">{item.text}</p>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
-      <div className="w-[50%] lg:w-[32%] flex justify-end items-start mt-8 lg:mt-0 h-full">
-        {image && (
-          <img
-            src={image}
-            alt={imagealt || "Assessment"}
-            className="w-full h-full object-cover"
-          />
-        )}
+        {/* Right: Image */}
+        <div className="w-[50%] lg:w-1/3 flex justify-center items-center">
+          {image && (
+            <div className="relative w-full bg-white">
+              <img
+                src={image}
+                alt={imagealt || "Assessment"}
+                className="w-full h-full object-cover scale-105 hover:scale-110 transition-transform duration-300"
+              />
+            </div>
+          )}
+        </div>
       </div>
     </section>
   );

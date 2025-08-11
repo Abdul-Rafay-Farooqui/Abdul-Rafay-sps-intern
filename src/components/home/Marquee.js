@@ -1,14 +1,16 @@
+"use client";
 import React, { useState, useEffect, useRef } from "react";
 
 const Marquee = () => {
   const levels = ["L1", "L2", "L3", "L4", "L5"];
-  const [itemWidth, setItemWidth] = useState(230);
+  const [itemWidth, setItemWidth] = useState(230); // Default for SSR
   const [offset, setOffset] = useState(0);
+  const [mounted, setMounted] = useState(false);
   const marqueeRef = useRef(null);
   const totalItems = levels.length * 10; // repeat logos to keep marquee long
 
-  // Responsive item width
   useEffect(() => {
+    setMounted(true);
     const updateItemWidth = () => {
       if (window.innerWidth < 640) {
         setItemWidth(180); // Mobile
@@ -45,6 +47,8 @@ const Marquee = () => {
     { length: totalItems },
     (_, i) => levels[i % levels.length]
   );
+
+  if (!mounted) return null; // Prevent hydration mismatch
 
   return (
     <div className="w-full bg-gray-100 py-3 md:py-6 overflow-hidden">
