@@ -19,14 +19,14 @@ const Navbar = () => {
   ];
 
   const serviceOptions = [
-    { name: "Security Policy Management for IT and OT assets", href: "/services/consulting" },
-    { name: "Security controls implementation and improvement", href: "/services/audits" },
-    { name: "Security risk and vulnerability assessment", href: "/services/network" },
-    { name: "Data Management", href: "/services/cloud" },
-    { name: "Audit and Risk Assessment", href: "/services/support" },
-    { name: "Monitoring and Incident Response", href: "/services/support" },
-    { name: "Awareness and Training", href: "/services/support" },
-    { name: "Regulatory Reporting", href: "/services/support" },
+    { name: "Security Policy Management for IT and OT assets", href: "/services/security-policy" },
+    { name: "Security controls implementation and improvement", href: "/services/security-control" },
+    { name: "Security risk and vulnerability assessment", href: "/services/security-risk" },
+    { name: "Data Management", href: "/services/data-management" },
+    { name: "Audit and Risk Assessment", href: "/services/audit-and-risk" },
+    { name: "Monitoring and Incident Response", href: "/services/monitoring" },
+    { name: "Awareness and Training", href: "/services/awareness-and-training" },
+    { name: "Regulatory Reporting", href: "/services/regulatory-reporting" },
   ];
 
   const pricingOptions = [

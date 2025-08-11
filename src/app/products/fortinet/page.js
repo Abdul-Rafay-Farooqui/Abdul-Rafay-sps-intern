@@ -109,7 +109,7 @@ const page = () => {
         ],
       },
     ],
-    image: "/images/fortinet2.jpg",
+    image: "/images/fortinet2.png",
     imagealt: "fortinet",
   };
   return (
