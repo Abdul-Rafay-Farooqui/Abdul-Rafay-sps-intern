@@ -44,11 +44,11 @@ const Why = ({ maintitle, maintext, contentarray = [], image, imagealt }) => {
         {/* Right: Image */}
         <div className="w-[50%] lg:w-1/3 flex justify-center items-center">
           {image && (
-            <div className="relative w-full bg-white">
+            <div className="relative w-full ">
               <img
                 src={image}
                 alt={imagealt || "Assessment"}
-                className="w-full h-full object-cover scale-105 hover:scale-110 transition-transform duration-300"
+                className="w-full h-full object-cover  hover:scale-110 transition-transform duration-300"
               />
             </div>
           )}

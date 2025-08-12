@@ -39,7 +39,7 @@ const page = () => {
         text: "Monitor all assets—from IT endpoints to OT systems—in a single pane of glass.",
       },
     ],
-    image: "/images/tenable1.png",
+    image: "/images/tenable.png",
     imagealt: "Tenable",
   };
   const supportcontent = {

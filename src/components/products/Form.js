@@ -182,7 +182,7 @@ const Form = () => {
             </div>
           <button
             type="submit"
-            className="w-3/4 bg-gradient-to-r from-blue-700 via-blue-500 to-blue-400 hover:from-blue-900 hover:to-blue-600 text-white py-3 rounded-xl shadow-lg font-semibold text-lg tracking-wide transition-all duration-200 hover:scale-105 border-2 border-blue-300 mt-8"
+            className="w-3/4 bg-gradient-to-r from-blue-800 via-blue-500 to-blue-900 hover:from-blue-900 hover:to-blue-600 text-white py-3 rounded-xl shadow-lg font-semibold text-lg tracking-wide transition-all duration-200 hover:scale-105 border-2 border-blue-300 mt-8"
           >
             Submit
           </button>

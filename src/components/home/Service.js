@@ -22,7 +22,7 @@ const Service = () => {
   const options = [
     {
       id: 1,
-      icon: <FaShieldAlt className="text-[#0C67D8] text-3xl" />,
+      icon: <FaShieldAlt className="text-blue-800 text-3xl" />,
       title: "Security Policy Management",
       short: "Robust IT & OT security frameworks tailored to your needs.",
       content:
@@ -31,7 +31,7 @@ const Service = () => {
     },
     {
       id: 2,
-      icon: <FaCogs className="text-[#0C67D8] text-3xl" />,
+      icon: <FaCogs className="text-blue-800 text-3xl" />,
       title: "Security Controls Implementation",
       short: "Access, network, and encryption controls for compliance.",
       content:
@@ -40,7 +40,7 @@ const Service = () => {
     },
     {
       id: 3,
-      icon: <FaSearch className="text-[#0C67D8] text-3xl" />,
+      icon: <FaSearch className="text-blue-800 text-3xl" />,
       title: "Risk & Vulnerability Assessment",
       short: "Identify and mitigate potential security threats.",
       content:
@@ -49,7 +49,7 @@ const Service = () => {
     },
     {
       id: 4,
-      icon: <FaDatabase className="text-[#0C67D8] text-3xl" />,
+      icon: <FaDatabase className="text-blue-800 text-3xl" />,
       title: "Data Management",
       short: "Secure, manage, and leverage your data effectively.",
       content:
@@ -58,7 +58,7 @@ const Service = () => {
     },
     {
       id: 5,
-      icon: <FaClipboardCheck className="text-[#0C67D8] text-3xl" />,
+      icon: <FaClipboardCheck className="text-blue-800 text-3xl" />,
       title: "Audit & Risk Assessment",
       short: "Ensure compliance through specialized audits.",
       content:
@@ -67,7 +67,7 @@ const Service = () => {
     },
     {
       id: 6,
-      icon: <FaBell className="text-[#0C67D8] text-3xl" />,
+      icon: <FaBell className="text-blue-800 text-3xl" />,
       title: "Monitoring & Incident Response",
       short: "Proactive monitoring and rapid threat response.",
       content:
@@ -76,7 +76,7 @@ const Service = () => {
     },
     {
       id: 7,
-      icon: <FaUserGraduate className="text-[#0C67D8] text-3xl" />,
+      icon: <FaUserGraduate className="text-blue-800 text-3xl" />,
       title: "Awareness & Training",
       short: "Equip teams with essential cybersecurity skills.",
       content:
@@ -85,7 +85,7 @@ const Service = () => {
     },
     {
       id: 8,
-      icon: <FaRegFileAlt className="text-[#0C67D8] text-3xl" />,
+      icon: <FaRegFileAlt className="text-blue-800 text-3xl" />,
       title: "Regulatory Reporting",
       short: "Timely compliance reporting and communications.",
       content:
@@ -120,7 +120,7 @@ const Service = () => {
                 <div className="flex items-center gap-4">
                   {service.icon}
                   <div>
-                    <h3 className="text-lg font-semibold text-[#0C67D8]">{service.title}</h3>
+                    <h3 className="text-lg font-semibold text-blue-800">{service.title}</h3>
                     <p className="text-gray-600 text-sm">{service.short}</p>
                   </div>
                 </div>

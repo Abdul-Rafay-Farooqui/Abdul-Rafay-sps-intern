@@ -141,7 +141,7 @@ export default function PolicyFormSection() {
           <div className="text-center">
             <button
               type="submit"
-              className="bg-gradient-to-r from-blue-700 via-blue-500 to-blue-400 hover:from-blue-900 hover:to-blue-600 text-white px-8 py-3 rounded-xl shadow-lg  text-lg tracking-wide transition-all duration-200 hover:scale-105 border-2 border-blue-300"
+              className="bg-gradient-to-r from-blue-800 via-blue-500 to-blue-900 hover:from-blue-900 hover:to-blue-600 text-white px-8 py-3 rounded-xl shadow-lg  text-lg tracking-wide transition-all duration-200 hover:scale-105 border-2 border-blue-300"
             >
               Submit 
             </button>

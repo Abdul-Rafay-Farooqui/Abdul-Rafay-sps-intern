@@ -46,7 +46,7 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="w-full flex bg-[#002147] sticky top-0 z-50 justify-between items-center px-4 py-3 rubik">
+  <div className="w-full flex sticky top-0 z-50 justify-between items-center px-4 py-3 rubik bg-gradient-to-r from-[#002147] via-blue-800  to-blue-900">
       {/* Logo */}
       <div className="flex-shrink-0">
         <img
@@ -307,12 +307,12 @@ const Navbar = () => {
                   </span>
                 </button>
                 {isProductsDropdownOpen && (
-                  <div className="mt-2 bg-white rounded-md py-2">
+                  <div className="mt-2 bg-blue-900 rounded-md py-2">
                     {productOptions.map((product, index) => (
                       <a
                         key={index}
                         href={product.href}
-                        className="block px-4 py-2 text-black hover:text-blue-300 transition-colors"
+                        className="block px-4 py-2 text-white hover:text-blue-300 transition-colors"
                       >
                         {product.name}
                       </a>
@@ -337,12 +337,12 @@ const Navbar = () => {
                   </span>
                 </button>
                 {isServicesDropdownOpen && (
-                  <div className="mt-2 bg-white rounded-md py-2">
+                  <div className="mt-2 bg-blue-900 rounded-md py-2">
                     {serviceOptions.map((service, index) => (
                       <a
                         key={index}
                         href={service.href}
-                        className="block px-4 py-2 text-black hover:text-blue-300 transition-colors"
+                        className="block px-4 py-2 text-white hover:text-blue-300 transition-colors"
                       >
                         {service.name}
                       </a>
@@ -367,12 +367,12 @@ const Navbar = () => {
                   </span>
                 </button>
                 {isPricingDropdownOpen && (
-                  <div className="mt-2 bg-white rounded-md py-2">
+                  <div className="mt-2 bg-blue-900 rounded-md py-2">
                     {pricingOptions.map((pricing, index) => (
                       <a
                         key={index}
                         href={pricing.href}
-                        className="block px-4 py-2 text-black hover:text-blue-300 transition-colors"
+                        className="block px-4 py-2 text-white hover:text-blue-300 transition-colors"
                       >
                         {pricing.name}
                       </a>
@@ -397,12 +397,12 @@ const Navbar = () => {
                   </span>
                 </button>
                 {isActivitiesDropdownOpen && (
-                  <div className="mt-2 bg-white rounded-md py-2">
+                  <div className="mt-2 bg-blue-900 rounded-md py-2">
                     {activitiesOptions.map((activity, index) => (
                       <a
                         key={index}
                         href={activity.href}
-                        className="block px-4 py-2 text-black hover:text-blue-300 transition-colors"
+                        className="block px-4 py-2 text-white hover:text-blue-300 transition-colors"
                       >
                         {activity.name}
                       </a>
@@ -427,12 +427,12 @@ const Navbar = () => {
                   </span>
                 </button>
                 {isAboutUsDropdownOpen && (
-                  <div className="mt-2 bg-white rounded-md py-2">
+                  <div className="mt-2 bg-blue-900 rounded-md py-2">
                     {aboutUsOptions.map((about, index) => (
                       <a
                         key={index}
                         href={about.href}
-                        className="block px-4 py-2 text-black hover:text-blue-300 transition-colors"
+                        className="block px-4 py-2 text-white hover:text-blue-300 transition-colors"
                       >
                         {about.name}
                       </a>
