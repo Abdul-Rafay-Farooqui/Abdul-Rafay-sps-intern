@@ -11,18 +11,18 @@ export default function ChooseSection({ image }) {
       <div className="relative max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center z-10">
         {/* Text content */}
         <div>
-          <h2 className="text-3xl font-bold text-gray-900 mb-6">Why Choose Us?</h2>
+          <h1 className="text-3xl font-bold text-gray-900 mb-6">Why Choose Us?</h1>
           <ul className="list-disc list-inside space-y-4 text-lg text-gray-700 leading-relaxed">
             <li>
-              By leveraging our expertise, your organization will be equipped to
+              <p>By leveraging our expertise, your organization will be equipped to
               not only comply with NEPRA cybersecurity regulations but also
               proactively safeguard its IT and OT environments. Our service
               empowers you to focus on operational excellence while we manage
-              your cybersecurity policies effectively.
+              your cybersecurity policies effectively.</p>
             </li>
             <li>
-              Secure your assets and build resilience today with our Security
-              Policy Management for IT & OT Assets as a Service!
+              <p>Secure your assets and build resilience today with our Security
+              Policy Management for IT & OT Assets as a Service!</p>
             </li>
           </ul>
         </div>

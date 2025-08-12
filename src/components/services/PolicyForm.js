@@ -37,9 +37,9 @@ export default function PolicyFormSection() {
       <div className="absolute bottom-0 right-0 w-32 h-32 bg-blue-400/20 rounded-full blur-3xl z-0"></div>
 
       <div className="relative max-w-4xl mx-auto z-10">
-        <h2 className="text-4xl font-extrabold text-gray-900 mb-4 text-center">
+        <h1 className="text-4xl font-extrabold text-gray-900 mb-4 text-center">
           Check your Security Policy for NEPRA Compliance
-        </h2>
+        </h1>
         <p className="text-center text-gray-600 max-w-2xl mx-auto mb-10">
           Upload your policy for a quick compliance check. We’ll guide you on how to meet NEPRA cybersecurity regulations while protecting your critical IT & OT assets.
         </p>

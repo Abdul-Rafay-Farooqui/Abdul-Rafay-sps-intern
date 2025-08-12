@@ -56,24 +56,18 @@ const Footer = () => {
                   <p className="text-gray-300 text-xs md:text-sm pb-5">Phone: +301-337-2290</p>
 
                   {/* Social Icons under contact */}
-                  <div className="flex gap-6 justify-center lg:justify-start">
+                  <div className="flex gap-6 justify-center lg:justify-start  ">
                     <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                      <svg
-                        className="w-7 h-7 text-gray-300 hover:text-blue-400 transition-colors duration-200"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M22.46 6c-.77.35-1.6.59-2.47.7a4.3 4.3 0 0 0 1.88-2.37 8.59 8.59 0 0 1-2.72 1.04 4.28 4.28 0 0 0-7.29 3.9A12.13 12.13 0 0 1 3.1 4.9a4.28 4.28 0 0 0 1.32 5.71c-.7-.02-1.36-.21-1.93-.53v.05a4.28 4.28 0 0 0 3.43 4.19c-.33.09-.68.14-1.04.14-.25 0-.5-.02-.74-.07a4.29 4.29 0 0 0 4 2.97A8.6 8.6 0 0 1 2 19.54a12.13 12.13 0 0 0 6.56 1.92c7.88 0 12.2-6.53 12.2-12.2 0-.19 0-.38-.01-.57A8.72 8.72 0 0 0 24 4.59a8.43 8.43 0 0 1-2.54.7z" />
-                      </svg>
+                      <img
+                        className="w-8 h-8 transform hover:scale-120 transition duration-300 "
+                        src="/images/twitter.png"
+                      />
                     </a>
                     <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                      <svg
-                        className="w-7 h-7 text-gray-300 hover:text-blue-600 transition-colors duration-200"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M22.675 0h-21.35C.595 0 0 .592 0 1.326v21.348C0 23.408.595 24 1.326 24H12.82v-9.294H9.692V11.01h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.797.143v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.696h-3.12V24h6.116c.73 0 1.325-.592 1.325-1.326V1.326C24 .592 23.405 0 22.675 0" />
-                      </svg>
+                      <img
+                        className="w-8 h-8  transform hover:scale-120 transition duration-300"
+                        src="/images/facebook.png"
+                      />
                     </a>
                   </div>
                 </div>

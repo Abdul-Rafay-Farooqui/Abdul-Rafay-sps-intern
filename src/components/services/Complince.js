@@ -9,9 +9,9 @@ const Compliance = ({ title, intro, points }) => {
       <div className="absolute bottom-0 right-0 w-24 h-24 bg-blue-400/20 rounded-full blur-2xl z-0"></div>
 
       {/* Title */}
-      <h2 className="relative z-10 text-3xl md:text-4xl font-extrabold text-center text-gray-900 mb-8 tracking-tight drop-shadow-lg">
+      <h1 className="relative z-10 text-3xl md:text-4xl font-extrabold text-center text-gray-900 mb-8 tracking-tight drop-shadow-lg">
         {title}
-      </h2>
+      </h1>
 
       {/* Intro */}
       <p className="relative z-10 max-w-4xl mx-auto text-gray-800 text-lg mb-10 text-center leading-relaxed">

@@ -15,9 +15,9 @@ const Support = ({
           <div className="relative bg-white/80 backdrop-blur-lg rounded-3xl shadow-2xl p-10 mb-8 border border-blue-200">
             <div className="flex items-center mb-8">
               <span className="inline-block w-2 h-12 bg-blue-600 rounded-full mr-4 animate-pulse"></span>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight drop-shadow-lg">
+              <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight drop-shadow-lg">
                 {maintitle}
-              </h2>
+              </h1>
             </div>
             {maintext && (
               <p className="text-lg text-gray-800 mb-10 font-medium">
