@@ -84,10 +84,10 @@ const Footer = () => {
                     Contact
                   </h3>
                   <p className="text-gray-300 text-xs md:text-sm pb-3">
-                    Email: info@sps.com
+                    Email: support@spsnet.com
                   </p>
                   <p className="text-gray-300 text-xs md:text-sm">
-                    Phone: +1 (555) 123-4567
+                    Phone: +301-337-2290
                   </p>
                 </div>
               </div>
