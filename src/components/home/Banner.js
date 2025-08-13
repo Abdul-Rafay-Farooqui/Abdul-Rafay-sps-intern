@@ -32,7 +32,7 @@ const Banner = () => {
   ];
   return (
     <section className="w-full  flex bg-[#EAF4FC] ">
-      <div className="h-full w-full bg-cover bg-center bg-no-repeat bg-[url('/images/bg.jpg')] flex flex-col lg:flex-row items-stretch relative">
+      <div className="h-full w-full bg-cover bg-center bg-no-repeat bg-[url('https://res.cloudinary.com/dwiplkg4o/image/upload/v1755079927/bg_t0w6vt.jpg')] flex flex-col lg:flex-row items-stretch relative">
         {/* Gradient overlay as a flex child */}
         <div className="w-full h-full bg-gradient-to-b from-black/40 to-black/40 absolute top-0 left-0 z-0 pointer-events-none"></div>
         {/* Content container */}
