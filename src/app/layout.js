@@ -44,6 +44,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+           <link rel="preload" href="https://res.cloudinary.com/dwiplkg4o/image/upload/v1755079927/bg_t0w6vt.jpg" as="image" />
+     </head>
       <body
         className={`${rubik.variable} antialiased`}
       >

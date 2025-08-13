@@ -22,7 +22,12 @@ const ClientWrapper = ({ children }) => {
     }
   }, []);
 
-  return <div>{showSplash ? <SplashScreen /> : children}</div>;
+  return(
+    <>
+    {children}
+    {showSplash && <SplashScreen />}
+  </>
+  );
 };
 
 export default ClientWrapper;
