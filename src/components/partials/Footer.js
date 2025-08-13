@@ -61,12 +61,14 @@ const Footer = () => {
                       <img
                         className="w-8 h-8 transform hover:scale-120 transition duration-300 "
                         src="/images/twitter.png"
+                        alt="Twitter Icon"
                       />
                     </a>
                     <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                       <img
                         className="w-8 h-8  transform hover:scale-120 transition duration-300"
                         src="/images/facebook.png"
+                        alt="Facebook Icon"
                       />
                     </a>
                   </div>

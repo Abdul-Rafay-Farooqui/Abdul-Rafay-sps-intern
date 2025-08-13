@@ -47,7 +47,7 @@ export default function RootLayout({ children }) {
         className={`${rubik.variable} antialiased`}
       >
         <Navbar />
-        {children}
+       {children}
         <Footer />
       </body>
     </html>
