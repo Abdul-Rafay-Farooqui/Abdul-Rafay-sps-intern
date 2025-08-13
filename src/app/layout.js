@@ -47,13 +47,11 @@ export default function RootLayout({ children }) {
       <head>
            <link rel="preload" href="https://res.cloudinary.com/dwiplkg4o/image/upload/v1755079927/bg_t0w6vt.jpg" as="image" />
      </head>
-      <body
-        className={`${rubik.variable} antialiased`}
-      >
+      <body className={`${rubik.variable} antialiased`}>
         <ClientWrapper>
-        <Navbar />
-       {children}
-        <Footer />
+          <Navbar />
+          {children}
+          <Footer />
         </ClientWrapper>
       </body>
     </html>
