@@ -248,7 +248,7 @@ const Navbar = () => {
 
       {/* Mobile Menu Button */}
       <div className="xl:hidden">
-        <button
+        <div
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           className="text-white p-2"
         >
@@ -274,7 +274,7 @@ const Navbar = () => {
               />
             )}
           </svg>
-        </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
