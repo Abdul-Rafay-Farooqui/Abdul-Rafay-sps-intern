@@ -80,7 +80,7 @@ const Products = ({products , heading}) => {
       </div>
 
       <div className="flex justify-center mt-12">
-        <button className="bg-white text-blue-500 py-3 px-7 rounded-lg shadow-lg text-lg tracking-wide transition-all duration-200 hover:bg-blue-700 hover:text-white border-2 border-blue-800">
+        <button className="bg-white text-blue-600 py-3 font-bold px-7 rounded-lg shadow-lg text-lg tracking-wide transition-all duration-200 hover:bg-blue-700 hover:text-white border-2 border-blue-800">
           Request the Quote
         </button>
       </div>

@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "../components/partials/Navbar";
 import Footer from "../components/partials/Footer";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import ClientWrapper from "@/components/partials/ClientWrapper";
 
 
 const rubik = Rubik({
@@ -46,9 +47,11 @@ export default function RootLayout({ children }) {
       <body
         className={`${rubik.variable} antialiased`}
       >
+        <ClientWrapper>
         <Navbar />
        {children}
         <Footer />
+        </ClientWrapper>
       </body>
     </html>
   );

@@ -101,7 +101,7 @@ const Banner = () => {
                         </ul>
                       )}
                     </div>
-                    <button className="bg-transparent px-6 py-3 rounded-lg border-[1px] border-white text-white hover:text-black hover:bg-white transition-colors text-sm  mt-4">
+                    <button className="bg-transparent font-medium px-6 py-3 rounded-lg border-[1px] border-white text-white hover:text-black hover:bg-white transition-colors text-sm  mt-4">
                       Get Started
                     </button>
                   </div>
