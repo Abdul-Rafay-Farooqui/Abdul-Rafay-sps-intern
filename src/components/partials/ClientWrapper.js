@@ -4,7 +4,7 @@ import SplashScreen from "./SplashScreen";
 
 const ClientWrapper = ({ children }) => {
   const [showSplash, setShowSplash] = useState(false);
-  const SPLASH_DURATION = 3500; // 5 seconds
+  const SPLASH_DURATION = 3000; // 5 seconds
 
   useEffect(() => {
     // Check if this is the first visit
@@ -22,12 +22,7 @@ const ClientWrapper = ({ children }) => {
     }
   }, []);
 
-  return(
-    <>
-    {children}
-    {showSplash && <SplashScreen />}
-  </>
-  );
+  return <div>{showSplash ? <SplashScreen /> : children}</div>;
 };
 
 export default ClientWrapper;
