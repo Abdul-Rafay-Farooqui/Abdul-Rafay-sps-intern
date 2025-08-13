@@ -31,10 +31,7 @@ export default function PolicyFormSection() {
   };
 
   return (
-    <section className="relative px-6 py-20 bg-gradient-to-b from-blue-50 via-white to-blue-50 my-12 overflow-hidden">
-      {/* Decorative blurred shapes */}
-      <div className="absolute top-0 left-0 w-40 h-40 bg-blue-600/20 rounded-full blur-3xl z-0"></div>
-      <div className="absolute bottom-0 right-0 w-32 h-32 bg-blue-400/20 rounded-full blur-3xl z-0"></div>
+    <section className="relative px-6 py-20  my-12 overflow-hidden">
 
       <div className="relative max-w-4xl mx-auto z-10">
         <h1 className="text-4xl font-extrabold text-gray-900 mb-4 text-center">
@@ -46,7 +43,7 @@ export default function PolicyFormSection() {
 
         <form
           onSubmit={handleSubmit}
-          className="bg-white p-10 rounded-2xl shadow-xl space-y-6 border border-gray-100"
+          className="bg-white p-10 rounded-2xl shadow-all space-y-6 border border-gray-100"
         >
           {/* Row 1: Name & Email */}
           <div className="grid md:grid-cols-2 gap-6">
@@ -60,7 +57,7 @@ export default function PolicyFormSection() {
                 required
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                className="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-blue-900 focus:border-blue-900"
               />
             </div>
 
@@ -74,7 +71,7 @@ export default function PolicyFormSection() {
                 required
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                className="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-blue-900 focus:border-blue-900"
               />
             </div>
           </div>
@@ -91,7 +88,7 @@ export default function PolicyFormSection() {
                 required
                 value={formData.company}
                 onChange={handleChange}
-                className="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                className="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-blue-900 focus:border-blue-900"
               />
             </div>
 
@@ -100,7 +97,7 @@ export default function PolicyFormSection() {
                 Upload Your Policy File
               </label>
               <div className="flex items-center gap-3">
-                <label className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg shadow cursor-pointer transition-colors">
+                <label className="bg-blue-900 hover:bg-blue-700 text-white px-4 py-2 rounded-lg shadow cursor-pointer transition-colors">
                   Choose File
                   <input
                     type="file"

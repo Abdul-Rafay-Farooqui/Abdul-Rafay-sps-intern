@@ -1,10 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #F8FAFC; /* Lighter background for better contrast */
-  --foreground: #1E293B; /* Darker text color */
-  --main-blue: #1E40AF; /* Darker blue that meets contrast */
-  --dark-blue: #1E3A8A; /* Even darker for small text */
+  --background: #ffff; /* Lighter background for better contrast */
+  --foreground: #1E3A8A; /* Darker text color */
 }
 @theme inline {
   --color-background: var(--background);
@@ -15,9 +13,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0F172A; /* Dark background */
-    --foreground: #F8FAFC; /* Light text */
-    --main-blue: #60A5FA; /* Brighter blue for dark mode */
+    --background: #ffff; /* Dark background */
+    --foreground: #1E3A8A; /* Light text */
   }
 }
 
@@ -101,6 +98,9 @@ body {
   }
 }
 
+.shadow-all {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+}
 .animate-marquee {
   animation: marquee 20s linear infinite;
 }

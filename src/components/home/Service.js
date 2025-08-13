@@ -22,7 +22,7 @@ const Service = () => {
   const options = [
     {
       id: 1,
-      icon: <FaShieldAlt className="text-blue-800 text-3xl" />,
+      icon: <FaShieldAlt className="text-blue-900 text-3xl" />,
       title: "Security Policy Management",
       short: "Robust IT & OT security frameworks tailored to your needs.",
       content:
@@ -31,7 +31,7 @@ const Service = () => {
     },
     {
       id: 2,
-      icon: <FaCogs className="text-blue-800 text-3xl" />,
+      icon: <FaCogs className="text-blue-900 text-3xl" />,
       title: "Security Controls Implementation",
       short: "Access, network, and encryption controls for compliance.",
       content:
@@ -40,7 +40,7 @@ const Service = () => {
     },
     {
       id: 3,
-      icon: <FaSearch className="text-blue-800 text-3xl" />,
+      icon: <FaSearch className="text-blue-900 text-3xl" />,
       title: "Risk & Vulnerability Assessment",
       short: "Identify and mitigate potential security threats.",
       content:
@@ -49,7 +49,7 @@ const Service = () => {
     },
     {
       id: 4,
-      icon: <FaDatabase className="text-blue-800 text-3xl" />,
+      icon: <FaDatabase className="text-blue-900 text-3xl" />,
       title: "Data Management",
       short: "Secure, manage, and leverage your data effectively.",
       content:
@@ -58,7 +58,7 @@ const Service = () => {
     },
     {
       id: 5,
-      icon: <FaClipboardCheck className="text-blue-800 text-3xl" />,
+      icon: <FaClipboardCheck className="text-blue-900 text-3xl" />,
       title: "Audit & Risk Assessment",
       short: "Ensure compliance through specialized audits.",
       content:
@@ -67,7 +67,7 @@ const Service = () => {
     },
     {
       id: 6,
-      icon: <FaBell className="text-blue-800 text-3xl" />,
+      icon: <FaBell className="text-blue-900 text-3xl" />,
       title: "Monitoring & Incident Response",
       short: "Proactive monitoring and rapid threat response.",
       content:
@@ -76,7 +76,7 @@ const Service = () => {
     },
     {
       id: 7,
-      icon: <FaUserGraduate className="text-blue-800 text-3xl" />,
+      icon: <FaUserGraduate className="text-blue-900 text-3xl" />,
       title: "Awareness & Training",
       short: "Equip teams with essential cybersecurity skills.",
       content:
@@ -85,7 +85,7 @@ const Service = () => {
     },
     {
       id: 8,
-      icon: <FaRegFileAlt className="text-blue-800 text-3xl" />,
+      icon: <FaRegFileAlt className="text-blue-900 text-3xl" />,
       title: "Regulatory Reporting",
       short: "Timely compliance reporting and communications.",
       content:
@@ -95,7 +95,7 @@ const Service = () => {
   ];
 
   return (
-    <section className="w-full py-16 bg-blue-100">
+    <section className="w-full py-16 bg-white">
       <div className="max-w-4xl mx-auto px-4">
         {/* Heading */}
         <div className="text-center mb-10">
@@ -106,11 +106,11 @@ const Service = () => {
         </div>
 
         {/* Accordion */}
-        <div className="space-y-4">
+        <div className="space-y-8">
           {options.map((service) => (
             <div
               key={service.id}
-              className="bg-[#e8ecf1]  rounded-2xl shadow-sm overflow-hidden transition-all"
+              className="bg-white  rounded-xl shadow-all overflow-hidden transition-all"
             >
               {/* Header */}
               <button
@@ -120,8 +120,8 @@ const Service = () => {
                 <div className="flex items-center gap-4">
                   {service.icon}
                   <div>
-                    <h3 className="text-lg font-semibold text-blue-800">{service.title}</h3>
-                    <p className="text-gray-600 text-sm">{service.short}</p>
+                    <h3 className="text-lg font-semibold text-blue-900">{service.title}</h3>
+                    <p className="text-gray-800 text-sm">{service.short}</p>
                   </div>
                 </div>
                 <svg
@@ -144,10 +144,10 @@ const Service = () => {
                   openId === service.id ? "max-h-[300px] opacity-100 p-5 pt-0" : "max-h-0 opacity-0 p-0"
                 } overflow-hidden`}
               >
-                <p className="text-gray-600 mb-4">{service.content}</p>
+                <p className="text-gray-800 mb-4">{service.content}</p>
                 <a
                   href={service.link}
-                  className="inline-block px-5 py-2 bg-[#0C67D8] text-white rounded-full hover:bg-blue-700 transition"
+                  className="inline-block px-5 py-2 bg-blue-900 text-white rounded-full hover:bg-blue-700 transition"
                 >
                   Learn More &gt;
                 </a>

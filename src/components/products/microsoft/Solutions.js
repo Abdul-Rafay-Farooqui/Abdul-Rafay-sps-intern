@@ -3,12 +3,10 @@ import React from "react";
 
 const Solutions = () => {
   return (
-    <section className="relative px-6 py-16 bg-blue-100 my-6 shadow-2xl shadow-blue-400/20 overflow-hidden">
+    <section className="relative px-6 py-16  my-6 shadow-2xl shadow-blue-400/20 overflow-hidden">
       {/* Decorative blurred shapes */}
-      <div className="absolute top-0 left-0 w-32 h-32 bg-blue-600/20 rounded-full blur-2xl z-0"></div>
-      <div className="absolute bottom-0 right-0 w-24 h-24 bg-blue-400/20 rounded-full blur-2xl z-0"></div>
 
-      <h2 className="relative z-10 text-3xl md:text-4xl font-extrabold text-center text-gray-900 mb-14 tracking-tight drop-shadow-lg">
+      <h2 className="relative z-10 text-3xl md:text-4xl font-extrabold text-center text-gray-900 mb-14 tracking-tight ">
         Microsoft Solutions for IT &amp; OT Asset Security
       </h2>
 
@@ -16,9 +14,9 @@ const Solutions = () => {
         {/* Left column */}
         <div className="w-full lg:w-[32%] flex flex-col gap-8">
           {/* Microsoft Azure */}
-          <div className="bg-white/90 border-l-8 border-blue-600 rounded-2xl p-7 shadow-xl transition-all duration-200 hover:scale-[1.03] hover:shadow-2xl">
+          <div className="bg-white/90 border-l-8 border-blue-900 rounded-2xl p-7 shadow-xl transition-all duration-200 hover:scale-[1.03] hover:shadow-2xl">
             <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-              <span className="inline-block w-2 h-6 bg-blue-600 rounded-full animate-pulse"></span>
+              <span className="inline-block w-2 h-6 bg-blue-900 rounded-full animate-pulse"></span>
               Microsoft Azure
             </h3>
             <ul className="pl-0 text-gray-800 space-y-4">
@@ -37,9 +35,9 @@ const Solutions = () => {
           </div>
 
           {/* Microsoft Defender for IoT */}
-          <div className="bg-white/90 border-l-8 border-blue-600 rounded-2xl p-7 shadow-xl transition-all duration-200 hover:scale-[1.03] hover:shadow-2xl">
+          <div className="bg-white/90 border-l-8 border-blue-900 rounded-2xl p-7 shadow-xl transition-all duration-200 hover:scale-[1.03] hover:shadow-2xl">
             <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-              <span className="inline-block w-2 h-6 bg-blue-600 rounded-full animate-pulse"></span>
+              <span className="inline-block w-2 h-6 bg-blue-900 rounded-full animate-pulse"></span>
               Microsoft Defender for IoT
             </h3>
             <ul className="pl-0 text-gray-800 space-y-4">
@@ -64,9 +62,9 @@ const Solutions = () => {
               className="w-64 h-64 object-contain mx-auto transition-transform duration-300 hover:scale-105"
             />
           </div>
-          <div className="mt-8 w-full flex flex-col items-center bg-white/90 border-l-8 border-blue-600 rounded-2xl p-7 shadow-xl transition-all duration-200 hover:scale-[1.03] hover:shadow-2xl">
+          <div className="mt-8 w-full flex flex-col items-center bg-white/90 border-l-8 border-blue-900 rounded-2xl p-7 shadow-xl transition-all duration-200 hover:scale-[1.03] hover:shadow-2xl">
             <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-              <span className="inline-block w-2 h-6 bg-blue-600 rounded-full animate-pulse"></span>
+              <span className="inline-block w-2 h-6 bg-blue-000 rounded-full animate-pulse"></span>
               Microsoft Purview Compliance Manager
             </h3>
             <ul className="pl-0 text-gray-800 space-y-4 max-w-md">
@@ -85,9 +83,9 @@ const Solutions = () => {
         {/* Right column */}
         <div className="w-full lg:w-[32%] flex flex-col gap-8">
           {/* Microsoft Sentinel */}
-          <div className="bg-white/90 border-l-8 border-blue-600 rounded-2xl p-7 shadow-xl transition-all duration-200 hover:scale-[1.03] hover:shadow-2xl">
+          <div className="bg-white/90 border-l-8 border-blue-900 rounded-2xl p-7 shadow-xl transition-all duration-200 hover:scale-[1.03] hover:shadow-2xl">
             <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-              <span className="inline-block w-2 h-6 bg-blue-600 rounded-full animate-pulse"></span>
+              <span className="inline-block w-2 h-6 bg-blue-900 rounded-full animate-pulse"></span>
               Microsoft Sentinel
             </h3>
             <ul className="pl-0 text-gray-800 space-y-4">
@@ -103,9 +101,9 @@ const Solutions = () => {
           </div>
 
           {/* Microsoft 365 Security */}
-          <div className="bg-white/90 border-l-8 border-blue-600 rounded-2xl p-7 shadow-xl transition-all duration-200 hover:scale-[1.03] hover:shadow-2xl">
+          <div className="bg-white/90 border-l-8 border-blue-900 rounded-2xl p-7 shadow-xl transition-all duration-200 hover:scale-[1.03] hover:shadow-2xl">
             <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-              <span className="inline-block w-2 h-6 bg-blue-600 rounded-full animate-pulse"></span>
+              <span className="inline-block w-2 h-6 bg-blue-900 rounded-full animate-pulse"></span>
               Microsoft 365 Security
             </h3>
             <ul className="pl-0 text-gray-800 space-y-4">

@@ -3,13 +3,10 @@ import React from "react";
 
 const Compliance = ({ title, intro, points }) => {
   return (
-    <section className="relative px-6 py-16 bg-blue-100 my-6  overflow-hidden">
-      {/* Decorative blurred shapes */}
-      <div className="absolute top-0 left-0 w-32 h-32 bg-blue-600/20 rounded-full blur-2xl z-0"></div>
-      <div className="absolute bottom-0 right-0 w-24 h-24 bg-blue-400/20 rounded-full blur-2xl z-0"></div>
+    <section className="relative px-6 py-16 my-6  overflow-hidden">
 
       {/* Title */}
-      <h1 className="relative z-10 text-3xl md:text-4xl font-extrabold text-center text-gray-900 mb-8 tracking-tight drop-shadow-lg">
+      <h1 className="relative z-10 text-3xl md:text-4xl font-extrabold text-center text-gray-900 mb-8 tracking-tight ">
         {title}
       </h1>
 
@@ -19,13 +16,13 @@ const Compliance = ({ title, intro, points }) => {
       </p>
 
       {/* Compliance Points */}
-      <div className="relative z-10 max-w-5xl mx-auto bg-white/90 border-l-8 border-blue-600 rounded-2xl p-8 shadow-xl">
+      <div className="relative z-10 max-w-5xl mx-auto bg-white/90 border-l-8 border-blue-900 rounded-2xl p-8 shadow-xl">
         <ul className="pl-0 text-gray-800 space-y-5">
           {points.map((point, idx) => (
             <li key={idx} className="flex items-start gap-3">
               <span className="mt-1">
                 <svg
-                  className="w-5 h-5 text-blue-500 flex-shrink-0"
+                  className="w-5 h-5 text-blue-900 flex-shrink-0"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="3"

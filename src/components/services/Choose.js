@@ -3,10 +3,7 @@ import React from "react";
 
 export default function ChooseSection({ image }) {
   return (
-    <section className="relative px-6 py-16 bg-blue-100 my-6  overflow-hidden">
-      {/* Decorative blurred shapes */}
-      <div className="absolute top-0 left-0 w-32 h-32 bg-blue-600/10 rounded-full blur-2xl z-0"></div>
-      <div className="absolute bottom-0 right-0 w-24 h-24 bg-blue-400/10 rounded-full blur-2xl z-0"></div>
+    <section className="relative px-6 py-16 my-6  overflow-hidden">
 
       <div className="relative max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center z-10">
         {/* Text content */}

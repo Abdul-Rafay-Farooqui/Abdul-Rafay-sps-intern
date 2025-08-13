@@ -9,11 +9,9 @@ const Solutions = ({
   imagealt,
 }) => {
   return (
-    <section className="relative px-6 py-16 bg-blue-100  my-6 shadow-2xl shadow-blue-400/20 overflow-hidden">
+    <section className="relative px-6 py-16  my-6 shadow-2xl shadow-blue-400/20 overflow-hidden">
       {/* Decorative blurred shapes for depth */}
-      <div className="absolute top-0 left-0 w-32 h-32 bg-blue-600/20 rounded-full blur-2xl z-0"></div>
-      <div className="absolute bottom-0 right-0 w-24 h-24 bg-blue-400/20 rounded-full blur-2xl z-0"></div>
-      <h1 className="relative z-10 text-3xl md:text-4xl font-extrabold text-center text-gray-900 mb-14 tracking-tight drop-shadow-lg">
+      <h1 className="relative z-10 text-3xl md:text-4xl font-extrabold text-center text-gray-900 mb-14 tracking-tight ">
         {maintitle}
       </h1>
       <div className="relative z-10 flex flex-col lg:flex-row items-stretch justify-between gap-10">
@@ -22,10 +20,10 @@ const Solutions = ({
           {leftContent.map((section, idx) => (
             <div
               key={idx}
-              className="bg-white/90 border-l-8 border-blue-600 rounded-2xl p-7 shadow-xl transition-all duration-200 hover:scale-[1.03] hover:shadow-2xl"
+              className="bg-white/90 border-l-8 border-blue-900 rounded-2xl p-7 shadow-xl transition-all duration-200 hover:scale-[1.03] hover:shadow-2xl"
             >
               <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-                <span className="inline-block w-2 h-6 bg-blue-600 rounded-full animate-pulse"></span>
+                <span className="inline-block w-2 h-6 bg-blue-900 rounded-full animate-pulse"></span>
                 {section.title}
               </h2>
               <ul className="pl-0 text-gray-800 space-y-4">
@@ -33,7 +31,7 @@ const Solutions = ({
                   <li className="flex items-start gap-3" key={pidx}>
                     <span className="mt-1">
                       <svg
-                        className="w-5 h-5 text-blue-500"
+                        className="w-5 h-5 text-blue-900"
                         fill="none"
                         stroke="currentColor"
                         strokeWidth="3"
@@ -65,10 +63,10 @@ const Solutions = ({
           {rightContent.map((section, idx) => (
             <div
               key={idx}
-              className="bg-white/90 border-l-8 border-blue-600 rounded-2xl p-7 shadow-xl transition-all duration-200 hover:scale-[1.03] hover:shadow-2xl"
+              className="bg-white/90 border-l-8 border-blue-900 rounded-2xl p-7 shadow-xl transition-all duration-200 hover:scale-[1.03] hover:shadow-2xl"
             >
               <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-                <span className="inline-block w-2 h-6 bg-blue-600 rounded-full animate-pulse"></span>
+                <span className="inline-block w-2 h-6 bg-blue-900 rounded-full animate-pulse"></span>
                 {section.title}
               </h3>
               <ul className="pl-0 text-gray-800 space-y-4">
@@ -76,7 +74,7 @@ const Solutions = ({
                   <li className="flex items-start gap-3" key={pidx}>
                     <span className="mt-1">
                       <svg
-                        className="w-5 h-5 text-blue-500"
+                        className="w-5 h-5 text-blue-900"
                         fill="none"
                         stroke="currentColor"
                         strokeWidth="3"
