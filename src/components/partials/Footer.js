@@ -6,7 +6,7 @@ const Footer = () => {
       {/* Background Image with Gradient Overlay */}
       <div
         className="w-full bg-cover bg-center bg-no-repeat relative"
-        style={{ backgroundImage: "url('/images/back.jpg')" }}
+        style={{ backgroundImage: "url('https://res.cloudinary.com/dwiplkg4o/image/upload/v1755084582/back_gsg0ow.jpg')" }}
       >
         {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/80"></div>
