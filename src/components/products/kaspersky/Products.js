@@ -1,16 +1,17 @@
 "use client";
 import React, { useState } from "react";
 
-const Products = ({products , heading}) => {
+const Products = ({products , heading, color}) => {
   const [expandedIndex, setExpandedIndex] = useState(null);
 
   const toggleLinks = (index) => {
     setExpandedIndex(expandedIndex === index ? null : index);
   };
+  const isBlue = color == "blue";
 
   return (
-<section className="px-12 py-12 bg-blue-50 my-4">
-      <h2 className="text-3xl text-gray-900 text-center font-bold mb-10 tracking-tight drop-shadow-lg">
+<section className={`${isBlue ? "bg-blue-100" : "bg-white"} px-12 py-12 my-4`}>
+      <h2 className="text-3xl text-gray-900 text-center font-bold mb-10 tracking-tight ">
         {heading}
       </h2>
 
@@ -21,11 +22,11 @@ const Products = ({products , heading}) => {
           return (
             <div
               key={idx}
-              className={`relative group rounded-2xl p-6 shadow-lg bg-white/80 backdrop-blur-lg border border-blue-100
-                hover:shadow-xl hover:border-blue-400 hover:bg-white/90 hover:-translate-y-1
+              className={`relative group rounded-2xl p-6 shadow-all bg-white/80 backdrop-blur-lg border border-blue-100
+                hover:shadow-xl hover:border-blue-900 hover:bg-white/90 hover:-translate-y-1
                 w-full max-w-xs flex flex-col transition-all duration-300`}
               style={{
-                borderTop: "6px solid #2563eb",
+                borderTop: "6px solid blue-900",
                 height: isExpanded ? "auto" : "250px", // uniform base height
               }}
             >
@@ -57,7 +58,7 @@ const Products = ({products , heading}) => {
                         href="#"
                         className="flex items-center gap-2 text-gray-700 hover:text-blue-900 text-sm font-medium hover:underline  transition-colors duration-150"
                       >
-                        <span className="text-blue-400 font-bold">&gt;</span>
+                        <span className="text-blue-900 font-bold">&gt;</span>
                         {link}
                       </a>
                     </li>
@@ -69,7 +70,7 @@ const Products = ({products , heading}) => {
               {product.links.length > 0 && (
                 <button
                   onClick={() => toggleLinks(idx)}
-                  className="mt-2 text-blue-600 hover:underline text-sm font-semibold self-center"
+                  className="mt-2 text-blue-900 hover:underline text-sm font-semibold self-center"
                 >
                   {isExpanded ? "...Read Less" : "Read More..."}
                 </button>
@@ -80,7 +81,7 @@ const Products = ({products , heading}) => {
       </div>
 
       <div className="flex justify-center mt-12">
-        <button className="bg-white text-blue-600 py-3 font-bold px-7 rounded-lg shadow-lg text-lg tracking-wide transition-all duration-200 hover:bg-blue-700 hover:text-white border-2 border-blue-800">
+        <button className="bg-white text-blue-900 py-3 font-bold px-7 rounded-lg shadow-lg text-lg tracking-wide transition-all duration-200 hover:bg-blue-700 hover:text-white border-2 border-blue-800">
           Request the Quote
         </button>
       </div>

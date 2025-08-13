@@ -2,8 +2,8 @@ import React from 'react'
 
 const TextMarquee = () => {
   return (
-    <section className='bg-[#F2F2F2] '>
-      <marquee ><p className='text-black rubik text-lg pt-3 py-1'>Join our webinar: Achieving NEPRA Cybersecurity Compliance with Kaspersky</p></marquee>
+    <section className='bg-blue-900 '>
+      <marquee ><p className='text-white rubik text-lg pt-3 py-1'>Join our webinar: Achieving NEPRA Cybersecurity Compliance with Kaspersky</p></marquee>
     </section>
   )
 }

@@ -8,14 +8,14 @@ const Support = ({
   beneficiaries = [],
 }) => {
   return (
-    <section className="relative py-20 px-4 md:px-8 bg--blue-300">
+    <section className="relative py-20 px-4 md:px-8 bg-blue-100">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 items-stretch">
         {/* Left: Service Details */}
         <div className="w-full lg:w-2/3 flex flex-col justify-center">
-          <div className="relative bg-white/80 backdrop-blur-lg rounded-3xl shadow-2xl p-10 mb-8 border border-blue-200">
+          <div className="relative bg-white/80  rounded-3xl shadow-2xl p-10 mb-8 border">
             <div className="flex items-center mb-8">
-              <span className="inline-block w-2 h-12 bg-blue-600 rounded-full mr-4 animate-pulse"></span>
-              <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight drop-shadow-lg">
+              <span className="inline-block w-2 h-12 bg-blue-900 rounded-full mr-4 animate-pulse"></span>
+              <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight ">
                 {maintitle}
               </h1>
             </div>
@@ -27,13 +27,13 @@ const Support = ({
             <ul className="pl-0 space-y-8">
               {contentarray.map((item, idx) => (
                 <li
-                  className="flex items-start gap-5 bg-gradient-to-r from-blue-50 via-white to-blue-100 border-l-4 border-blue-500 rounded-xl p-6 shadow-md transition-all duration-200 hover:shadow-xl hover:border-blue-700"
+                  className="flex items-start gap-5 border-l-4 border-blue-900 rounded-xl p-6 shadow-all transition-all duration-200 hover:shadow-xl hover:border-blue-700"
                   key={idx}
                 >
                   {/* Icon */}
                   <span className="mt-1">
                     <svg
-                      className="w-8 h-8 text-blue-500"
+                      className="w-8 h-8 text-blue-900"
                       fill="none"
                       stroke="currentColor"
                       strokeWidth="3"
@@ -56,9 +56,9 @@ const Support = ({
         </div>
         {/* Right: Beneficiaries */}
         <div className="w-full lg:w-1/3 flex flex-col justify-start">
-          <div className="relative bg-white/90 backdrop-blur-lg rounded-3xl shadow-2xl p-10 border-2 border-blue-300 z-10">
+          <div className="relative bg-white/90 backdrop-blur-lg rounded-3xl shadow-full p-10 border border-blue-900 z-10">
             <div className="flex items-center mb-8">
-              <span className="inline-block w-2 h-10 bg-blue-600 rounded-full mr-3 animate-pulse"></span>
+              <span className="inline-block w-2 h-10 bg-blue-900 rounded-full mr-3 animate-pulse"></span>
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
                 Who Can Benefit?
               </h2>
@@ -69,13 +69,13 @@ const Support = ({
             <ul className="pl-0 space-y-5">
               {beneficiaries.map((b, idx) => (
                 <li
-                  className="flex items-center gap-4 bg-gradient-to-r from-blue-100 via-white to-blue-50 border-l-4 border-blue-400 rounded-xl p-4 shadow transition-all duration-200 hover:shadow-lg hover:border-blue-700"
+                  className="flex items-center gap-4  border-l-4 border-blue-900 rounded-xl p-4 shadow transition-all duration-200 hover:shadow-lg hover:border-blue-700"
                   key={idx}
                 >
                   {/* Icon */}
                   <span>
                     <svg
-                      className="w-6 h-6 text-blue-600"
+                      className="w-6 h-6 text-blue-900"
                       fill="none"
                       stroke="currentColor"
                       strokeWidth="3"

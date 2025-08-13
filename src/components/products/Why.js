@@ -3,13 +3,13 @@ import React from "react";
 
 const Why = ({ maintitle, maintext, contentarray = [], image, imagealt }) => {
   return (
-    <section className="relative py-16 px-4 md:px-12 bg-gradient-to-tr from-blue-100 via-wheat to-white">
+    <section className="relative py-16 px-4 md:px-12 ">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
         {/* Left: Content */}
         <div className="w-full lg:w-2/3 flex flex-col justify-center">
           <div className="flex items-center mb-8">
-            <span className="inline-block w-2 h-12 bg-blue-600 rounded-full mr-4 animate-pulse"></span>
-            <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight drop-shadow-lg">
+            <span className="inline-block w-2 h-12 bg-blue-900 rounded-full mr-4 animate-pulse"></span>
+            <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight">
               {maintitle}
             </h1>
           </div>
@@ -22,7 +22,7 @@ const Why = ({ maintitle, maintext, contentarray = [], image, imagealt }) => {
             {contentarray.map((item, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-2xl shadow-lg border border-blue-100 p-6 flex flex-col  transition-all duration-200 hover:shadow-2xl hover:border-blue-400"
+                className="bg-white rounded-2xl shadow-all border border-blue-100 p-6 flex flex-col  transition-all duration-200 hover:shadow-2xl hover:border-blue-400"
               >
                 {item.title && (
                   <h3 className="text-2xl  text-black mb-2">

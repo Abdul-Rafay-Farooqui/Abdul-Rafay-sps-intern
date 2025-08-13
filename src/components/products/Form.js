@@ -3,7 +3,7 @@ import React, { useState } from "react";
 
 const InputIcon = ({ icon, ...props }) => (
   <div className="relative">
-    <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-blue-500">
+    <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-blue-900">
       {icon}
     </span>
     <input {...props} className={`pl-10 ${props.className}`} />
@@ -32,11 +32,11 @@ const Form = () => {
   };
 
   return (
-    <section className="flex justify-center items-center min-h-[40vh] px-8 py-10 bg-blue-100">
+    <section className="flex justify-center items-center min-h-[40vh] px-8 py-10 ">
       {/* Centered Form */}
-      <div className="relative w-full mt-3 max-w-3xl bg-white/80 backdrop-blur-lg rounded-3xl shadow-2xl border border-blue-200 p-10 flex flex-col items-center">
+      <div className="relative w-full mt-3 max-w-3xl bg-white/80 backdrop-blur-lg rounded-3xl shadow-2xl border border-blue-900 p-10 flex flex-col items-center">
         {/* Floating Icon */}
-        <div className="absolute -top-10 left-1/2 -translate-x-1/2 bg-blue-600 rounded-full p-4 shadow-lg">
+        <div className="absolute -top-10 left-1/2 -translate-x-1/2 bg-blue-900 rounded-full p-4 shadow-lg">
           <svg
             className="w-10 h-10 text-white"
             fill="none"
@@ -78,7 +78,7 @@ const Form = () => {
                   <path d="M6 20v-2a6 6 0 0112 0v2" />
                 </svg>
               }
-              className="w-full border border-blue-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder:text-blue-400 bg-white/90 shadow"
+              className="w-full border border-blue-900 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-900 placeholder:text-blue-900 bg-white/90 shadow"
             />
             <InputIcon
               type="email"
@@ -98,7 +98,7 @@ const Form = () => {
                   <path d="M4 4l8 8 8-8" />
                 </svg>
               }
-              className="w-full border border-blue-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder:text-blue-400 bg-white/90 shadow"
+              className="w-full border border-blue-900 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-900 placeholder:text-blue-900 bg-white/90 shadow"
             />
           </div>
           <div className="md:flex gap-4 space-y-4 md:space-y-0 w-3/4">
@@ -119,7 +119,7 @@ const Form = () => {
                   <path d="M22 16.92V19a2 2 0 01-2.18 2A19.86 19.86 0 013 5.18 2 2 0 015 3h2.09a2 2 0 012 1.72c.13 1.13.37 2.24.72 3.32a2 2 0 01-.45 2.11l-1.27 1.27a16 16 0 006.58 6.58l1.27-1.27a2 2 0 012.11-.45c1.08.35 2.19.59 3.32.72a2 2 0 011.72 2z" />
                 </svg>
               }
-              className="w-full border border-blue-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder:text-blue-400 bg-white/90 shadow"
+              className="w-full border border-blue-900 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-900 placeholder:text-blue-900 bg-white/90 shadow"
             />
             <InputIcon
               type="text"
@@ -139,7 +139,7 @@ const Form = () => {
                   <path d="M16 3v4M8 3v4" />
                 </svg>
               }
-              className="w-full border border-blue-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder:text-blue-400 bg-white/90 shadow"
+              className="w-full border border-blue-900 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-900 placeholder:text-blue-900 bg-white/90 shadow"
             />
           </div>
           <div className="w-3/4">
@@ -161,7 +161,7 @@ const Form = () => {
                   <path d="M12 16v-4M12 8h.01" />
                 </svg>
               }
-              className="w-full border border-blue-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder:text-blue-400 bg-white/90 shadow"
+              className="w-full border border-blue-900 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-900 placeholder:text-blue-900 bg-white/90 shadow"
             />
             </div>
             <div className="flex gap-4 w-3/4">
@@ -170,19 +170,19 @@ const Form = () => {
                 name="time"
                 value={formData.time}
                 onChange={handleChange}
-                className="w-1/2 border border-blue-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 text-blue-500 placeholder:text-blue-400 bg-white/90 shadow"
+                className="w-1/2 border border-blue-900 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-900 text-blue-900 placeholder:text-blue-900 bg-white/90 shadow"
               />
               <input
                 type="date"
                 name="date"
                 value={formData.date}
                 onChange={handleChange}
-                className="w-1/2 border border-blue-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 text-blue-500 placeholder:text-blue-400 bg-white/90 shadow"
+                className="w-1/2 border border-blue-900 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-900 text-blue-900 placeholder:text-blue-900 bg-white/90 shadow"
               />
             </div>
           <button
             type="submit"
-            className="w-3/4 bg-gradient-to-r from-blue-800 via-blue-500 to-blue-900 hover:from-blue-900 hover:to-blue-600 text-white py-3 rounded-xl shadow-lg font-semibold text-lg tracking-wide transition-all duration-200 hover:scale-105 border-2 border-blue-300 mt-8"
+            className="w-3/4 bg-gradient-to-r from-blue-800 via-blue-500 to-blue-900 hover:from-blue-900 hover:to-blue-900 text-white py-3 rounded-xl shadow-lg font-semibold text-lg tracking-wide transition-all duration-200 hover:scale-105 border-2 border-blue-300 mt-8"
           >
             Submit
           </button>

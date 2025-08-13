@@ -81,7 +81,7 @@ const page = () => {
       description: "Protect endpoints with advanced EDR and embedded security.",
       icon: (
         <Shield
-          className="w-12 h-12 text-blue-400"
+          className="w-12 h-12 text-blue-900"
         />
       ),
       links: [
@@ -97,7 +97,7 @@ const page = () => {
       description: "Centralized security event management and detection.",
       icon: (
         <Fingerprint
-          className="w-12 h-12 text-blue-400"
+          className="w-12 h-12 text-blue-900"
         />
       ),
       links: ["Kaspersky Next XDR Expert", "Kaspersky SIEM"],
@@ -107,7 +107,7 @@ const page = () => {
       description: "Safeguard industrial and cyber-physical environments.",
       icon: (
         <EarthLock
-          className="w-12 h-12 text-blue-400"
+          className="w-12 h-12 text-blue-900"
         />
       ),
       links: ["Kaspersky Industrial Cybersecurity Platform"],
@@ -117,7 +117,7 @@ const page = () => {
       description: "Secure your network, mail, and gateways.",
       icon: (
         <Network
-          className="w-12 h-12 text-blue-400"
+          className="w-12 h-12 text-blue-900"
         />
       ),
       links: [
@@ -132,7 +132,7 @@ const page = () => {
       description: "Comprehensive cloud and container security.",
       icon: (
         <Cloud
-          className="w-12 h-12 text-blue-400"
+          className="w-12 h-12 text-blue-900"
         />
       ),
       links: ["Kaspersky Hybrid Cloud Security", "Kaspersky Container Security"],
@@ -142,7 +142,7 @@ const page = () => {
       description: "Actionable insights for proactive defense.",
       icon: (
         <Brain
-          className="w-12 h-12 text-blue-400"
+          className="w-12 h-12 text-blue-900"
         />
       ),
       links: ["Kaspersky Threat Intelligence"],
@@ -152,7 +152,7 @@ const page = () => {
       description: "Resilient solutions for IoT and thin clients.",
       icon: (
         <FolderLock
-          className="w-12 h-12 text-blue-400"
+          className="w-12 h-12 text-blue-900"
         />
       ),
       links: [
@@ -170,7 +170,7 @@ const page = () => {
       // Shield icon
       icon: (
         <ShieldCheck
-          className="w-12 h-12 text-blue-400"
+          className="w-12 h-12 text-blue-900"
         />
       ),
       links: [
@@ -188,7 +188,7 @@ const page = () => {
       // Target icon
       icon: (
         <BrickWallShield
-          className="w-12 h-12 text-blue-400"
+          className="w-12 h-12 text-blue-900"
         />
       ),
       links: [
@@ -205,7 +205,7 @@ const page = () => {
       // Graduation cap icon
       icon: (
         <Target
-          className="w-12 h-12 text-blue-400"
+          className="w-12 h-12 text-blue-900"
         />
       ),
       links: [
@@ -221,7 +221,7 @@ const page = () => {
       // Headset icon
       icon: (
         <HandFist
-          className="w-12 h-12 text-blue-400"
+          className="w-12 h-12 text-blue-900"
         />
       ),
       links: ["Kaspersky Premium Support", "Kaspersky Professional Services"],
@@ -232,7 +232,7 @@ const page = () => {
       // Lightbulb icon
       icon: (
         <BrainCircuit
-          className="w-12 h-12 text-blue-400"
+          className="w-12 h-12 text-blue-900"
           src="/images/shield.png"
         />
       ),
@@ -252,8 +252,8 @@ const page = () => {
         subtitle={headerContent.subtitle}
         description={headerContent.description}
       />
-      <Products  products= {productsData} heading= {"Kaspersky IT & OT Security Products"}/>
-      <Products products={servicesData} heading={"Kaspersky IT & OT Security Services"} />
+      <Products  products= {productsData} heading= {"Kaspersky IT & OT Security Products"} color={"white"} />
+      <Products products={servicesData} heading={"Kaspersky IT & OT Security Services"} color={"blue"}/>
       <Why
         maintitle={whysectionContent.maintitle}
         maintext={whysectionContent.maintext}
