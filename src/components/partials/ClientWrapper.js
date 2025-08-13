@@ -5,7 +5,7 @@ import SplashScreen from "./SplashScreen";
 const ClientWrapper = ({ children }) => {
   const [mounted, setMounted] = useState(false);
   const [showSplash, setShowSplash] = useState(true);
-  const SPLASH_DURATION = 3000; // 3 seconds
+  const SPLASH_DURATION = 2000; // 3 seconds
 
   useEffect(() => {
     setMounted(true);
