@@ -3,7 +3,7 @@ import React from "react";
 
 const Solutions = () => {
   return (
-    <section className="relative px-6 py-16  my-6 shadow-2xl shadow-blue-400/20 overflow-hidden">
+    <section className="relative px-6 py-16  my-6 bg-blue-100 overflow-hidden">
       {/* Decorative blurred shapes */}
 
       <h2 className="relative z-10 text-3xl md:text-4xl font-extrabold text-center text-gray-900 mb-14 tracking-tight ">

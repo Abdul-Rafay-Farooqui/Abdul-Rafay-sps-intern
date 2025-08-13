@@ -252,8 +252,8 @@ const page = () => {
         subtitle={headerContent.subtitle}
         description={headerContent.description}
       />
-      <Products  products= {productsData} heading= {"Kaspersky IT & OT Security Products"}/>
-      <Products products={servicesData} heading={"Kaspersky IT & OT Security Services"} />
+      <Products  products= {productsData} heading= {"Kaspersky IT & OT Security Products"} color={"white"} />
+      <Products products={servicesData} heading={"Kaspersky IT & OT Security Services"} color={"blue"}/>
       <Why
         maintitle={whysectionContent.maintitle}
         maintext={whysectionContent.maintext}

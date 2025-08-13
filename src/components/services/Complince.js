@@ -3,7 +3,7 @@ import React from "react";
 
 const Compliance = ({ title, intro, points }) => {
   return (
-    <section className="relative px-6 py-16 my-6  overflow-hidden">
+    <section className="relative px-6 py-16 my-6 bg-blue-100 overflow-hidden">
 
       {/* Title */}
       <h1 className="relative z-10 text-3xl md:text-4xl font-extrabold text-center text-gray-900 mb-8 tracking-tight ">

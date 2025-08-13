@@ -1,15 +1,16 @@
 "use client";
 import React, { useState } from "react";
 
-const Products = ({products , heading}) => {
+const Products = ({products , heading, color}) => {
   const [expandedIndex, setExpandedIndex] = useState(null);
 
   const toggleLinks = (index) => {
     setExpandedIndex(expandedIndex === index ? null : index);
   };
+  const isBlue = color == "blue";
 
   return (
-<section className="px-12 py-12  my-4">
+<section className={`${isBlue ? "bg-blue-100" : "bg-white"} px-12 py-12 my-4`}>
       <h2 className="text-3xl text-gray-900 text-center font-bold mb-10 tracking-tight ">
         {heading}
       </h2>

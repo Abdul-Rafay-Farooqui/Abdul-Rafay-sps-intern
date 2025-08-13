@@ -9,7 +9,7 @@ const Solutions = ({
   imagealt,
 }) => {
   return (
-    <section className="relative px-6 py-16  my-6 shadow-2xl shadow-blue-400/20 overflow-hidden">
+    <section className="relative px-6 py-16 bg-blue-100  my-6  overflow-hidden">
       {/* Decorative blurred shapes for depth */}
       <h1 className="relative z-10 text-3xl md:text-4xl font-extrabold text-center text-gray-900 mb-14 tracking-tight ">
         {maintitle}
