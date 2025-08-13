@@ -4,7 +4,7 @@ import SplashScreen from "./SplashScreen";
 
 const ClientWrapper = ({ children }) => {
   const [showSplash, setShowSplash] = useState(false);
-  const SPLASH_DURATION = 5000; // 5 seconds
+  const SPLASH_DURATION = 3500; // 5 seconds
 
   useEffect(() => {
     // Check if this is the first visit
