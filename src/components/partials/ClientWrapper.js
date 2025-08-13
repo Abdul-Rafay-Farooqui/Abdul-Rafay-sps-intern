@@ -5,7 +5,7 @@ import SplashScreen from "./SplashScreen";
 const ClientWrapper = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
-  var waitTime = 2500;
+  var waitTime = 4000;
 
   // Simulate an async operation (e.g., fetching data) that takes some time
   useEffect(() => {
