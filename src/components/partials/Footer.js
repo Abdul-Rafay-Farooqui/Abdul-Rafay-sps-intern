@@ -61,14 +61,14 @@ const Footer = () => {
                     <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
                       <img
                         className="w-8 h-8 transform hover:scale-120 transition duration-300 "
-                        src="https://res.cloudinary.com/dwiplkg4o/image/upload/v1755085422/twitter_dxvjjt.png"
+                        src="/images/twitter.png"
                         alt="Twitter Icon"
                       />
                     </a>
                     <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                       <img
                         className="w-8 h-8  transform hover:scale-120 transition duration-300"
-                        src="https://res.cloudinary.com/dwiplkg4o/image/upload/v1755085422/facebook_szrrji.png"
+                        src="/images/facebook.png"
                         alt="Facebook Icon"
                       />
                     </a>

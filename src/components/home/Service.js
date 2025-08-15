@@ -22,7 +22,7 @@ const Service = () => {
   const options = [
     {
       id: 1,
-      icon: <FaShieldAlt className="text-blue-900 text-3xl" />,
+      icon: <FaShieldAlt />,
       title: "Security Policy Management",
       short: "Robust IT & OT security frameworks tailored to your needs.",
       content:
@@ -31,7 +31,7 @@ const Service = () => {
     },
     {
       id: 2,
-      icon: <FaCogs className="text-blue-900 text-3xl" />,
+      icon: <FaCogs />,
       title: "Security Controls Implementation",
       short: "Access, network, and encryption controls for compliance.",
       content:
@@ -40,7 +40,7 @@ const Service = () => {
     },
     {
       id: 3,
-      icon: <FaSearch className="text-blue-900 text-3xl" />,
+      icon: <FaSearch />,
       title: "Risk & Vulnerability Assessment",
       short: "Identify and mitigate potential security threats.",
       content:
@@ -49,7 +49,7 @@ const Service = () => {
     },
     {
       id: 4,
-      icon: <FaDatabase className="text-blue-900 text-3xl" />,
+      icon: <FaDatabase />,
       title: "Data Management",
       short: "Secure, manage, and leverage your data effectively.",
       content:
@@ -58,7 +58,7 @@ const Service = () => {
     },
     {
       id: 5,
-      icon: <FaClipboardCheck className="text-blue-900 text-3xl" />,
+      icon: <FaClipboardCheck />,
       title: "Audit & Risk Assessment",
       short: "Ensure compliance through specialized audits.",
       content:
@@ -67,7 +67,7 @@ const Service = () => {
     },
     {
       id: 6,
-      icon: <FaBell className="text-blue-900 text-3xl" />,
+      icon: <FaBell />,
       title: "Monitoring & Incident Response",
       short: "Proactive monitoring and rapid threat response.",
       content:
@@ -76,7 +76,7 @@ const Service = () => {
     },
     {
       id: 7,
-      icon: <FaUserGraduate className="text-blue-900 text-3xl" />,
+      icon: <FaUserGraduate />,
       title: "Awareness & Training",
       short: "Equip teams with essential cybersecurity skills.",
       content:
@@ -85,7 +85,7 @@ const Service = () => {
     },
     {
       id: 8,
-      icon: <FaRegFileAlt className="text-blue-900 text-3xl" />,
+      icon: <FaRegFileAlt  />,
       title: "Regulatory Reporting",
       short: "Timely compliance reporting and communications.",
       content:
@@ -117,10 +117,10 @@ const Service = () => {
                 onClick={() => toggleAccordion(service.id)}
                 className="flex items-center justify-between w-full p-5 text-left"
               >
-                <div className="flex items-center gap-4">
+                <div className="flex items-center text-3xl gap-4">
                   {service.icon}
                   <div>
-                    <h3 className="text-lg font-semibold text-blue-900">{service.title}</h3>
+                    <h3 className="text-lg font-semibold">{service.title}</h3>
                     <p className="text-gray-800 text-sm">{service.short}</p>
                   </div>
                 </div>
