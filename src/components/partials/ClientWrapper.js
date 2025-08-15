@@ -6,7 +6,7 @@ import SplashScreen from "./SplashScreen";
 const ClientWrapper = ({ children }) => {
   const [showSplash, setShowSplash] = useState(false);
   const pathname = usePathname();
-  const SPLASH_DURATION = 2000; // 2 seconds
+  const SPLASH_DURATION = 3000; // 3 seconds
 
   useEffect(() => {
     // Check if this is a fresh load (not client-side navigation)
