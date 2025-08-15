@@ -50,7 +50,7 @@ const Navbar = () => {
       {/* Logo */}
       <div className="flex-shrink-0">
         <img
-          src="https://res.cloudinary.com/dwiplkg4o/image/upload/v1755085423/logo_ccg6mx.png"
+          src="/images/logo.png"
           alt="logo"
           className="h-12 md:h-[51px] object-cover"
         />
