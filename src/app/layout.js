@@ -3,7 +3,6 @@ import { Geist, Geist_Mono, Rubik } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/partials/Navbar";
 import Footer from "../components/partials/Footer";
-import "@fortawesome/fontawesome-free/css/all.min.css";
 import ClientWrapper from "@/components/partials/ClientWrapper";
 
 
