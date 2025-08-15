@@ -3,7 +3,7 @@ import { Facebook, Twitter } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="w-full relative overflow-hidden">
+    <footer className="w-full relative bg-blue-900 overflow-hidden">
       {/* Background Image with Gradient Overlay */}
       <div
         className="w-full bg-cover bg-center bg-no-repeat relative"
