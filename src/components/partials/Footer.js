@@ -20,7 +20,7 @@ const Footer = () => {
               {/* Logo */}
               <div className="items-center">
                 <img
-                  src="/images/logo.png "
+                  src="https://res.cloudinary.com/dwiplkg4o/image/upload/v1755085423/logo_ccg6mx.png"
                   alt="SPS Logo"
                   className="h-12 md:h-16 w-auto object-contain"
                 />
