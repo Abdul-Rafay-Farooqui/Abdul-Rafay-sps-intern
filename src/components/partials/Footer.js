@@ -3,11 +3,10 @@ import { Facebook, Twitter } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="w-full relative bg-blue-900 overflow-hidden">
+    <footer className="w-full relative bg-blue-900 text-white overflow-hidden">
       {/* Background Image with Gradient Overlay */}
       <div
-        className="w-full bg-cover bg-center bg-no-repeat relative"
-        style={{ backgroundImage: "url('https://res.cloudinary.com/dwiplkg4o/image/upload/v1755084582/back_gsg0ow.jpg')" }}
+        className="w-full bg-cover bg-blue-900 text-white bg-center bg-no-repeat relative bg-[url('https://res.cloudinary.com/dwiplkg4o/image/upload/v1755084582/back_gsg0ow.jpg')]"
       >
         {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/80"></div>
