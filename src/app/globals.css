@@ -1,8 +1,9 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffff; /* Lighter background for better contrast */
-  --foreground: #1E3A8A; /* Darker text color */
+  --background: #ffffff; /* Light background */
+  --foreground: #1E3A8A; /* Dark text */
+  --font-rubik: 'Rubik', sans-serif;
 }
 @theme inline {
   --color-background: var(--background);
@@ -13,8 +14,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #ffff; /* Dark background */
-    --foreground: #1E3A8A; /* Light text */
+    --background: #ffffff; 
+    --foreground: #1E3A8A; 
   }
 }
 
