@@ -3,7 +3,7 @@ import React from "react";
 
 const Header = ({ title, subtitle, description }) => {
   return (
-    <section className="w-full min-h-[250px] h-[300px] xl:h-[250px] flex bg-[#EAF4FC] rubik">
+    <section className="w-full min-h-[250px] h-[300px] xl:h-[250px] flex bg-blue-900 rubik">
       <div className="h-full w-full bg-cover bg-center text-center bg-no-repeat bg-[url('https://res.cloudinary.com/dwiplkg4o/image/upload/v1755079927/bg_t0w6vt.jpg')] flex flex-col lg:flex-row items-stretch relative">
         {/* Gradient overlay as a flex child */}
         <div
