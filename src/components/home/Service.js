@@ -117,7 +117,7 @@ const Service = () => {
                 onClick={() => toggleAccordion(service.id)}
                 className="flex items-center justify-between w-full p-5 text-left"
               >
-                <div className="flex items-center text-3xl gap-4">
+                <div className="flex items-center text-blue-900 text-3xl gap-4">
                   {service.icon}
                   <div>
                     <h3 className="text-lg font-semibold">{service.title}</h3>

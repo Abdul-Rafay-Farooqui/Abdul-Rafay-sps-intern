@@ -3,7 +3,7 @@ import React from "react";
 
 const Why = ({ maintitle, maintext, contentarray = [], image, imagealt }) => {
   return (
-    <section className="relative py-16 px-4 md:px-12 ">
+    <section className="relative py-16 px-4 bg-white md:px-12 ">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
         {/* Left: Content */}
         <div className="w-full lg:w-2/3 flex flex-col justify-center">

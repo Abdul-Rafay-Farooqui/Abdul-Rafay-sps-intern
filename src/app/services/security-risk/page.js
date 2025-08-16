@@ -35,7 +35,7 @@ const page = () => {
     ]
   };
     return (
-        <div>
+        <div className="bg-white">
             <Header 
                 title={headerContent.title}
                 subtitle={headerContent.subtitle}
