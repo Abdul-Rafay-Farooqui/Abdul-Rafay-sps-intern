@@ -27,7 +27,7 @@ const page = () => {
 
   };
     return (
-        <div className="bg-white">
+        <div >
             <Header 
                 title={headerContent.title}
                 subtitle={headerContent.subtitle}
