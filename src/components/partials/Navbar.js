@@ -58,7 +58,7 @@ const Navbar = () => {
 
       {/* Desktop Navigation */}
       <div className="hidden xl:flex items-center">
-        <ul className="flex text-[16.5px] gap-6 lg:gap-8 text-white font-medium">
+        <ul className="flex text-[16.5px] gap-6 lg:gap-8 text-foreground font-medium">
           <li>
             <a href="/" className="hover:text-blue-300 transition-colors">
               Home
@@ -250,7 +250,7 @@ const Navbar = () => {
       <div className="xl:hidden">
         <div
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="text-white p-2"
+          className="text-foreground p-2"
         >
           <svg
             className="w-6 h-6"
