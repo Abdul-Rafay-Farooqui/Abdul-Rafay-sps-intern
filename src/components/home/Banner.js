@@ -33,20 +33,20 @@ const Banner = () => {
   return (
     <section className="w-full  flex bg-blue-900 text-white">
       <div className="h-full w-full  bg-cover bg-center bg-no-repeat bg-[url('https://res.cloudinary.com/dwiplkg4o/image/upload/v1755079927/bg_t0w6vt.jpg')] flex flex-col lg:flex-row items-stretch relative">
-        {/* Gradient overlay as a flex child */}
-        <div className="w-full h-full bg-gradient-to-b from-black/40 to-black/40 absolute top-0 left-0 z-0 pointer-events-none"></div>
+        {/* Gradient overlay as a flex child - Made darker for better contrast */}
+        <div className="w-full h-full bg-gradient-to-b from-black/60 to-black/60 absolute top-0 left-0 z-0 pointer-events-none"></div>
         {/* Content container */}
         <div className="flex flex-col justify-center w-full h-full z-10 relative">
           {/* Left: Text */}
           <div className=" text-center w-full  px-6 lg:pl-10 py-8 lg:py-0 mt-16">
-            <h1 className="text-white text-2xl sm:text-3xl md:text-4xl font-semibold leading-tight">
+            <h1 className="text-white text-2xl sm:text-3xl md:text-4xl font-bold leading-tight drop-shadow-lg">
               NEPRA Compliance as a Service
             </h1>
-            <h2 className="text-white text-lg sm:text-xl font-medium pt-3 leading-relaxed">
+            <h2 className="text-white text-lg sm:text-xl font-semibold pt-3 leading-relaxed drop-shadow-lg">
               Empowering the Power Sector to Comply with NEPRA Cyber Security
               Regulations.
             </h2>
-            <p className="text-white text-sm sm:text-base px-5 lg:px-52 pt-3 leading-relaxed">
+            <p className="text-white text-sm sm:text-base px-5 lg:px-52 pt-3 leading-relaxed font-medium drop-shadow-lg">
               We safeguard Pakistan's power generation, transmission, and
               distribution sectors with expert cybersecurity consulting and
               systems integration, ensuring compliance with NEPRA's regulations.
@@ -55,20 +55,20 @@ const Banner = () => {
           {/* Right: Plans */}
           <div className="flex flex-col justify-center items-center px-6 lg:pr-10 py-10 ">
             <div>
-              <h1 className="text-xl sm:text-2xl font-semibold pb-5 text-white text-center">
+              <h1 className="text-xl sm:text-2xl font-bold pb-5 text-white text-center drop-shadow-lg">
                 Choose a Plan
               </h1>
               <div className="flex flex-col sm:flex-row flex-wrap gap-8 justify-center items-center w-full">
                 {plans.map((plan) => (
                   <div
                     key={plan.name}
-                    className="bg-[#e4e4e4]/10 backdrop-blur-[8px] text-white w-full sm:w-[260px] h-[400px] py-8 px-6 text-center rounded-xl shadow-[0_10px_15px_10px_rgba(0,0,0,0.15)] flex flex-col justify-between items-center"
+                    className="bg-black/30 backdrop-blur-[8px] text-white w-full sm:w-[260px] h-[400px] py-8 px-6 text-center rounded-xl shadow-[0_10px_15px_10px_rgba(0,0,0,0.25)] flex flex-col justify-between items-center border border-white/20"
                   >
                     <div className="w-full flex flex-col items-center">
-                      <h1 className="font-semibold text-2xl mb-4">
+                      <h1 className="font-bold text-2xl mb-4 text-white">
                         {plan.name}
                       </h1>
-                      <p className="font-extralight text-md mb-1 text-white">
+                      <p className="font-semibold text-lg mb-1 text-white">
                         {plan.price}
                       </p>
                       {plan.features && (
@@ -78,13 +78,13 @@ const Banner = () => {
                               key={idx}
                               className="flex text-sm items-start gap-5"
                             >
-                              <span className="inline-block text-green-400">
+                              <span className="inline-block text-green-300 flex-shrink-0 mt-0.5">
                                 {/* Heroicons checkmark SVG */}
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"
                                   fill="none"
                                   viewBox="0 0 24 24"
-                                  strokeWidth={2}
+                                  strokeWidth={2.5}
                                   stroke="currentColor"
                                   className="w-5 h-5"
                                 >
@@ -95,13 +95,15 @@ const Banner = () => {
                                   />
                                 </svg>
                               </span>
-                              <span>{feature}</span>
+                              <span className="text-white font-medium">
+                                {feature}
+                              </span>
                             </li>
                           ))}
                         </ul>
                       )}
                     </div>
-                    <button className="bg-transparent font-medium px-6 py-3 rounded-lg border-[1px] border-white text-white hover:text-black hover:bg-white transition-colors text-sm  mt-4">
+                    <button className="bg-white font-semibold px-6 py-3 rounded-lg border-2 border-white text-blue-900 hover:text-white hover:bg-blue-800 hover:border-blue-800 transition-colors text-sm  mt-4">
                       Get Started
                     </button>
                   </div>
