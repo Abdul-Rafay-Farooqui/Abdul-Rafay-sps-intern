@@ -45,7 +45,7 @@ export default function RootLayout({ children }) {
       <head>
         <link
           rel="preload"
-          href="https://res.cloudinary.com/dwiplkg4o/image/upload/v1755079927/bg_t0w6vt.jpg"
+          href="https://res.cloudinary.com/dwiplkg4o/image/upload/v1755433421/bg_fqrppk.png"
           as="image"
         />
       </head>

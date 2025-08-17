@@ -7,7 +7,7 @@ const ClientWrapper = ({ children }) => {
   const [showSplash, setShowSplash] = useState(false);
   const [isHydrated, setIsHydrated] = useState(false);
   const pathname = usePathname();
-  const SPLASH_DURATION = 3200; // 3.2 seconds
+  const SPLASH_DURATION = 3000; // 3.2 seconds
 
   useEffect(() => {
     // Mark as hydrated to prevent hydration mismatches
