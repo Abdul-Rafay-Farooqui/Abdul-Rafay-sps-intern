@@ -88,7 +88,7 @@ body {
 /* Form input improvements for better contrast */
 input::placeholder {
   color: var(--text-muted) !important;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 /* Button contrast improvements */
@@ -101,4 +101,47 @@ input::placeholder {
 .btn-primary:hover {
   background-color: var(--primary-light);
   border-color: var(--primary-light);
+}
+
+/* ===== High Contrast Mode Support ===== */
+@media (prefers-contrast: high) {
+  :root {
+    --text-primary: #000000;
+    --text-secondary: #1a1a1a;
+    --text-muted: #333333;
+    --border: #000000;
+  }
+
+  .text-gray-900 {
+    color: #000000 !important;
+  }
+
+  .text-gray-800 {
+    color: #1a1a1a !important;
+  }
+
+  .text-gray-700 {
+    color: #333333 !important;
+  }
+}
+
+/* ===== Focus Indicators ===== */
+button:focus,
+input:focus,
+a:focus {
+  outline: 2px solid #1e40af;
+  outline-offset: 2px;
+}
+
+/* ===== Reduced Motion Support ===== */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .animate-marquee {
+    animation: none;
+  }
 }

@@ -75,7 +75,7 @@ const Marquee = () => {
                 }}
               />
               <span
-                className="bg-white px-4 py-2 md:px-6 md:py-3 rounded-full shadow-md border border-blue-200 text-blue-600 font-bold text-lg md:text-2xl hidden"
+                className="bg-white px-4 py-2 md:px-6 md:py-3 rounded-full shadow-md border-2 border-blue-600 text-blue-800 font-bold text-lg md:text-2xl hidden"
                 style={{ display: "none" }}
               >
                 {level}

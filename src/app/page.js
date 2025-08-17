@@ -7,7 +7,6 @@ import TextMarquee from "../components/home/TextMarquee";
 export default function Home() {
   return (
     <main className="min-h-screen">
-      <Banner />
       <TextMarquee />
       <Service />
       <Marquee />

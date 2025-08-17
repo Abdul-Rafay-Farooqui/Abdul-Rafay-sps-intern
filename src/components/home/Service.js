@@ -11,7 +11,6 @@ import {
   FaRegFileAlt,
 } from "react-icons/fa";
 
-
 const Service = () => {
   const [openId, setOpenId] = useState(null);
 
@@ -85,7 +84,7 @@ const Service = () => {
     },
     {
       id: 8,
-      icon: <FaRegFileAlt  />,
+      icon: <FaRegFileAlt />,
       title: "Regulatory Reporting",
       short: "Timely compliance reporting and communications.",
       content:
@@ -99,9 +98,12 @@ const Service = () => {
       <div className="max-w-4xl mx-auto px-4">
         {/* Heading */}
         <div className="text-center mb-10">
-          <h2 className="text-3xl md:text-4xl font-bold text-black">Our Services</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-black">
+            Our Services
+          </h2>
           <p className="mt-3 text-black max-w-2xl mx-auto">
-            We offer a comprehensive suite of cybersecurity and compliance services designed to protect your IT and OT environments.
+            We offer a comprehensive suite of cybersecurity and compliance
+            services designed to protect your IT and OT environments.
           </p>
         </div>
 
@@ -125,23 +127,29 @@ const Service = () => {
                   </div>
                 </div>
                 <svg
-                    className={`w-5 h-5 text-[#0C67D8] transform transition-transform duration-300 ${
-                      openId === service.id ? "rotate-180" : ""
-                    }`}
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                  </svg>
+                  className={`w-5 h-5 text-[#0C67D8] transform transition-transform duration-300 ${
+                    openId === service.id ? "rotate-180" : ""
+                  }`}
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
               </button>
 
               {/* Content */}
               <div
                 className={`transition-all duration-500 ease-in-out ${
-                  openId === service.id ? "max-h-[300px] opacity-100 p-5 pt-0" : "max-h-0 opacity-0 p-0"
+                  openId === service.id
+                    ? "max-h-[300px] opacity-100 p-5 pt-0"
+                    : "max-h-0 opacity-0 p-0"
                 } overflow-hidden`}
               >
                 <p className="text-black mb-4">{service.content}</p>
