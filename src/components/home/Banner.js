@@ -32,7 +32,7 @@ const Banner = () => {
   ];
   return (
     <section className="w-full  flex bg-blue-900 text-white">
-      <div className="h-full w-full  bg-cover bg-center bg-no-repeat bg-[url('https://res.cloudinary.com/dwiplkg4o/image/upload/v1755079927/bg_t0w6vt.jpg')] flex flex-col lg:flex-row items-stretch relative">
+      <div className="h-full w-full  bg-cover bg-center bg-no-repeat bg-[url('/images/bg.png')] flex flex-col lg:flex-row items-stretch relative">
         {/* Gradient overlay as a flex child - Made darker for better contrast */}
         <div className="w-full h-full bg-gradient-to-b from-black/60 to-black/60 absolute top-0 left-0 z-0 pointer-events-none"></div>
         {/* Content container */}
@@ -103,7 +103,7 @@ const Banner = () => {
                         </ul>
                       )}
                     </div>
-                    <button className="bg-white font-semibold px-6 py-3 rounded-lg border-2 border-white text-blue-900 hover:text-white hover:bg-blue-800 hover:border-blue-800 transition-colors text-sm  mt-4">
+                    <button className="bg-white font-semibold px-4 py-2 rounded-lg border-2 border-white text-blue-900 hover:text-white hover:bg-blue-800 hover:border-blue-800 transition-colors text-base  mt-4">
                       Get Started
                     </button>
                   </div>

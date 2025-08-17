@@ -31,7 +31,7 @@ export default function PolicyFormSection() {
   };
 
   return (
-    <section className="relative px-6 py-20 bg-blue-100 my-12 overflow-hidden">
+    <section className="relative px-6 py-20 bg-blue-100 mt-12 overflow-hidden">
 
       <div className="relative max-w-4xl mx-auto z-10">
         <h1 className="text-4xl font-extrabold text-black mb-4 text-center">
