@@ -58,7 +58,7 @@ const Navbar = () => {
 
       {/* Desktop Navigation */}
       <div className="hidden xl:flex items-center">
-        <ul className="flex text-[16.5px] gap-6 lg:gap-8 text-foreground font-medium">
+        <ul className="flex text-[16.5px] gap-6 lg:gap-8 text-white font-medium">
           <li>
             <a href="/" className="hover:text-blue-300 transition-colors">
               Home
@@ -90,7 +90,7 @@ const Navbar = () => {
                   <a
                     key={index}
                     href={product.href}
-                    className="block px-4 py-2 text-gray-800 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                    className="block px-4 py-2 text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors"
                   >
                     {product.name}
                   </a>
@@ -124,7 +124,7 @@ const Navbar = () => {
                   <a
                     key={index}
                     href={service.href}
-                    className="block px-3 py-1 text-gray-800 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                    className="block px-3 py-1 text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors"
                   >
                     {service.name}
                   </a>
@@ -158,7 +158,7 @@ const Navbar = () => {
                   <a
                     key={index}
                     href={pricing.href}
-                    className="block px-4 py-2 text-gray-800 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                    className="block px-4 py-2 text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors"
                   >
                     {pricing.name}
                   </a>
@@ -194,7 +194,7 @@ const Navbar = () => {
                   <a
                     key={index}
                     href={activity.href}
-                    className="block px-4 py-2 text-gray-800 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                    className="block px-4 py-2 text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors"
                   >
                     {activity.name}
                   </a>
@@ -228,7 +228,7 @@ const Navbar = () => {
                   <a
                     key={index}
                     href={about.href}
-                    className="block px-4 py-2 text-gray-800 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                    className="block px-4 py-2 text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors"
                   >
                     {about.name}
                   </a>
@@ -250,7 +250,7 @@ const Navbar = () => {
       <div className="xl:hidden">
         <div
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="text-foreground p-2"
+          className="text-white p-2"
         >
           <svg
             className="w-6 h-6"

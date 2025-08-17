@@ -6,7 +6,7 @@ const Solutions = () => {
     <section className="relative px-6 py-16  my-6 bg-blue-100 overflow-hidden">
       {/* Decorative blurred shapes */}
 
-      <h2 className="relative z-10 text-3xl md:text-4xl font-extrabold text-center text-gray-900 mb-14 tracking-tight ">
+      <h2 className="relative z-10 text-3xl md:text-4xl font-extrabold text-center text-black mb-14 tracking-tight ">
         Microsoft Solutions for IT &amp; OT Asset Security
       </h2>
 
@@ -15,11 +15,11 @@ const Solutions = () => {
         <div className="w-full lg:w-[32%] flex flex-col gap-8">
           {/* Microsoft Azure */}
           <div className="bg-white/90 border-l-8 border-blue-900 rounded-2xl p-7 shadow-xl transition-all duration-200 hover:scale-[1.03] hover:shadow-2xl">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-              <span className="inline-block w-2 h-6 bg-blue-900 rounded-full animate-pulse"></span>
+            <h3 className="text-2xl font-bold text-black mb-4 flex items-center gap-2">
+              <span className="inline-block w-2 h-6 bg-blue-800 rounded-full animate-pulse"></span>
               Microsoft Azure
             </h3>
-            <ul className="pl-0 text-gray-800 space-y-4">
+            <ul className="pl-0 text-black space-y-4">
               <li className="flex items-start gap-3">
                 <img src="/images/checkbox.png" alt="Checked" className="w-5 h-5 mt-[2px]" />
                 <p>
@@ -36,11 +36,11 @@ const Solutions = () => {
 
           {/* Microsoft Defender for IoT */}
           <div className="bg-white/90 border-l-8 border-blue-900 rounded-2xl p-7 shadow-xl transition-all duration-200 hover:scale-[1.03] hover:shadow-2xl">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-              <span className="inline-block w-2 h-6 bg-blue-900 rounded-full animate-pulse"></span>
+            <h3 className="text-2xl font-bold text-black mb-4 flex items-center gap-2">
+              <span className="inline-block w-2 h-6 bg-blue-800 rounded-full animate-pulse"></span>
               Microsoft Defender for IoT
             </h3>
-            <ul className="pl-0 text-gray-800 space-y-4">
+            <ul className="pl-0 text-black space-y-4">
               <li className="flex items-start gap-3">
                 <img src="/images/checkbox.png" alt="Checked" className="w-5 h-5 mt-[2px]" />
                 <p>Specialized protection for OT and IoT environments with continuous asset discovery.</p>
@@ -63,11 +63,11 @@ const Solutions = () => {
             />
           </div>
           <div className="mt-8 w-full flex flex-col items-center bg-white/90 border-l-8 border-blue-900 rounded-2xl p-7 shadow-xl transition-all duration-200 hover:scale-[1.03] hover:shadow-2xl">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-              <span className="inline-block w-2 h-6 bg-blue-000 rounded-full animate-pulse"></span>
+            <h3 className="text-2xl font-bold text-black mb-4 flex items-center gap-2">
+              <span className="inline-block w-2 h-6 bg-blue-800 rounded-full animate-pulse"></span>
               Microsoft Purview Compliance Manager
             </h3>
-            <ul className="pl-0 text-gray-800 space-y-4 max-w-md">
+            <ul className="pl-0 text-black space-y-4 max-w-md">
               <li className="flex items-start gap-3">
                 <img src="/images/checkbox.png" alt="Checked" className="w-5 h-5 mt-[2px]" />
                 <p>Simplifies compliance with tools for assessments, tracking, and reporting.</p>
@@ -84,11 +84,11 @@ const Solutions = () => {
         <div className="w-full lg:w-[32%] flex flex-col gap-8">
           {/* Microsoft Sentinel */}
           <div className="bg-white/90 border-l-8 border-blue-900 rounded-2xl p-7 shadow-xl transition-all duration-200 hover:scale-[1.03] hover:shadow-2xl">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-              <span className="inline-block w-2 h-6 bg-blue-900 rounded-full animate-pulse"></span>
+            <h3 className="text-2xl font-bold text-black mb-4 flex items-center gap-2">
+              <span className="inline-block w-2 h-6 bg-blue-800 rounded-full animate-pulse"></span>
               Microsoft Sentinel
             </h3>
-            <ul className="pl-0 text-gray-800 space-y-4">
+            <ul className="pl-0 text-black space-y-4">
               <li className="flex items-start gap-3">
                 <img src="/images/checkbox.png" alt="Checked" className="w-5 h-5 mt-[2px]" />
                 <p>Cloud-native SIEM and SOAR platform with intelligent security analytics.</p>
@@ -102,11 +102,11 @@ const Solutions = () => {
 
           {/* Microsoft 365 Security */}
           <div className="bg-white/90 border-l-8 border-blue-900 rounded-2xl p-7 shadow-xl transition-all duration-200 hover:scale-[1.03] hover:shadow-2xl">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-              <span className="inline-block w-2 h-6 bg-blue-900 rounded-full animate-pulse"></span>
+            <h3 className="text-2xl font-bold text-black mb-4 flex items-center gap-2">
+              <span className="inline-block w-2 h-6 bg-blue-800 rounded-full animate-pulse"></span>
               Microsoft 365 Security
             </h3>
-            <ul className="pl-0 text-gray-800 space-y-4">
+            <ul className="pl-0 text-black space-y-4">
               <li className="flex items-start gap-3">
                 <img src="/images/checkbox.png" alt="Checked" className="w-5 h-5 mt-[2px]" />
                 <p>Protects email, documents, and identities while enabling secure collaboration.</p>

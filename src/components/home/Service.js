@@ -100,7 +100,7 @@ const Service = () => {
         {/* Heading */}
         <div className="text-center mb-10">
           <h2 className="text-3xl md:text-4xl font-bold text-black">Our Services</h2>
-          <p className="mt-3 text-gray-800 max-w-2xl mx-auto">
+          <p className="mt-3 text-black max-w-2xl mx-auto">
             We offer a comprehensive suite of cybersecurity and compliance services designed to protect your IT and OT environments.
           </p>
         </div>
@@ -117,11 +117,11 @@ const Service = () => {
                 onClick={() => toggleAccordion(service.id)}
                 className="flex items-center justify-between w-full p-5 text-left"
               >
-                <div className="flex items-center text-blue-900 text-3xl gap-4">
+                <div className="flex items-center text-blue-800 text-3xl gap-4">
                   {service.icon}
                   <div>
-                    <h3 className="text-lg font-semibold">{service.title}</h3>
-                    <p className="text-gray-800 text-sm">{service.short}</p>
+                    <h3 className="text-lg  font-semibold">{service.title}</h3>
+                    <p className="text-black text-sm">{service.short}</p>
                   </div>
                 </div>
                 <svg
@@ -144,7 +144,7 @@ const Service = () => {
                   openId === service.id ? "max-h-[300px] opacity-100 p-5 pt-0" : "max-h-0 opacity-0 p-0"
                 } overflow-hidden`}
               >
-                <p className="text-gray-800 mb-4">{service.content}</p>
+                <p className="text-black mb-4">{service.content}</p>
                 <a
                   href={service.link}
                   className="inline-block px-5 py-2 bg-blue-900 text-white rounded-full hover:bg-blue-700 transition"

@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 
-const Products = ({products , heading, color}) => {
+const Products = ({ products, heading, color }) => {
   const [expandedIndex, setExpandedIndex] = useState(null);
 
   const toggleLinks = (index) => {
@@ -10,8 +10,10 @@ const Products = ({products , heading, color}) => {
   const isBlue = color == "blue";
 
   return (
-<section className={`${isBlue ? "bg-blue-100" : "bg-white"} px-12 py-12 my-4`}>
-      <h2 className="text-3xl text-gray-900 text-center font-bold mb-10 tracking-tight ">
+    <section
+      className={`${isBlue ? "bg-blue-50" : "bg-white"} px-12 py-12 my-4`}
+    >
+      <h2 className="text-3xl text-black text-center font-bold mb-10 tracking-tight ">
         {heading}
       </h2>
 
@@ -22,24 +24,26 @@ const Products = ({products , heading, color}) => {
           return (
             <div
               key={idx}
-              className={`relative group rounded-2xl p-6 shadow-all bg-white/80 backdrop-blur-lg border border-blue-100
-                hover:shadow-xl hover:border-blue-900 hover:bg-white/90 hover:-translate-y-1
+              className={`relative group rounded-2xl p-6 shadow-all bg-white/90 backdrop-blur-lg border border-blue-200
+                hover:shadow-xl hover:border-blue-700 hover:bg-white hover:-translate-y-1
                 w-full max-w-xs flex flex-col transition-all duration-300`}
               style={{
-                borderTop: "6px solid blue-900",
+                borderTop: "6px solid #1e40af",
                 height: isExpanded ? "auto" : "250px", // uniform base height
               }}
             >
               {/* Icon */}
-              <div className="flex items-center justify-center mb-3">{product.icon}</div>
+              <div className="flex items-center justify-center mb-3">
+                {product.icon}
+              </div>
 
               {/* Title */}
-              <div className="font-bold text-lg mb-2 text-gray-900 tracking-tight text-center">
+              <div className="font-bold text-lg mb-2 text-black tracking-tight text-center">
                 {product.title}
               </div>
 
               {/* Description */}
-              <div className="text-xs text-gray-800 mb-4 text-center font-medium">
+              <div className="text-sm text-black mb-4 text-center font-medium">
                 {product.description}
               </div>
 
@@ -47,7 +51,9 @@ const Products = ({products , heading, color}) => {
               <div
                 className={`overflow-hidden transition-all duration-500 ease-in-out`}
                 style={{
-                  maxHeight: isExpanded ? `${product.links.length * 40}px` : "0px",
+                  maxHeight: isExpanded
+                    ? `${product.links.length * 40}px`
+                    : "0px",
                   opacity: isExpanded ? 1 : 0,
                 }}
               >
@@ -56,9 +62,9 @@ const Products = ({products , heading, color}) => {
                     <li key={i}>
                       <a
                         href="#"
-                        className="flex items-center gap-2 text-gray-700 hover:text-blue-900 text-sm font-medium hover:underline  transition-colors duration-150"
+                        className="flex items-center gap-2 text-black hover:text-blue-800 text-sm font-medium hover:underline transition-colors duration-150"
                       >
-                        <span className="text-blue-900 font-bold">&gt;</span>
+                        <span className="text-blue-800 font-bold">&gt;</span>
                         {link}
                       </a>
                     </li>
@@ -70,7 +76,7 @@ const Products = ({products , heading, color}) => {
               {product.links.length > 0 && (
                 <button
                   onClick={() => toggleLinks(idx)}
-                  className="mt-2 text-blue-900 hover:underline text-sm font-semibold self-center"
+                  className="mt-2 text-blue-800 hover:text-blue-900 hover:underline text-sm font-semibold self-center"
                 >
                   {isExpanded ? "...Read Less" : "Read More..."}
                 </button>
@@ -81,12 +87,11 @@ const Products = ({products , heading, color}) => {
       </div>
 
       <div className="flex justify-center mt-12">
-        <button className="bg-white text-blue-900 py-3 font-bold px-7 rounded-lg shadow-lg text-lg tracking-wide transition-all duration-200 hover:bg-blue-700 hover:text-white border-2 border-blue-800">
+        <button className="bg-white text-blue-800 py-3 font-bold px-7 rounded-lg shadow-lg text-lg tracking-wide transition-all duration-200 hover:bg-blue-700 hover:text-white border-2 border-blue-800">
           Request the Quote
         </button>
       </div>
     </section>
-
   );
 };
 

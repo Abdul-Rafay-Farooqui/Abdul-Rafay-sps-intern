@@ -9,12 +9,12 @@ const Why = ({ maintitle, maintext, contentarray = [], image, imagealt }) => {
         <div className="w-full lg:w-2/3 flex flex-col justify-center">
           <div className="flex items-center mb-8">
             <span className="inline-block w-2 h-12 bg-blue-900 rounded-full mr-4 animate-pulse"></span>
-            <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight">
+            <h1 className="text-3xl md:text-4xl font-extrabold text-black tracking-tight">
               {maintitle}
             </h1>
           </div>
           {maintext && (
-            <p className="text-lg text-gray-800 mb-10 font-medium">
+            <p className="text-lg text-black mb-10 font-medium">
               {maintext}
             </p>
           )}
@@ -35,7 +35,7 @@ const Why = ({ maintitle, maintext, contentarray = [], image, imagealt }) => {
                   </h4>
                 )}
                 {item.text && (
-                  <p className="text-base text-gray-700">{item.text}</p>
+                  <p className="text-base text-black">{item.text}</p>
                 )}
               </div>
             ))}

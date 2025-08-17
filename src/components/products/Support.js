@@ -15,12 +15,12 @@ const Support = ({
           <div className="relative bg-white/80  rounded-3xl shadow-2xl p-10 mb-8 border">
             <div className="flex items-center mb-8">
               <span className="inline-block w-2 h-12 bg-blue-900 rounded-full mr-4 animate-pulse"></span>
-              <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight ">
+              <h1 className="text-3xl md:text-4xl font-bold text-black tracking-tight ">
                 {maintitle}
               </h1>
             </div>
             {maintext && (
-              <p className="text-lg text-gray-800 mb-10 font-medium">
+              <p className="text-lg text-black mb-10 font-medium">
                 {maintext}
               </p>
             )}
@@ -33,7 +33,7 @@ const Support = ({
                   {/* Icon */}
                   <span className="mt-1">
                     <svg
-                      className="w-8 h-8 text-blue-900"
+                      className="w-8 h-8 text-blue-800"
                       fill="none"
                       stroke="currentColor"
                       strokeWidth="3"
@@ -44,10 +44,10 @@ const Support = ({
                     </svg>
                   </span>
                   <div>
-                    <h4 className="font-bold text-gray-900 text-xl mb-2">
+                    <h4 className="font-bold text-black text-xl mb-2">
                       {item.title}
                     </h4>
-                    <p className="text-base text-gray-700">{item.text}</p>
+                    <p className="text-base text-black">{item.text}</p>
                   </div>
                 </li>
               ))}
@@ -59,11 +59,11 @@ const Support = ({
           <div className="relative bg-white/90 backdrop-blur-lg rounded-3xl shadow-full p-10 border border-blue-900 z-10">
             <div className="flex items-center mb-8">
               <span className="inline-block w-2 h-10 bg-blue-900 rounded-full mr-3 animate-pulse"></span>
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
+              <h2 className="text-2xl md:text-3xl font-bold text-black">
                 Who Can Benefit?
               </h2>
             </div>
-            <p className="text-gray-800 text-base mb-6 font-medium">
+            <p className="text-black text-base mb-6 font-medium">
               This service is tailored for:
             </p>
             <ul className="pl-0 space-y-5">
@@ -75,7 +75,7 @@ const Support = ({
                   {/* Icon */}
                   <span>
                     <svg
-                      className="w-6 h-6 text-blue-900"
+                      className="w-6 h-6 text-blue-800"
                       fill="none"
                       stroke="currentColor"
                       strokeWidth="3"
@@ -85,7 +85,7 @@ const Support = ({
                       <path d="M5 13l4 4L19 7" />
                     </svg>
                   </span>
-                  <h4 className="text-base text-gray-900 font-semibold">{b}</h4>
+                  <h4 className="text-base text-black font-semibold">{b}</h4>
                 </li>
               ))}
             </ul>

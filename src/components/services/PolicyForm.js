@@ -34,21 +34,21 @@ export default function PolicyFormSection() {
     <section className="relative px-6 py-20 bg-blue-100 my-12 overflow-hidden">
 
       <div className="relative max-w-4xl mx-auto z-10">
-        <h1 className="text-4xl font-extrabold text-gray-900 mb-4 text-center">
+        <h1 className="text-4xl font-extrabold text-black mb-4 text-center">
           Check your Security Policy for NEPRA Compliance
         </h1>
-        <p className="text-center text-gray-600 max-w-2xl mx-auto mb-10">
+        <p className="text-center text-black max-w-2xl mx-auto mb-10">
           Upload your policy for a quick compliance check. We’ll guide you on how to meet NEPRA cybersecurity regulations while protecting your critical IT & OT assets.
         </p>
 
         <form
           onSubmit={handleSubmit}
-          className="bg-white p-10 rounded-2xl shadow-all space-y-6 border border-gray-100"
+          className="bg-white p-10 rounded-2xl shadow-all space-y-6 border border-blue-300"
         >
           {/* Row 1: Name & Email */}
           <div className="grid md:grid-cols-2 gap-6">
             <div>
-              <label className="block text-gray-700 font-medium mb-2">
+              <label className="block text-black font-medium mb-2">
                 Name*
               </label>
               <input
@@ -57,12 +57,12 @@ export default function PolicyFormSection() {
                 required
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-blue-900 focus:border-blue-900"
+                className="w-full border border-blue-300 rounded-lg p-3 focus:ring-2 focus:ring-blue-800 focus:border-blue-800"
               />
             </div>
 
             <div>
-              <label className="block text-gray-700 font-medium mb-2">
+              <label className="block text-black font-medium mb-2">
                 Email*
               </label>
               <input
@@ -79,7 +79,7 @@ export default function PolicyFormSection() {
           {/* Row 2: Company Name & File Upload */}
           <div className="grid md:grid-cols-2 gap-6">
             <div>
-              <label className="block text-gray-700 font-medium mb-2">
+              <label className="block text-black font-medium mb-2">
                 Company Name*
               </label>
               <input
@@ -88,12 +88,12 @@ export default function PolicyFormSection() {
                 required
                 value={formData.company}
                 onChange={handleChange}
-                className="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-blue-900 focus:border-blue-900"
+                className="w-full border border-blue-300 rounded-lg p-3 focus:ring-2 focus:ring-blue-800 focus:border-blue-800"
               />
             </div>
 
             <div>
-              <label className="block text-gray-700 font-medium mb-2">
+              <label className="block text-black font-medium mb-2">
                 Upload Your Policy File
               </label>
               <div className="flex items-center gap-3">
@@ -115,7 +115,7 @@ export default function PolicyFormSection() {
           </div>
 
           {/* Disclaimer */}
-          <p className="text-sm text-gray-500 mt-2">
+          <p className="text-sm text-black mt-2">
             <strong>Disclaimer:</strong> We respect your privacy. Any files or
             data shared with us are not saved or stored and are permanently
             discarded after your assessment.
@@ -131,7 +131,7 @@ export default function PolicyFormSection() {
               required
               className="w-4 h-4 border-gray-300 rounded"
             />
-            <label className="text-gray-700">I am not a robot</label>
+            <label className="text-black">I am not a robot</label>
           </div>
 
           {/* Submit */}

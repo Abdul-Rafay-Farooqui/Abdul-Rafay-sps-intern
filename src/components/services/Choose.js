@@ -8,8 +8,8 @@ export default function ChooseSection({ image }) {
       <div className="relative max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center z-10">
         {/* Text content */}
         <div>
-          <h1 className="text-3xl font-bold text-gray-900 mb-6">Why Choose Us?</h1>
-          <ul className="list-disc list-inside space-y-4 text-lg text-gray-700 leading-relaxed">
+          <h1 className="text-3xl font-bold text-black mb-6">Why Choose Us?</h1>
+          <ul className="list-disc  space-y-4 text-lg text-black leading-relaxed">
             <li>
               <p>By leveraging our expertise, your organization will be equipped to
               not only comply with NEPRA cybersecurity regulations but also

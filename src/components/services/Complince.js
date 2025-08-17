@@ -6,23 +6,23 @@ const Compliance = ({ title, intro, points }) => {
     <section className="relative px-6 py-16 my-6 bg-blue-100 overflow-hidden">
 
       {/* Title */}
-      <h1 className="relative z-10 text-3xl md:text-4xl font-extrabold text-center text-gray-900 mb-8 tracking-tight ">
+      <h1 className="relative z-10 text-3xl md:text-4xl font-extrabold text-center text-black mb-8 tracking-tight ">
         {title}
       </h1>
 
       {/* Intro */}
-      <p className="relative z-10 max-w-4xl mx-auto text-gray-800 text-lg mb-10 text-center leading-relaxed">
+      <p className="relative z-10 max-w-4xl mx-auto text-black text-lg mb-10 text-center leading-relaxed">
         {intro}
       </p>
 
       {/* Compliance Points */}
       <div className="relative z-10 max-w-5xl mx-auto bg-white/90 border-l-8 border-blue-900 rounded-2xl p-8 shadow-xl">
-        <ul className="pl-0 text-gray-800 space-y-5">
+        <ul className="pl-0 text-black space-y-5">
           {points.map((point, idx) => (
             <li key={idx} className="flex items-start gap-3">
               <span className="mt-1">
                 <svg
-                  className="w-5 h-5 text-blue-900 flex-shrink-0"
+                  className="w-5 h-5 text-blue-800 flex-shrink-0"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="3"
