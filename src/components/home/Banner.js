@@ -34,16 +34,19 @@ const Banner = () => {
   return (
     <section className="w-full  flex bg-blue-900 text-white">
       <div className="h-full w-full flex flex-col lg:flex-row items-stretch relative">
-        {/* Optimized background image */}
-        <Image
-          src="https://res.cloudinary.com/dwiplkg4o/image/upload/v1755433421/bg_fqrppk.png"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          quality={70}
-          className="object-cover"
-        />
+        {/* Optimized background image (no boolean fill) */}
+        <div className="absolute inset-0">
+          <Image
+            src="https://res.cloudinary.com/dwiplkg4o/image/upload/v1755433421/bg_fqrppk.png"
+            alt=""
+            priority
+            sizes="100vw"
+            quality={70}
+            width={1920}
+            height={1080}
+            className="w-full h-full object-cover"
+          />
+        </div>
         {/* Gradient overlay as a flex child - Made darker for better contrast */}
         <div className="w-full h-full bg-gradient-to-b from-black/60 to-black/60 absolute top-0 left-0 z-10 pointer-events-none"></div>
         {/* Content container */}
