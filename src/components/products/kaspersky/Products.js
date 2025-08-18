@@ -25,10 +25,10 @@ const Products = ({ products, heading, color }) => {
                 key={idx}
                 className={`relative group rounded-2xl p-6 shadow-all bg-white/90 backdrop-blur-lg border border-blue-200
                 hover:shadow-xl hover:border-blue-700 hover:bg-white hover:-translate-y-1
-                w-[90%] sm:w-[48%] md:w-[31%] lg:w-[24%] flex flex-col transition-all duration-300`}
+                w-[90%] sm:w-[48%] md:w-[35%] lg:w-[27%] xl:w-[24%] flex flex-col transition-all duration-300`}
                 style={{
                   borderTop: "6px solid #1e40af",
-                  height: isExpanded ? "auto" : "270px", // uniform base height
+                  height: isExpanded ? "auto" : "260px", // uniform base height
                 }}
               >
                 {/* Icon */}
