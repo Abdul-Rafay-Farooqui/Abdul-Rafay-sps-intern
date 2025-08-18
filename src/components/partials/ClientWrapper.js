@@ -28,7 +28,7 @@ const ClientWrapper = ({ children }) => {
           (window.matchMedia("(pointer: coarse)").matches ||
             window.matchMedia("(max-width: 768px)").matches)) ||
         false;
-      const SPLASH_DURATION_MS = isMobile ? 4000 : 3000;
+      const SPLASH_DURATION_MS = isMobile ? 3000 : 2500;
 
       const timer = setTimeout(() => {
         setShowSplash(false);
