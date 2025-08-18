@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 const Banner = () => {
   const plans = [
@@ -32,11 +33,21 @@ const Banner = () => {
   ];
   return (
     <section className="w-full  flex bg-blue-900 text-white">
-      <div className="h-full w-full  bg-cover bg-center bg-no-repeat bg-[url('https://res.cloudinary.com/dwiplkg4o/image/upload/v1755433421/bg_fqrppk.png')] flex flex-col lg:flex-row items-stretch relative">
+      <div className="h-full w-full flex flex-col lg:flex-row items-stretch relative">
+        {/* Optimized background image */}
+        <Image
+          src="https://res.cloudinary.com/dwiplkg4o/image/upload/v1755433421/bg_fqrppk.png"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          quality={70}
+          className="object-cover"
+        />
         {/* Gradient overlay as a flex child - Made darker for better contrast */}
-        <div className="w-full h-full bg-gradient-to-b from-black/60 to-black/60 absolute top-0 left-0 z-0 pointer-events-none"></div>
+        <div className="w-full h-full bg-gradient-to-b from-black/60 to-black/60 absolute top-0 left-0 z-10 pointer-events-none"></div>
         {/* Content container */}
-        <div className="flex flex-col justify-center w-full h-full z-10 relative">
+        <div className="flex flex-col justify-center w-full h-full z-20 relative">
           {/* Left: Text */}
           <div className=" text-center w-full  px-6 lg:pl-10 py-8 lg:py-0 mt-16">
             <h1 className="text-white text-2xl sm:text-3xl md:text-4xl font-bold leading-tight drop-shadow-lg">
