@@ -2,18 +2,10 @@
 import React, { useState } from "react";
 
 const Products = ({ products, heading, color }) => {
-  const [expandedIndices, setExpandedIndices] = useState(() => new Set());
+  const [expandedIndex, setExpandedIndex] = useState(null);
 
   const toggleLinks = (index) => {
-    setExpandedIndices((prev) => {
-      const next = new Set(prev);
-      if (next.has(index)) {
-        next.delete(index);
-      } else {
-        next.add(index);
-      }
-      return next;
-    });
+    setExpandedIndex((prev) => (prev === index ? null : index));
   };
   const isBlue = color == "blue";
 
@@ -26,7 +18,7 @@ const Products = ({ products, heading, color }) => {
 
         <div className="flex flex-wrap gap-4 justify-center">
           {products.map((product, idx) => {
-            const isExpanded = expandedIndices.has(idx);
+            const isExpanded = expandedIndex === idx;
 
             return (
               <div
