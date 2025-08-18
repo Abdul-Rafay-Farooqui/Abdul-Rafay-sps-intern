@@ -105,10 +105,10 @@ const Form = () => {
             <path d="M16 3v4M8 3v4" />
           </svg>
         </div>
-        <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-6 text-center tracking-tight ">
+        <h2 className="text-2xl md:text-4xl font-extrabold text-black mb-3 md:mb-6 text-center tracking-tight ">
           Get Started with NEPRA Compliance
         </h2>
-        <p className="text-black text-center mb-8 font-medium">
+        <p className="text-black text-sm md:text-base text-center mb-8 font-medium">
           Schedule your consultation today and take the first step toward secure
           compliance.
         </p>
@@ -247,7 +247,7 @@ const Form = () => {
               className="w-full border border-blue-800 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-800 placeholder:text-blue-800 bg-white shadow"
             />
           </div>
-          <div className="flex gap-4 w-full md:w-3/4">
+          <div className="flex flex-col md:flex-row gap-4 w-full md:w-3/4">
             <label htmlFor="time" className="sr-only">
               Preferred Time
             </label>
@@ -258,7 +258,7 @@ const Form = () => {
               value={formData.time}
               onChange={handleChange}
               required
-              className="w-1/2 border border-blue-800 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-800 text-blue-800 placeholder:text-gray-600 bg-white shadow"
+              className="w-full md:w-1/2 border border-blue-800 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-800 text-blue-800 placeholder:text-gray-600 bg-white shadow"
             />
             <label htmlFor="date" className="sr-only">
               Preferred Date
@@ -270,7 +270,7 @@ const Form = () => {
               value={formData.date}
               onChange={handleChange}
               required
-              className="w-1/2 border border-blue-800 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-800 text-blue-800 placeholder:text-gray-600 bg-white shadow"
+              className="w-full md:w-1/2 border border-blue-800 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-800 text-blue-800 placeholder:text-gray-600 bg-white shadow"
             />
           </div>
           <button

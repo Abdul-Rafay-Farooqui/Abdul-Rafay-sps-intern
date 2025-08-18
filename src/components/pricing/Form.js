@@ -83,7 +83,7 @@ const Form = () => {
   // Don't render form until client-side to prevent hydration issues
   if (!isClient) {
     return (
-      <section className="flex justify-center items-center min-h-[40vh] px-8 py-10">
+      <section className="flex justify-center items-center min-h-[40vh] px-0 md:px-8 py-10">
         <div className="relative w-full mt-3 max-w-3xl bg-white/90 backdrop-blur-lg rounded-3xl shadow-2xl border border-blue-800 p-10 flex flex-col items-center">
           <div className="animate-pulse">
             <div className="h-8 bg-gray-200 rounded mb-4"></div>
@@ -100,9 +100,9 @@ const Form = () => {
   }
 
   return (
-    <section className="flex justify-center items-center min-h-[40vh] px-3 md:px-8 py-10 ">
+    <section className="flex justify-center items-center min-h-[40vh] px-0 md:px-8 py-10 ">
       {/* Centered Form */}
-      <div className="relative w-full mt-3 max-w-3xl bg-white/95 backdrop-blur-lg rounded-3xl shadow-2xl border border-blue-800 p-10 flex flex-col items-center">
+      <div className="relative w-full mt-3 max-w-4xl md:max-w-3xl bg-white/95 backdrop-blur-lg rounded-3xl shadow-2xl border border-blue-800 px-5 md:px-10 py-10 flex flex-col items-center">
         {/* Floating Icon */}
         <div className="absolute -top-10 left-1/2 -translate-x-1/2 bg-blue-800 rounded-full p-4 shadow-lg">
           <svg
@@ -116,10 +116,10 @@ const Form = () => {
             <path d="M16 3v4M8 3v4" />
           </svg>
         </div>
-        <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-6 text-center tracking-tight ">
+        <h2 className="text-2xl md:text-4xl font-extrabold text-black mb-3 md:mb-6 text-center tracking-tight ">
           Get Started with NEPRA Compliance
         </h2>
-        <p className="text-black text-center mb-8 font-medium">
+        <p className="text-black text-center text-sm md:text-base mb-8 font-medium">
           Schedule your consultation today and take the first step toward secure
           compliance.
         </p>
@@ -261,7 +261,7 @@ const Form = () => {
           <h2>
             What date and time work best for you to meet with our consultant?
           </h2>
-          <div className="flex gap-4 w-full md:w-3/4">
+          <div className="flex flex-col md:flex-row gap-4 w-full md:w-3/4">
             <label htmlFor="time" className="sr-only">
               Preferred Time
             </label>
@@ -272,7 +272,7 @@ const Form = () => {
               value={formData.time}
               onChange={handleChange}
               required
-              className="w-1/2 border border-blue-800 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-800 text-blue-800 placeholder:text-gray-600 bg-white shadow"
+              className="w-full md:w-1/2 border border-blue-800 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-800 text-blue-800 placeholder:text-gray-600 bg-white shadow"
             />
             <label htmlFor="date" className="sr-only">
               Preferred Date
@@ -284,7 +284,7 @@ const Form = () => {
               value={formData.date}
               onChange={handleChange}
               required
-              className="w-1/2 border border-blue-800 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-800 text-blue-800 placeholder:text-gray-600 bg-white shadow"
+              className="w-full md:w-1/2 border border-blue-800 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-800 text-blue-800 placeholder:text-gray-600 bg-white shadow"
             />
           </div>
           <div className="flex items-center">

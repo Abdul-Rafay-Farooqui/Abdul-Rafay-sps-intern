@@ -148,7 +148,7 @@ const Service = () => {
               <div
                 className={`transition-all duration-500 ease-in-out ${
                   openId === service.id
-                    ? "max-h-[300px] opacity-100 p-5 pt-0"
+                    ? "md:max-h-[300px] opacity-100 p-5 pt-0"
                     : "max-h-0 opacity-0 p-0"
                 } overflow-hidden`}
               >

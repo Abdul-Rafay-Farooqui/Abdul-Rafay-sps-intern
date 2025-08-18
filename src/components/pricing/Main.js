@@ -3,7 +3,7 @@ import Form from "../pricing/Form";
 
 const Main = ({ content, heading }) => {
   return (
-    <section className="px-8 md:px-16 py-16 bg-white text-gray-900">
+    <section className="px-3 md:px-16 py-16 bg-white text-gray-900">
       <div className="flex flex-col lg:flex-row">
         <div className="w-full lg:w-1/2">
         {/* Heading 1 */}
