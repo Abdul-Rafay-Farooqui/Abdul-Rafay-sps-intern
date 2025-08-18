@@ -17,7 +17,7 @@ const Products = ({ products, heading, color }) => {
         {heading}
       </h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 justify-items-center items-start">
+      <div className="flex flex-wrap gap-4 justify-center">
         {products.map((product, idx) => {
           const isExpanded = expandedIndex === idx;
 
@@ -26,7 +26,7 @@ const Products = ({ products, heading, color }) => {
               key={idx}
               className={`relative group rounded-2xl p-6 shadow-all bg-white/90 backdrop-blur-lg border border-blue-200
                 hover:shadow-xl hover:border-blue-700 hover:bg-white hover:-translate-y-1
-                w-full max-w-xs flex flex-col transition-all duration-300`}
+                w-full sm:w-[48%] md:w-[31%] lg:w-[24%] flex flex-col transition-all duration-300`}
               style={{
                 borderTop: "6px solid #1e40af",
                 height: isExpanded ? "auto" : "250px", // uniform base height
