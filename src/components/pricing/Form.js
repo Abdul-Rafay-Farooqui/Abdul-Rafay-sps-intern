@@ -24,6 +24,7 @@ const Form = () => {
     job: "",
     time: "",
     date: "",
+    verified: false,
   });
 
   const [isClient, setIsClient] = useState(false);
@@ -35,8 +36,9 @@ const Form = () => {
   }, []);
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    const { name, type, checked, value } = e.target;
+    const nextValue = type === "checkbox" ? checked : value;
+    setFormData((prev) => ({ ...prev, [name]: nextValue }));
   };
 
   const handleSubmit = async (e) => {
@@ -44,6 +46,14 @@ const Form = () => {
     setIsSubmitting(true);
 
     try {
+      // Require agreement to Terms and Conditions
+      if (!formData.verified) {
+        alert(
+          "Please acknowledge and agree to the Terms and Conditions to proceed."
+        );
+        setIsSubmitting(false);
+        return;
+      }
       // Simulate API call
       await new Promise((resolve) => setTimeout(resolve, 1000));
       console.log("Form submitted:", formData);
@@ -57,6 +67,7 @@ const Form = () => {
         job: "",
         time: "",
         date: "",
+        verified: false,
       });
 
       // Show success message (you can implement a toast notification here)
@@ -247,6 +258,9 @@ const Form = () => {
               className="w-full border border-blue-800 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-800 placeholder:text-blue-800 bg-white shadow"
             />
           </div>
+          <h2>
+            What date and time work best for you to meet with our consultant?
+          </h2>
           <div className="flex gap-4 w-full md:w-3/4">
             <label htmlFor="time" className="sr-only">
               Preferred Time
@@ -273,10 +287,26 @@ const Form = () => {
               className="w-1/2 border border-blue-800 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-800 text-blue-800 placeholder:text-gray-600 bg-white shadow"
             />
           </div>
+          <div className="flex items-center">
+            <input
+              id="verified"
+              type="checkbox"
+              name="verified"
+              checked={formData.verified}
+              onChange={handleChange}
+              className="w-4 h-4 border-gray-300 rounded mr-3"
+            />
+            <label htmlFor="verified" className="text-black">
+              I acknowledge and agree to the{" "}
+              <a className="decoration-none text-blue-800">
+                Terms and conditions.
+              </a>
+            </label>
+          </div>
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full md:w-3/4 bg-gradient-to-r from-blue-800 via-blue-600 to-blue-900 hover:from-blue-900 hover:to-blue-800 text-white py-3 rounded-xl shadow-lg font-semibold text-lg tracking-wide transition-all duration-200 hover:scale-105 border-2 border-blue-700 mt-8 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full md:w-3/4 bg-gradient-to-r from-blue-800 via-blue-600 to-blue-900 hover:from-blue-900 hover:to-blue-800 text-white py-3 rounded-xl shadow-lg font-semibold text-lg tracking-wide transition-all duration-200 hover:scale-105 border-2 border-blue-700 mt-3 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isSubmitting ? "Submitting..." : "Submit"}
           </button>

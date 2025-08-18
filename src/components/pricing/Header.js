@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 
-const Header = ({ title, subtitle, description }) => {
+const Header = ({ title,description }) => {
   return (
     <section className="w-full min-h-[250px] h-[300px] xl:h-[250px] flex bg-blue-900 text-white rubik">
       <div className="h-full w-full bg-cover bg-center text-center bg-no-repeat bg-[url('https://res.cloudinary.com/dwiplkg4o/image/upload/v1755433421/bg_fqrppk.png')] flex flex-col lg:flex-row items-stretch relative">
@@ -14,9 +14,6 @@ const Header = ({ title, subtitle, description }) => {
           <h1 className="text-white text-2xl sm:text-3xl md:text-4xl font-semibold leading-tight">
             {title}
           </h1>
-          <h2 className="text-white text-lg sm:text-xl font-medium pt-3 leading-relaxed">
-            {subtitle}
-          </h2>
           <p className="text-white text-sm sm:text-base pt-3 px-4 lg:px-28 leading-relaxed">
             {description}
           </p>

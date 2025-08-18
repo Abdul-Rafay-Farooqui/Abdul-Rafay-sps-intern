@@ -30,9 +30,9 @@ const Navbar = () => {
   ];
 
   const pricingOptions = [
-    { name: "Basic Plan", href: "/pricing/basic" },
-    { name: "Standard Plan", href: "/pricing/standard" },
-    { name: "Premium Solutions", href: "/pricing/premium" },
+    { name: "Basic Plan", href: "/pricing/basic-plan" },
+    { name: "Standard Plan", href: "/pricing/standard-plan" },
+    { name: "Premium Solutions", href: "/pricing/premium-plan" },
   ];
 
   const activitiesOptions = [
