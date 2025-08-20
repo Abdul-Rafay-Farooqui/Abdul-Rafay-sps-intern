@@ -3,14 +3,14 @@ import React from "react";
 
 const Header = ({ title, subtitle, description }) => {
   return (
-    <section className="w-full min-h-[250px]  xl:h-[250px] flex bg-blue-900 text-white rubik">
+    <section className="w-full h-auto   xl:h-[250px] flex bg-blue-900 text-white rubik">
       <div className="h-full w-full bg-cover bg-center text-center bg-no-repeat bg-[url('https://res.cloudinary.com/dwiplkg4o/image/upload/v1755433421/bg_fqrppk.png')] flex flex-col lg:flex-row items-stretch relative">
         {/* Gradient overlay as a flex child */}
         <div
           className="w-full h-full bg-gradient-to-b from-black/40 to-black/40 absolute top-0 left-0 z-0 pointer-events-none"
           style={{ position: "absolute" }}
         ></div>
-        <div className="relative flex flex-col justify-center w-full px-3 lg:px-20  py-8 lg:py-0">
+        <div className="relative flex flex-col justify-center w-full px-3 lg:px-20  py-8 lg:py-5">
           <h1 className="text-white text-2xl sm:text-3xl md:text-4xl font-semibold leading-tight">
             {title}
           </h1>

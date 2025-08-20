@@ -1,4 +1,4 @@
-import Header from '@/components/pricing/Header'
+import Header from '@/components/products/Header'
 import Main from '@/components/pricing/Main';
 import React from 'react'
 

@@ -36,13 +36,13 @@ const Navbar = () => {
   ];
 
   const activitiesOptions = [
-    { name: "Webinar", href: "/activities/training" },
-    { name: "Blog", href: "/activities/workshops" },
+    { name: "Webinar", href: "https://spsnet.com/sps-events/index.php" },
+    { name: "Blog", href: "/blogs" },
   ];
 
   const aboutUsOptions = [
-    { name: "Contact Us", href: "/about/contact" },
-    { name: "Jobs", href: "/about/contact" },
+    { name: "Contact Us", href: "/contact-us" },
+    { name: "Jobs", href: "/about/blogs" },
   ];
 
   return (
@@ -74,7 +74,7 @@ const Navbar = () => {
               Products{" "}
               <span
                 className={`ml-1 transition-transform duration-300 inline-block ${
-                  isProductsDropdownOpen ? "rotate-180" : ""
+                  isProductsDropdownOpen ? "rotate-360" : ""
                 }`}
               >
                 +
@@ -90,7 +90,7 @@ const Navbar = () => {
                   <a
                     key={index}
                     href={product.href}
-                    className="block px-4 py-2 text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                    className="block px-4 py-2 text-blue-900 hover:bg-blue-50 hover:text-blue-600 transition-colors"
                   >
                     {product.name}
                   </a>
@@ -108,7 +108,7 @@ const Navbar = () => {
               Services{" "}
               <span
                 className={`ml-1 transition-transform duration-300 inline-block ${
-                  isServicesDropdownOpen ? "rotate-180" : ""
+                  isServicesDropdownOpen ? "rotate-360" : ""
                 }`}
               >
                 +
@@ -124,7 +124,7 @@ const Navbar = () => {
                   <a
                     key={index}
                     href={service.href}
-                    className="block px-3 py-1 text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                    className="block px-3 py-1 text-blue-900 hover:bg-blue-50 hover:text-blue-600 transition-colors"
                   >
                     {service.name}
                   </a>
@@ -142,7 +142,7 @@ const Navbar = () => {
               Pricing{" "}
               <span
                 className={`ml-1 transition-transform duration-300 inline-block ${
-                  isPricingDropdownOpen ? "rotate-180" : ""
+                  isPricingDropdownOpen ? "rotate-360" : ""
                 }`}
               >
                 +
@@ -158,7 +158,7 @@ const Navbar = () => {
                   <a
                     key={index}
                     href={pricing.href}
-                    className="block px-4 py-2 text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                    className="block px-4 py-2 text-blue-900 hover:bg-blue-50 hover:text-blue-600 transition-colors"
                   >
                     {pricing.name}
                   </a>
@@ -178,7 +178,7 @@ const Navbar = () => {
               Activities{" "}
               <span
                 className={`ml-1 transition-transform duration-300 inline-block ${
-                  isActivitiesDropdownOpen ? "rotate-180" : ""
+                  isActivitiesDropdownOpen ? "rotate-360" : ""
                 }`}
               >
                 +
@@ -194,7 +194,7 @@ const Navbar = () => {
                   <a
                     key={index}
                     href={activity.href}
-                    className="block px-4 py-2 text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                    className="block px-4 py-2 text-blue-900 hover:bg-blue-50 hover:text-blue-600 transition-colors"
                   >
                     {activity.name}
                   </a>
@@ -212,7 +212,7 @@ const Navbar = () => {
               About Us{" "}
               <span
                 className={`ml-1 transition-transform duration-300 inline-block ${
-                  isAboutUsDropdownOpen ? "rotate-180" : ""
+                  isAboutUsDropdownOpen ? "rotate-360" : ""
                 }`}
               >
                 +
@@ -228,7 +228,7 @@ const Navbar = () => {
                   <a
                     key={index}
                     href={about.href}
-                    className="block px-4 py-2 text-blue-800 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                    className="block px-4 py-2 text-blue-900 hover:bg-blue-50 hover:text-blue-600 transition-colors"
                   >
                     {about.name}
                   </a>
@@ -241,9 +241,10 @@ const Navbar = () => {
 
       {/* Desktop Login Button */}
       <div className="hidden xl:block">
-        <button className="bg-transparent text-white text-sm rounded-md border-white px-4 py-2 border-[1px] hover:bg-white hover:text-[#002147] transition-colors">
+
+        <a href="https://nepra.spsnet.com/csm/" className="bg-transparent text-white text-sm rounded-md border-white px-4 py-3 border-[1px] hover:bg-white hover:text-[#002147] transition-colors">
           Login to CMS
-        </button>
+        </a>
       </div>
 
       {/* Mobile Menu Button */}

@@ -1,16 +1,20 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { Toaster, toast } from "react-hot-toast";
 
-const InputIcon = ({ icon, ...props }) => (
+const InputIcon = ({ icon, error, ...props }) => (
   <div className="relative">
     <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-blue-800">
       {icon}
     </span>
     <input
       {...props}
-      className={`pl-10 ${props.className}`}
+      className={`pl-10 ${props.className} ${
+        error ? "border-red-600 focus:ring-red-600" : ""
+      }`}
       autoComplete="off"
       spellCheck="false"
+      aria-invalid={error ? "true" : "false"}
     />
   </div>
 );
@@ -24,24 +28,144 @@ const Form = () => {
     job: "",
     time: "",
     date: "",
+    terms: false,
   });
 
   const [isClient, setIsClient] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errors, setErrors] = useState({});
 
   // Prevent hydration mismatch by only rendering form after client mount
   useEffect(() => {
     setIsClient(true);
   }, []);
 
+  const getTodayDateString = () => {
+    const now = new Date();
+    const yyyy = now.getFullYear();
+    const mm = String(now.getMonth() + 1).padStart(2, "0");
+    const dd = String(now.getDate()).padStart(2, "0");
+    return `${yyyy}-${mm}-${dd}`;
+  };
+
+  const getTomorrowDateString = () => {
+    const now = new Date();
+    now.setDate(now.getDate() + 1);
+    const yyyy = now.getFullYear();
+    const mm = String(now.getMonth() + 1).padStart(2, "0");
+    const dd = String(now.getDate()).padStart(2, "0");
+    return `${yyyy}-${mm}-${dd}`;
+  };
+
+  const validateField = (fieldName, value, allValues) => {
+    const values = allValues || formData;
+    switch (fieldName) {
+      case "name": {
+        if (!value || value.trim() === "") return "Name is required.";
+        if (value.trim().length < 3)
+          return "Name must be at least 3 characters.";
+        if (!/^[A-Za-z\s]+$/.test(value.trim()))
+          return "Name can contain only letters and spaces.";
+        return "";
+      }
+      case "email": {
+        if (!value || value.trim() === "") return "Email is required.";
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(value.trim()))
+          return "Enter a valid email (example@domain.com).";
+        return "";
+      }
+      case "phone": {
+        if (!value || value.trim() === "") return "Phone is required.";
+        if (!/^\d+$/.test(value)) return "Phone can contain digits only.";
+        if (value.length < 10 || value.length > 15)
+          return "Phone must be 10–15 digits.";
+        return "";
+      }
+      case "company": {
+        if (!value || value.trim() === "")
+          return "Company / Organization is required.";
+        if (value.trim().length < 2)
+          return "Company must be at least 2 characters.";
+        return "";
+      }
+      case "job": {
+        if (!value || value.trim() === "")
+          return "Job Title / Role is required.";
+        if (value.trim().length < 2)
+          return "Job Title / Role must be at least 2 characters.";
+        return "";
+      }
+      case "date": {
+        if (!value) return "Select Date is required.";
+        const today = getTodayDateString();
+        if (value <= today) return "Date must be in the future (not today).";
+        return "";
+      }
+      case "time": {
+        if (!value) return "Select Time is required.";
+        return "";
+      }
+      case "terms": {
+        if (!values.terms) return "You must accept the Terms & Conditions.";
+        return "";
+      }
+      default:
+        return "";
+    }
+  };
+
+  const validateForm = (values) => {
+    const newErrors = {};
+    const fields = [
+      "name",
+      "email",
+      "phone",
+      "company",
+      "job",
+      "date",
+      "time",
+      "terms",
+    ];
+    fields.forEach((field) => {
+      const message = validateField(field, values[field], values);
+      if (message) newErrors[field] = message;
+    });
+    return newErrors;
+  };
+
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    const { name, value, type } = e.target;
+    if (name === "phone") {
+      const digitsOnly = value.replace(/\D/g, "");
+      setFormData((prev) => ({ ...prev, [name]: digitsOnly }));
+    } else if (type === "checkbox") {
+      setFormData((prev) => ({ ...prev, [name]: e.target.checked }));
+    } else {
+      setFormData((prev) => ({ ...prev, [name]: value }));
+    }
+  };
+
+  const handleBlur = (e) => {
+    const { name } = e.target;
+    const message = validateField(name, formData[name]);
+    setErrors((prev) => ({ ...prev, [name]: message }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+
+    const currentErrors = validateForm(formData);
+    if (Object.keys(currentErrors).length > 0) {
+      setErrors(currentErrors);
+      setIsSubmitting(false);
+      toast.error("Please fix the highlighted errors.", {
+        duration: 3000,
+        style: { borderRadius: "10px", background: "#333", color: "#fff" },
+      });
+      return;
+    }
 
     try {
       // Simulate API call
@@ -57,13 +181,25 @@ const Form = () => {
         job: "",
         time: "",
         date: "",
+        terms: false,
       });
-
-      // Show success message (you can implement a toast notification here)
-      alert("Thank you! Your consultation request has been submitted.");
+      setErrors({});
+      toast.success(
+        "Thank you! Your consultation request has been submitted.",
+        {
+          duration: 3000,
+          style: { borderRadius: "10px", background: "#333", color: "#fff" },
+        }
+      );
     } catch (error) {
       console.error("Form submission error:", error);
-      alert("There was an error submitting your request. Please try again.");
+      toast.error(
+        "There was an error submitting your request. Please try again.",
+        {
+          duration: 3000,
+          style: { borderRadius: "10px", background: "#333", color: "#fff" },
+        }
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -90,6 +226,7 @@ const Form = () => {
 
   return (
     <section className="flex justify-center items-center min-h-[40vh] px-3 md:px-8 py-10 ">
+      <Toaster position="top-center" reverseOrder={false} />
       {/* Centered Form */}
       <div className="relative w-full mt-3 max-w-3xl bg-white/95 backdrop-blur-lg rounded-3xl shadow-2xl border border-blue-800 p-10 flex flex-col items-center">
         {/* Floating Icon */}
@@ -118,107 +255,143 @@ const Form = () => {
           noValidate
         >
           <div className="md:flex gap-4 space-y-4 md:space-y-0 w-full md:w-3/4">
-            <label htmlFor="name" className="sr-only">
-              Name
-            </label>
-            <InputIcon
-              id="name"
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              placeholder="Name"
-              required
-              icon={
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                >
-                  <circle cx="12" cy="8" r="4" />
-                  <path d="M6 20v-2a6 6 0 0112 0v2" />
-                </svg>
-              }
-              className="w-full border border-blue-800 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-800 placeholder:text-blue-800 bg-white shadow"
-            />
-            <label htmlFor="email" className="sr-only">
-              Email
-            </label>
-            <InputIcon
-              id="email"
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              placeholder="Email"
-              required
-              icon={
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M4 4h16v16H4z" />
-                  <path d="M4 4l8 8 8-8" />
-                </svg>
-              }
-              className="w-full border border-blue-800 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-800 placeholder:text-blue-800  bg-white shadow"
-            />
+            <div className="w-full">
+              <label htmlFor="name" className="sr-only">
+                Name
+              </label>
+              <InputIcon
+                id="name"
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                placeholder="Name"
+                required
+                error={Boolean(errors.name)}
+                icon={
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle cx="12" cy="8" r="4" />
+                    <path d="M6 20v-2a6 6 0 0112 0v2" />
+                  </svg>
+                }
+                className="w-full border border-blue-800 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-800 placeholder:text-blue-800 text-blue-800 bg-white shadow"
+              />
+              {errors.name && (
+                <div className="mt-2 rounded-md border border-red-200 bg-red-50 text-red-800 text-sm px-3 py-2">
+                  {errors.name}
+                </div>
+              )}
+            </div>
+            <div className="w-full">
+              <label htmlFor="email" className="sr-only">
+                Email
+              </label>
+              <InputIcon
+                id="email"
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                placeholder="Email"
+                required
+                error={Boolean(errors.email)}
+                icon={
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M4 4h16v16H4z" />
+                    <path d="M4 4l8 8 8-8" />
+                  </svg>
+                }
+                className="w-full border border-blue-800 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-800 placeholder:text-blue-800 text-blue-800  bg-white shadow"
+              />
+              {errors.email && (
+                <div className="mt-2 rounded-md border border-red-200 bg-red-50 text-red-800 text-sm px-3 py-2">
+                  {errors.email}
+                </div>
+              )}
+            </div>
           </div>
           <div className="md:flex gap-4 space-y-4 md:space-y-0 w-full md:w-3/4">
-            <label htmlFor="phone" className="sr-only">
-              Phone
-            </label>
-            <InputIcon
-              id="phone"
-              type="tel"
-              name="phone"
-              value={formData.phone}
-              onChange={handleChange}
-              placeholder="Phone"
-              required
-              icon={
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M22 16.92V19a2 2 0 01-2.18 2A19.86 19.86 0 013 5.18 2 2 0 015 3h2.09a2 2 0 012 1.72c.13 1.13.37 2.24.72 3.32a2 2 0 01-.45 2.11l-1.27 1.27a16 16 0 006.58 6.58l1.27-1.27a2 2 0 012.11-.45c1.08.35 2.19.59 3.32.72a2 2 0 011.72 2z" />
-                </svg>
-              }
-              className="w-full border border-blue-800 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-800 placeholder:text-blue-800  bg-white shadow"
-            />
-            <label htmlFor="company" className="sr-only">
-              Company or Organization
-            </label>
-            <InputIcon
-              id="company"
-              type="text"
-              name="company"
-              value={formData.company}
-              onChange={handleChange}
-              placeholder="Company/Organization"
-              required
-              icon={
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                >
-                  <rect x="3" y="7" width="18" height="13" rx="2" />
-                  <path d="M16 3v4M8 3v4" />
-                </svg>
-              }
-              className="w-full border border-blue-800 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-800 placeholder:text-blue-800 bg-white shadow"
-            />
+            <div className="w-full">
+              <label htmlFor="phone" className="sr-only">
+                Phone
+              </label>
+              <InputIcon
+                id="phone"
+                type="tel"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                placeholder="Phone"
+                required
+                error={Boolean(errors.phone)}
+                icon={
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M22 16.92V19a2 2 0 01-2.18 2A19.86 19.86 0 013 5.18 2 2 0 015 3h2.09a2 2 0 012 1.72c.13 1.13.37 2.24.72 3.32a2 2 0 01-.45 2.11l-1.27 1.27a16 16 0 006.58 6.58l1.27-1.27a2 2 0 012.11-.45c1.08.35 2.19.59 3.32.72a2 2 0 011.72 2z" />
+                  </svg>
+                }
+                className="w-full border border-blue-800 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-800 placeholder:text-blue-800 text-blue-800  bg-white shadow"
+              />
+              {errors.phone && (
+                <div className="mt-2 rounded-md border border-red-200 bg-red-50 text-red-800 text-sm px-3 py-2">
+                  {errors.phone}
+                </div>
+              )}
+            </div>
+            <div className="w-full">
+              <label htmlFor="company" className="sr-only">
+                Company or Organization
+              </label>
+              <InputIcon
+                id="company"
+                type="text"
+                name="company"
+                value={formData.company}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                placeholder="Company/Organization"
+                required
+                error={Boolean(errors.company)}
+                icon={
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <rect x="3" y="7" width="18" height="13" rx="2" />
+                    <path d="M16 3v4M8 3v4" />
+                  </svg>
+                }
+                className="w-full border border-blue-800 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-800 placeholder:text-blue-800 text-blue-800 bg-white shadow"
+              />
+              {errors.company && (
+                <div className="mt-2 rounded-md border border-red-200 bg-red-50 text-red-800 text-sm px-3 py-2">
+                  {errors.company}
+                </div>
+              )}
+            </div>
           </div>
           <div className="w-full md:w-3/4">
             <label htmlFor="job" className="sr-only">
@@ -230,8 +403,10 @@ const Form = () => {
               name="job"
               value={formData.job}
               onChange={handleChange}
+              onBlur={handleBlur}
               placeholder="Job Title/Role"
               required
+              error={Boolean(errors.job)}
               icon={
                 <svg
                   className="w-5 h-5"
@@ -244,34 +419,87 @@ const Form = () => {
                   <path d="M12 16v-4M12 8h.01" />
                 </svg>
               }
-              className="w-full border border-blue-800 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-800 placeholder:text-blue-800 bg-white shadow"
+              className="w-full border border-blue-800 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-800 placeholder:text-blue-800 text-blue-800 bg-white shadow"
             />
+            {errors.job && (
+              <div className="mt-2 rounded-md border border-red-200 bg-red-50 text-red-800 text-sm px-3 py-2">
+                {errors.job}
+              </div>
+            )}
           </div>
           <div className="flex flex-col md:flex-row gap-4 w-full md:w-3/4">
-            <label htmlFor="time" className="sr-only">
-              Preferred Time
+            <div className="w-full md:w-1/2">
+              <label htmlFor="time" className="sr-only">
+                Preferred Time
+              </label>
+              <input
+                id="time"
+                type="time"
+                name="time"
+                value={formData.time}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                required
+                className={`w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 text-blue-800 placeholder:text-gray-600 bg-white shadow ${
+                  errors.time
+                    ? "border-red-600 focus:ring-red-600"
+                    : "border-blue-800 focus:ring-blue-800"
+                }`}
+              />
+              {errors.time && (
+                <div className="mt-2 rounded-md border border-red-200 bg-red-50 text-red-800 text-sm px-3 py-2">
+                  {errors.time}
+                </div>
+              )}
+            </div>
+            <div className="w-full md:w-1/2">
+              <label htmlFor="date" className="sr-only">
+                Preferred Date
+              </label>
+              <input
+                id="date"
+                type="date"
+                name="date"
+                value={formData.date}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                required
+                min={getTomorrowDateString()}
+                className={`w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 text-blue-800 placeholder:text-gray-600 bg-white shadow ${
+                  errors.date
+                    ? "border-red-600 focus:ring-red-600"
+                    : "border-blue-800 focus:ring-blue-800"
+                }`}
+              />
+              {errors.date && (
+                <div className="mt-2 rounded-md border border-red-200 bg-red-50 text-red-800 text-sm px-3 py-2">
+                  {errors.date}
+                </div>
+              )}
+            </div>
+          </div>
+          <div className="w-full md:w-3/4">
+            <label className="flex items-start gap-3">
+              <input
+                type="checkbox"
+                name="terms"
+                checked={formData.terms}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                className={`mt-1 h-4 w-4 rounded border ${
+                  errors.terms ? "border-red-600" : "border-blue-800"
+                }`}
+              />
+              <span className="text-sm text-black">
+                I agree to the{" "}
+                <span className="font-semibold">Terms & Conditions</span>
+              </span>
             </label>
-            <input
-              id="time"
-              type="time"
-              name="time"
-              value={formData.time}
-              onChange={handleChange}
-              required
-              className="w-full md:w-1/2 border border-blue-800 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-800 text-blue-800 placeholder:text-gray-600 bg-white shadow"
-            />
-            <label htmlFor="date" className="sr-only">
-              Preferred Date
-            </label>
-            <input
-              id="date"
-              type="date"
-              name="date"
-              value={formData.date}
-              onChange={handleChange}
-              required
-              className="w-full md:w-1/2 border border-blue-800 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-800 text-blue-800 placeholder:text-gray-600 bg-white shadow"
-            />
+            {errors.terms && (
+              <div className="mt-2 rounded-md border border-red-200 bg-red-50 text-red-800 text-sm px-3 py-2">
+                {errors.terms}
+              </div>
+            )}
           </div>
           <button
             type="submit"

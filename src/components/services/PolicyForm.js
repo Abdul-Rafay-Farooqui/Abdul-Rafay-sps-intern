@@ -1,5 +1,6 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import { Toaster, toast } from "react-hot-toast";
 
 export default function PolicyFormSection() {
   const [formData, setFormData] = useState({
@@ -9,6 +10,16 @@ export default function PolicyFormSection() {
     file: null,
     verified: false,
   });
+
+  const [errors, setErrors] = useState({});
+  const toastTimerRef = useRef(null);
+  const fileInputRef = useRef(null);
+
+  useEffect(() => {
+    return () => {
+      if (toastTimerRef.current) clearTimeout(toastTimerRef.current);
+    };
+  }, []);
 
   const handleChange = (e) => {
     const { name, value, type, checked, files } = e.target;
@@ -21,17 +32,93 @@ export default function PolicyFormSection() {
     }
   };
 
+  const showToast = (message, type = "success") => {
+    if (type === "success") {
+      toast.success(message, {
+        duration: 3000,
+        style: { borderRadius: "10px", background: "#333", color: "#fff" },
+      });
+    } else {
+      toast.error(message, {
+        duration: 3000,
+        style: { borderRadius: "10px", background: "#333", color: "#fff" },
+      });
+    }
+  };
+
+  const validateField = (name, value) => {
+    switch (name) {
+      case "name": {
+        if (!value || value.trim() === "") return "Name is required.";
+        if (value.trim().length < 3)
+          return "Name must be at least 3 characters.";
+        if (!/^[A-Za-z\s]+$/.test(value.trim()))
+          return "Name can contain only letters and spaces.";
+        return "";
+      }
+      case "email": {
+        if (!value || value.trim() === "") return "Email is required.";
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(value.trim()))
+          return "Enter a valid email (example@domain.com).";
+        return "";
+      }
+      case "company": {
+        if (!value || value.trim() === "") return "Company is required.";
+        if (value.trim().length < 2)
+          return "Company must be at least 2 characters.";
+        return "";
+      }
+      case "verified": {
+        if (!formData.verified) return "You must verify you are not a robot.";
+        return "";
+      }
+      default:
+        return "";
+    }
+  };
+
+  const validateForm = (values) => {
+    const newErrors = {};
+    ["name", "email", "company", "verified"].forEach((field) => {
+      const message = validateField(field, values[field]);
+      if (message) newErrors[field] = message;
+    });
+    return newErrors;
+  };
+
+  const handleBlur = (e) => {
+    const { name } = e.target;
+    const message = validateField(name, formData[name]);
+    setErrors((prev) => ({ ...prev, [name]: message }));
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!formData.verified) {
-      alert("Please verify that you are human.");
+    const currentErrors = validateForm(formData);
+    if (Object.keys(currentErrors).length > 0) {
+      setErrors(currentErrors);
+      showToast("Please fix the highlighted errors.", "error");
       return;
     }
-    alert("Form submitted!");
+    setErrors({});
+    // Clear the form and file input on successful submit
+    setFormData({
+      name: "",
+      email: "",
+      company: "",
+      file: null,
+      verified: false,
+    });
+    if (fileInputRef.current) {
+      fileInputRef.current.value = "";
+    }
+    showToast("Your policy has been submitted for review.", "success");
   };
 
   return (
     <section className="relative px-6 py-20 bg-blue-100 mt-12 overflow-hidden">
+      <Toaster position="top-center" reverseOrder={false} />
       <div className="relative max-w-4xl mx-auto z-10">
         <h1 className="text-4xl font-extrabold text-black mb-4 text-center">
           Check your Security Policy for NEPRA Compliance
@@ -62,8 +149,14 @@ export default function PolicyFormSection() {
                 required
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full border border-blue-300 rounded-lg p-3 focus:ring-2 focus:ring-blue-800 focus:border-blue-800"
+                onBlur={handleBlur}
+                className="w-full border border-blue-300 rounded-lg p-3 focus:ring-2 focus:ring-blue-800 text-blue-800 focus:border-blue-800"
               />
+              {errors.name && (
+                <div className="mt-2 rounded-md border border-red-200 bg-red-50 text-red-800 text-sm px-3 py-2">
+                  {errors.name}
+                </div>
+              )}
             </div>
 
             <div>
@@ -80,8 +173,14 @@ export default function PolicyFormSection() {
                 required
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-blue-900 focus:border-blue-900"
+                onBlur={handleBlur}
+                className="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-blue-900 focus:border-blue-900 text-blue-800"
               />
+              {errors.email && (
+                <div className="mt-2 rounded-md border border-red-200 bg-red-50 text-red-800 text-sm px-3 py-2">
+                  {errors.email}
+                </div>
+              )}
             </div>
           </div>
 
@@ -101,8 +200,14 @@ export default function PolicyFormSection() {
                 required
                 value={formData.company}
                 onChange={handleChange}
-                className="w-full border border-blue-300 rounded-lg p-3 focus:ring-2 focus:ring-blue-800 focus:border-blue-800"
+                onBlur={handleBlur}
+                className="w-full border border-blue-300 rounded-lg p-3 focus:ring-2 focus:ring-blue-800 focus:border-blue-800 text-blue-800"
               />
+              {errors.company && (
+                <div className="mt-2 rounded-md border border-red-200 bg-red-50 text-red-800 text-sm px-3 py-2">
+                  {errors.company}
+                </div>
+              )}
             </div>
 
             <div>
@@ -119,6 +224,7 @@ export default function PolicyFormSection() {
                   name="file"
                   accept=".pdf,.doc,.docx"
                   onChange={handleChange}
+                  ref={fileInputRef}
                   className="hidden"
                 />
                 <label
@@ -149,12 +255,18 @@ export default function PolicyFormSection() {
               name="verified"
               checked={formData.verified}
               onChange={handleChange}
+              onBlur={handleBlur}
               required
               className="w-4 h-4 border-gray-300 rounded"
             />
             <label htmlFor="policy-verified" className="text-black">
               I am not a robot
             </label>
+            {errors.verified && (
+              <div className="ml-4 rounded-md border border-red-200 bg-red-50 text-red-800 text-sm px-3 py-2">
+                {errors.verified}
+              </div>
+            )}
           </div>
 
           {/* Submit */}
