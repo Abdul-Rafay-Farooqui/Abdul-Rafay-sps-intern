@@ -40,11 +40,11 @@ const Footer = () => {
                   <h3 className="text-white text-xl md:text-2xl pb-5">Quick Links</h3>
                   <div className="flex flex-col gap-2 md:gap-3">
                     <a href="/" className="text-gray-300 hover:text-white text-xs md:text-sm transition-colors duration-200">Home</a>
-                    <a href="/products" className="text-gray-300 hover:text-white text-xs md:text-sm transition-colors duration-200">Products</a>
-                    <a href="/services" className="text-gray-300 hover:text-white text-xs md:text-sm transition-colors duration-200">Services</a>
-                    <a href="/pricing" className="text-gray-300 hover:text-white text-xs md:text-sm transition-colors duration-200">Pricing</a>
-                    <a href="/activities" className="text-gray-300 hover:text-white text-xs md:text-sm transition-colors duration-200">Activities</a>
-                    <a href="/about" className="text-gray-300 hover:text-white text-xs md:text-sm transition-colors duration-200">About Us</a>
+                    <a href="/products/kaspersky" className="text-gray-300 hover:text-white text-xs md:text-sm transition-colors duration-200">Products</a>
+                    <a href="/services/security-policy" className="text-gray-300 hover:text-white text-xs md:text-sm transition-colors duration-200">Services</a>
+                    <a href="/pricing/basic-plan" className="text-gray-300 hover:text-white text-xs md:text-sm transition-colors duration-200">Pricing</a>
+                    <a href="/blogs" className="text-gray-300 hover:text-white text-xs md:text-sm transition-colors duration-200">Activities</a>
+                    <a href="/contact-us" className="text-gray-300 hover:text-white text-xs md:text-sm transition-colors duration-200">About Us</a>
                   </div>
                 </div>
 

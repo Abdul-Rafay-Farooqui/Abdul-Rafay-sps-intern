@@ -42,7 +42,7 @@ const Navbar = () => {
 
   const aboutUsOptions = [
     { name: "Contact Us", href: "/contact-us" },
-    { name: "Jobs", href: "/about/blogs" },
+    { name: "Jobs", href: "/job" },
   ];
 
   return (
