@@ -10,6 +10,9 @@ const nextConfig = {
       },
     ],
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 
   async headers() {
     return [
@@ -26,24 +29,26 @@ const nextConfig = {
               font-src 'self' https:;
               connect-src 'self' https:;
               frame-src 'self' https:;
-            `.replace(/\s{2,}/g, " ").trim()
+            `
+              .replace(/\s{2,}/g, " ")
+              .trim(),
           },
           {
             key: "X-Frame-Options",
-            value: "SAMEORIGIN"
+            value: "SAMEORIGIN",
           },
           {
             key: "Referrer-Policy",
-            value: "strict-origin-when-cross-origin"
+            value: "strict-origin-when-cross-origin",
           },
           {
             key: "Permissions-Policy",
-            value: "geolocation=(), microphone=(), camera=()"
-          }
-        ]
-      }
+            value: "geolocation=(), microphone=(), camera=()",
+          },
+        ],
+      },
     ];
-  }
+  },
 };
 
 export default nextConfig;

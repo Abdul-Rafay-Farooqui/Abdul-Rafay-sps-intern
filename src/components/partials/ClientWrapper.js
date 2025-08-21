@@ -2,6 +2,11 @@
 import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import SplashScreen from "./SplashScreen";
+import dynamic from "next/dynamic";
+
+const ChatWidget = dynamic(() => import("../support/ChatWidget"), {
+  ssr: false,
+});
 
 const ClientWrapper = ({ children }) => {
   const [showSplash, setShowSplash] = useState(false);
@@ -58,6 +63,7 @@ const ClientWrapper = ({ children }) => {
     <>
       {children}
       {showSplash && <SplashScreen />}
+      <ChatWidget />
     </>
   );
 };
