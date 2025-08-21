@@ -58,7 +58,7 @@ export default function ChatWidget() {
     <>
       <button
         onClick={() => setIsOpen((v) => !v)}
-        className="fixed bottom-5 right-5 z-50 rounded-full bg-blue-600 text-white px-4 py-3 shadow-lg hover:bg-blue-700"
+        className="fixed bottom-5 right-5 z-50 rounded-full bg-blue-600 text-white px-4 py-3 shadow-lg hover:bg-blue-800"
       >
         {isOpen ? <BotOffIcon/> : <BotIcon/>}
       </button>
