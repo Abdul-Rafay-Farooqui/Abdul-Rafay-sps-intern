@@ -46,7 +46,7 @@ function walkFiles(startDir) {
         if (child.includes(path.join("app", "api"))) continue;
         stack.push(child);
       }
-    } else if (current.endsWith(".js")) {
+    } else if (/[.](js|jsx|ts|tsx)$/.test(current)) {
       results.push(current);
     }
   }
@@ -54,15 +54,37 @@ function walkFiles(startDir) {
 }
 
 function extractText(raw) {
-  // Crude text extractor from JSX/JS: remove imports/exports and tags
-  let text = raw
-    .replace(/import\s+[^;]+;?/g, " ")
-    .replace(/export\s+[^;]+;?/g, " ")
-    .replace(/<[^>]+>/g, " ") // strip JSX tags
-    .replace(/\{[^}]*\}/g, " ") // strip simple JS expressions
+  // Remove comments
+  let cleaned = raw
+    .replace(/\/\*[\s\S]*?\*\//g, " ") // block comments
+    .replace(/(^|\s)//.*$/gm, " "); // line comments
+
+  // Collect visible text in JSX by stripping tags but keeping inner text
+  const jsxText = cleaned
+    .replace(/<[^>]+>/g, " ")
+    .replace(/\{[^}]*\}/g, " ")
     .replace(/\s+/g, " ")
     .trim();
-  return text;
+
+  // Collect string literals that likely contain content (titles, descriptions)
+  const stringMatches = [];
+  const regex = /(['"`])((?:\\.|(?!\1).)*)\1/gm;
+  let m;
+  while ((m = regex.exec(cleaned)) !== null) {
+    const str = m[2].replace(/\\n/g, " ").trim();
+    // Heuristics: keep strings with spaces or length >= 20 and some letters
+    if ((/\p{L}/u.test(str) && (str.includes(" ") || str.length >= 20)) && str.length <= 500) {
+      // Skip classnames/tailwind-like tokens
+      if (!/^(bg-|text-|flex|grid|container|px-|py-|mt-|mb-|pt-|pb-)/.test(str)) {
+        stringMatches.push(str);
+      }
+    }
+  }
+
+  const combined = [jsxText, ...stringMatches].join(" \n ")
+    .replace(/\s+/g, " ")
+    .trim();
+  return combined;
 }
 
 function chunkText(text, chunkSize = 1500, overlap = 150) {

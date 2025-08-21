@@ -1,4 +1,4 @@
-import Careers from '@/components/job/Careers';
+import Jobs from '@/components/job/Jobs';
 import Header from '@/components/products/Header'
 import React from 'react'
 
@@ -13,7 +13,7 @@ const page = () => {
         title= {headerContant.title} 
         description={headerContant.description}
         />
-        <Careers/>
+        <Jobs/>
     </div>
   )
 }

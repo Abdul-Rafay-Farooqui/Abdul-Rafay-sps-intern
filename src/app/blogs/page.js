@@ -1,4 +1,4 @@
-import Content from '@/components/blogs/Content';
+import Blogs from '@/components/blogs/Blogs';
 import Header from '@/components/products/Header'
 import React from 'react'
 
@@ -15,7 +15,7 @@ const page = () => {
         subtitle={headerContent.subtitle}
         description={headerContent.description}
         />
-        <Content/>
+        <Blogs/>
     </div>
   )
 }

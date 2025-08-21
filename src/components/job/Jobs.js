@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 
-const Careers = () => {
+const Jobs = () => {
   // Example jobs (you can fetch or map from API/JSON later)
   const jobs = [
     {
@@ -59,4 +59,4 @@ const Careers = () => {
   );
 };
 
-export default Careers;
+export default Jobs;

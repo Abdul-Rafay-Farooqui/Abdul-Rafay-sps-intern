@@ -1,5 +1,5 @@
 import Header from '@/components/products/Header'
-import Main from '@/components/pricing/Main';
+import Pricing from '@/components/pricing/Pricing';
 import React from 'react'
 
 const page = () => {
@@ -31,7 +31,7 @@ const page = () => {
   return (
     <div>
         <Header title= {headerContant.title} description={headerContant.description}/>
-        <Main content={MainContent} heading={"What’s Included in the Basic Service?"}/>
+        <Pricing content={MainContent} heading={"What’s Included in the Basic Service?"}/>
     </div>
   )
 }

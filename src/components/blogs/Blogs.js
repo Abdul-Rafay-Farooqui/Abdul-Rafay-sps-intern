@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 
-const Content = () => {
+const Blogs = () => {
     const sections = [
         {
           heading: "Key Cybersecurity Challenges in Pakistan’s Power Sector",
@@ -124,4 +124,4 @@ const Content = () => {
   );
 };
 
-export default Content;
+export default Blogs;
