@@ -1,7 +1,11 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import { Toaster, toast } from "react-hot-toast";
-import ReCAPTCHA from "react-google-recaptcha";
+
+// Declare grecaptcha global for reCAPTCHA v3
+if (typeof window !== "undefined") {
+  window.grecaptcha = window.grecaptcha || {};
+}
 
 const InputIcon = ({ icon, error, ...props }) => (
   <div className="relative">
@@ -40,7 +44,40 @@ const Form = () => {
   // Prevent hydration mismatch by only rendering form after client mount
   useEffect(() => {
     setIsClient(true);
+
+    // Load reCAPTCHA v3 script
+    const script = document.createElement("script");
+    script.src = `https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`;
+    script.async = true;
+    script.defer = true;
+    document.head.appendChild(script);
+
+    return () => {
+      // Cleanup script on unmount
+      if (document.head.contains(script)) {
+        document.head.removeChild(script);
+      }
+    };
   }, []);
+
+  // Function to execute reCAPTCHA v3
+  const executeRecaptcha = async () => {
+    if (typeof window.grecaptcha === "undefined") {
+      console.error("reCAPTCHA not loaded");
+      return null;
+    }
+
+    try {
+      const token = await window.grecaptcha.execute(
+        process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY,
+        { action: "submit" }
+      );
+      return token;
+    } catch (error) {
+      console.error("reCAPTCHA execution error:", error);
+      return null;
+    }
+  };
 
   const getTodayDateString = () => {
     const now = new Date();
@@ -157,23 +194,18 @@ const Form = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
+    // Execute reCAPTCHA v3
+    const captchaToken = await executeRecaptcha();
     if (!captchaToken) {
-      alert("Please complete the captcha!");
+      toast.error("reCAPTCHA verification failed. Please try again.", {
+        duration: 3000,
+        style: { borderRadius: "10px", background: "#333", color: "#fff" },
+      });
+      setIsSubmitting(false);
       return;
     }
-    const res = await fetch("/api/submit-form", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        name: e.target.name.value,
-        email: e.target.email.value,
-        message: e.target.message.value,
-        captcha: captchaToken,
-      }),
-    });
-     const data = await res.json();
-    alert(data.message);
+
     const currentErrors = validateForm(formData);
     if (Object.keys(currentErrors).length > 0) {
       setErrors(currentErrors);
@@ -186,9 +218,28 @@ const Form = () => {
     }
 
     try {
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      console.log("Form submitted:", formData);
+      // Send form data to API endpoint
+      const submissionData = {
+        ...formData,
+        captchaToken: captchaToken,
+      };
+
+      console.log("Form submitted:", submissionData);
+
+      // Call the API endpoint
+      const response = await fetch("/api/submit-form", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(submissionData),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.message || "Form submission failed");
+      }
 
       // Reset form
       setFormData({
@@ -202,6 +253,8 @@ const Form = () => {
         terms: false,
       });
       setErrors({});
+      setCaptchaToken(null);
+
       toast.success(
         "Thank you! Your consultation request has been submitted.",
         {
@@ -519,11 +572,32 @@ const Form = () => {
               </div>
             )}
           </div>
-                {/* CAPTCHA */}
-      <ReCAPTCHA
-        sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
-        onChange={setCaptchaToken}
-      />
+
+          {/* reCAPTCHA v3 Notice */}
+          <div className="w-full md:w-3/4 text-center">
+            <p className="text-xs text-gray-600">
+              This site is protected by reCAPTCHA v3 and the Google{" "}
+              <a
+                href="https://policies.google.com/privacy"
+                className="text-blue-600 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Privacy Policy
+              </a>{" "}
+              and{" "}
+              <a
+                href="https://policies.google.com/terms"
+                className="text-blue-600 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Terms of Service
+              </a>{" "}
+              apply.
+            </p>
+          </div>
+
           <button
             type="submit"
             disabled={isSubmitting}
