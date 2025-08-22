@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import { Toaster, toast } from "react-hot-toast";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const InputIcon = ({ icon, error, ...props }) => (
   <div className="relative">
@@ -20,6 +21,7 @@ const InputIcon = ({ icon, error, ...props }) => (
 );
 
 const Form = () => {
+  const [captchaToken, setCaptchaToken] = useState(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -155,7 +157,23 @@ const Form = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-
+    
+    if (!captchaToken) {
+      alert("Please complete the captcha!");
+      return;
+    }
+    const res = await fetch("/api/submit-form", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: e.target.name.value,
+        email: e.target.email.value,
+        message: e.target.message.value,
+        captcha: captchaToken,
+      }),
+    });
+     const data = await res.json();
+    alert(data.message);
     const currentErrors = validateForm(formData);
     if (Object.keys(currentErrors).length > 0) {
       setErrors(currentErrors);
@@ -501,6 +519,11 @@ const Form = () => {
               </div>
             )}
           </div>
+                {/* CAPTCHA */}
+      <ReCAPTCHA
+        sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+        onChange={setCaptchaToken}
+      />
           <button
             type="submit"
             disabled={isSubmitting}
