@@ -2,9 +2,9 @@
 
 /* ===== Root Variables ===== */
 :root {
-  --background: #ffffff;   /* Light background */
-  --foreground: #1e3a8a;   /* Dark blue text */
-  --font-rubik: 'Rubik', sans-serif;
+  --background: #ffffff; /* Light background */
+  --foreground: #1e3a8a; /* Dark blue text */
+  --font-rubik: "Rubik", sans-serif;
 }
 
 @theme inline {
@@ -17,8 +17,8 @@
 /* ===== Dark Mode Variables ===== */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #1e3a8a;   /* Dark slate (better contrast than blue) */
-    --foreground: #ffffff;   /* White text */
+    --background: #1e3a8a; /* Dark slate (better contrast than blue) */
+    --foreground: #ffffff; /* White text */
   }
 }
 
@@ -53,4 +53,26 @@ body {
   .animate-marquee {
     animation: marquee 12s linear infinite;
   }
+}
+
+/* ===== reCAPTCHA Customization ===== */
+/* Hide the default reCAPTCHA badge */
+.grecaptcha-badge {
+  visibility: hidden !important;
+}
+
+/* Style the form reCAPTCHA badge */
+.recaptcha-badge-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.recaptcha-badge-container .grecaptcha-badge {
+  visibility: visible !important;
+  position: relative !important;
+  bottom: auto !important;
+  right: auto !important;
+  margin: 0 auto;
 }

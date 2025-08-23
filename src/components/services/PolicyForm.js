@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
 import { Toaster, toast } from "react-hot-toast";
+import { useGoogleReCaptcha, GoogleReCaptcha } from "react-google-recaptcha-v3";
 
 export default function PolicyFormSection() {
   const [formData, setFormData] = useState({
@@ -8,12 +9,12 @@ export default function PolicyFormSection() {
     email: "",
     company: "",
     file: null,
-    verified: false,
   });
 
   const [errors, setErrors] = useState({});
   const toastTimerRef = useRef(null);
   const fileInputRef = useRef(null);
+  const { executeRecaptcha } = useGoogleReCaptcha();
 
   useEffect(() => {
     return () => {
@@ -69,10 +70,7 @@ export default function PolicyFormSection() {
           return "Company must be at least 2 characters.";
         return "";
       }
-      case "verified": {
-        if (!formData.verified) return "You must verify you are not a robot.";
-        return "";
-      }
+
       default:
         return "";
     }
@@ -80,7 +78,7 @@ export default function PolicyFormSection() {
 
   const validateForm = (values) => {
     const newErrors = {};
-    ["name", "email", "company", "verified"].forEach((field) => {
+    ["name", "email", "company"].forEach((field) => {
       const message = validateField(field, values[field]);
       if (message) newErrors[field] = message;
     });
@@ -93,8 +91,45 @@ export default function PolicyFormSection() {
     setErrors((prev) => ({ ...prev, [name]: message }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Execute reCAPTCHA first
+    if (!executeRecaptcha) {
+      showToast("reCAPTCHA not available. Please refresh the page.", "error");
+      return;
+    }
+
+    const gRecaptchaToken = await executeRecaptcha("policySubmit");
+
+    // Verify reCAPTCHA first
+    try {
+      const response = await fetch("/api/recaptchaSubmit", {
+        method: "POST",
+        headers: {
+          Accept: "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          gRecaptchaToken,
+        }),
+      });
+
+      const recaptchaResult = await response.json();
+
+      if (recaptchaResult?.success === true) {
+        console.log(`Success with score: ${recaptchaResult?.score}`);
+      } else {
+        console.log(`Failure with score: ${recaptchaResult?.score}`);
+        showToast("Failed to verify reCAPTCHA! You must be a robot!", "error");
+        return;
+      }
+    } catch (error) {
+      console.error("reCAPTCHA verification error:", error);
+      showToast("reCAPTCHA verification failed. Please try again.", "error");
+      return;
+    }
+
     const currentErrors = validateForm(formData);
     if (Object.keys(currentErrors).length > 0) {
       setErrors(currentErrors);
@@ -108,7 +143,6 @@ export default function PolicyFormSection() {
       email: "",
       company: "",
       file: null,
-      verified: false,
     });
     if (fileInputRef.current) {
       fileInputRef.current.value = "";
@@ -247,26 +281,34 @@ export default function PolicyFormSection() {
             discarded after your assessment.
           </p>
 
-          {/* Human Verification */}
-          <div className="flex items-center space-x-3 mt-4">
-            <input
-              id="policy-verified"
-              type="checkbox"
-              name="verified"
-              checked={formData.verified}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              required
-              className="w-4 h-4 border-gray-300 rounded"
-            />
-            <label htmlFor="policy-verified" className="text-black">
-              I am not a robot
-            </label>
-            {errors.verified && (
-              <div className="ml-4 rounded-md border border-red-200 bg-red-50 text-red-800 text-sm px-3 py-2">
-                {errors.verified}
+          {/* reCAPTCHA v3 Badge and Notice */}
+          <div className="text-center space-y-3">
+            <div className="flex justify-center">
+              <div className="recaptcha-badge-container">
+                <GoogleReCaptcha onVerify={() => {}} />
               </div>
-            )}
+            </div>
+            <p className="text-xs text-gray-600">
+              This site is protected by reCAPTCHA v3 and the Google{" "}
+              <a
+                href="https://policies.google.com/privacy"
+                className="text-blue-600 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Privacy Policy
+              </a>{" "}
+              and{" "}
+              <a
+                href="https://policies.google.com/terms"
+                className="text-blue-600 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Terms of Service
+              </a>{" "}
+              apply.
+            </p>
           </div>
 
           {/* Submit */}

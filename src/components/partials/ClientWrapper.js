@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import SplashScreen from "./SplashScreen";
 import dynamic from "next/dynamic";
+import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 
 const ChatWidget = dynamic(() => import("../support/ChatWidget"), {
   ssr: false,
@@ -60,11 +61,21 @@ const ClientWrapper = ({ children }) => {
   }
 
   return (
-    <>
+    <GoogleReCaptchaProvider
+      reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+      scriptProps={{
+        async: false,
+        defer: false,
+        appendTo: "head",
+        nonce: undefined,
+      }}
+      useEnterprise={false}
+      useRecaptchaNet={false}
+    >
       {children}
       {showSplash && <SplashScreen />}
       <ChatWidget />
-    </>
+    </GoogleReCaptchaProvider>
   );
 };
 

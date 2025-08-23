@@ -1,11 +1,7 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { Toaster, toast } from "react-hot-toast";
-
-// Declare grecaptcha global for reCAPTCHA v3
-if (typeof window !== "undefined") {
-  window.grecaptcha = window.grecaptcha || {};
-}
+import { useGoogleReCaptcha, GoogleReCaptcha } from "react-google-recaptcha-v3";
 
 const InputIcon = ({ icon, error, ...props }) => (
   <div className="relative">
@@ -25,7 +21,6 @@ const InputIcon = ({ icon, error, ...props }) => (
 );
 
 const Form = () => {
-  const [captchaToken, setCaptchaToken] = useState(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -44,40 +39,7 @@ const Form = () => {
   // Prevent hydration mismatch by only rendering form after client mount
   useEffect(() => {
     setIsClient(true);
-
-    // Load reCAPTCHA v3 script
-    const script = document.createElement("script");
-    script.src = `https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`;
-    script.async = true;
-    script.defer = true;
-    document.head.appendChild(script);
-
-    return () => {
-      // Cleanup script on unmount
-      if (document.head.contains(script)) {
-        document.head.removeChild(script);
-      }
-    };
   }, []);
-
-  // Function to execute reCAPTCHA v3
-  const executeRecaptcha = async () => {
-    if (typeof window.grecaptcha === "undefined") {
-      console.error("reCAPTCHA not loaded");
-      return null;
-    }
-
-    try {
-      const token = await window.grecaptcha.execute(
-        process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY,
-        { action: "submit" }
-      );
-      return token;
-    } catch (error) {
-      console.error("reCAPTCHA execution error:", error);
-      return null;
-    }
-  };
 
   const getTodayDateString = () => {
     const now = new Date();
@@ -190,14 +152,45 @@ const Form = () => {
     const message = validateField(name, formData[name]);
     setErrors((prev) => ({ ...prev, [name]: message }));
   };
-
+  const { executeRecaptcha } = useGoogleReCaptcha();
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Execute reCAPTCHA v3
-    const captchaToken = await executeRecaptcha();
-    if (!captchaToken) {
+    if (!executeRecaptcha) {
+      console.log("Not executing Recaptcha");
+      return;
+    }
+    const gRecaptchaToken = await executeRecaptcha("inquerySubmit");
+
+    // Verify reCAPTCHA first
+    try {
+      const response = await fetch("/api/recaptchaSubmit", {
+        method: "POST",
+        headers: {
+          Accept: "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          gRecaptchaToken,
+        }),
+      });
+
+      const recaptchaResult = await response.json();
+
+      if (recaptchaResult?.success === true) {
+        console.log(`Success with score: ${recaptchaResult?.score}`);
+      } else {
+        console.log(`Failure with score: ${recaptchaResult?.score}`);
+        toast.error("Failed to verify reCAPTCHA! You must be a robot!", {
+          duration: 3000,
+          style: { borderRadius: "10px", background: "#333", color: "#fff" },
+        });
+        setIsSubmitting(false);
+        return;
+      }
+    } catch (error) {
+      console.error("reCAPTCHA verification error:", error);
       toast.error("reCAPTCHA verification failed. Please try again.", {
         duration: 3000,
         style: { borderRadius: "10px", background: "#333", color: "#fff" },
@@ -221,7 +214,7 @@ const Form = () => {
       // Send form data to API endpoint
       const submissionData = {
         ...formData,
-        captchaToken: captchaToken,
+        captchaToken: gRecaptchaToken,
       };
 
       console.log("Form submitted:", submissionData);
@@ -253,7 +246,6 @@ const Form = () => {
         terms: false,
       });
       setErrors({});
-      setCaptchaToken(null);
 
       toast.success(
         "Thank you! Your consultation request has been submitted.",
@@ -573,8 +565,13 @@ const Form = () => {
             )}
           </div>
 
-          {/* reCAPTCHA v3 Notice */}
-          <div className="w-full md:w-3/4 text-center">
+          {/* reCAPTCHA v3 Badge and Notice */}
+          <div className="w-full md:w-3/4 text-center space-y-3">
+            <div className="flex justify-center">
+              <div className="recaptcha-badge-container">
+                <GoogleReCaptcha onVerify={() => {}} />
+              </div>
+            </div>
             <p className="text-xs text-gray-600">
               This site is protected by reCAPTCHA v3 and the Google{" "}
               <a

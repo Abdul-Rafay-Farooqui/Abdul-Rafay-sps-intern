@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { Toaster, toast } from "react-hot-toast";
+import { useGoogleReCaptcha, GoogleReCaptcha } from "react-google-recaptcha-v3";
 
 const InputIcon = ({ icon, error, ...props }) => (
   <div className="relative">
@@ -28,12 +29,12 @@ const Form = () => {
     job: "",
     time: "",
     date: "",
-    verified: false,
   });
 
   const [isClient, setIsClient] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState({});
+  const { executeRecaptcha } = useGoogleReCaptcha();
 
   // Prevent hydration mismatch by only rendering form after client mount
   useEffect(() => {
@@ -106,10 +107,7 @@ const Form = () => {
         if (!value) return "Select Time is required.";
         return "";
       }
-      case "verified": {
-        if (!values.verified) return "You must accept the Terms & Conditions.";
-        return "";
-      }
+
       default:
         return "";
     }
@@ -117,16 +115,7 @@ const Form = () => {
 
   const validateForm = (values) => {
     const newErrors = {};
-    const fields = [
-      "name",
-      "email",
-      "phone",
-      "company",
-      "job",
-      "date",
-      "time",
-      "verified",
-    ];
+    const fields = ["name", "email", "phone", "company", "job", "date", "time"];
     fields.forEach((field) => {
       const message = validateField(field, values[field], values);
       if (message) newErrors[field] = message;
@@ -154,6 +143,55 @@ const Form = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+
+    // Execute reCAPTCHA first
+    if (!executeRecaptcha) {
+      toast.error("reCAPTCHA not available. Please refresh the page.", {
+        duration: 3000,
+        style: { borderRadius: "10px", background: "#333", color: "#fff" },
+      });
+      setIsSubmitting(false);
+      return;
+    }
+
+    const gRecaptchaToken = await executeRecaptcha("pricingSubmit");
+
+    // Verify reCAPTCHA first
+    try {
+      const response = await fetch("/api/recaptchaSubmit", {
+        method: "POST",
+        headers: {
+          Accept: "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          gRecaptchaToken,
+        }),
+      });
+
+      const recaptchaResult = await response.json();
+
+      if (recaptchaResult?.success === true) {
+        console.log(`Success with score: ${recaptchaResult?.score}`);
+      } else {
+        console.log(`Failure with score: ${recaptchaResult?.score}`);
+        toast.error("Failed to verify reCAPTCHA! You must be a robot!", {
+          duration: 3000,
+          style: { borderRadius: "10px", background: "#333", color: "#fff" },
+        });
+        setIsSubmitting(false);
+        return;
+      }
+    } catch (error) {
+      console.error("reCAPTCHA verification error:", error);
+      toast.error("reCAPTCHA verification failed. Please try again.", {
+        duration: 3000,
+        style: { borderRadius: "10px", background: "#333", color: "#fff" },
+      });
+      setIsSubmitting(false);
+      return;
+    }
+
     const currentErrors = validateForm(formData);
     if (Object.keys(currentErrors).length > 0) {
       setErrors(currentErrors);
@@ -177,7 +215,6 @@ const Form = () => {
         job: "",
         time: "",
         date: "",
-        verified: false,
       });
       setErrors({});
       toast.success(
@@ -193,7 +230,7 @@ const Form = () => {
         "There was an error submitting your request. Please try again.",
         {
           duration: 3000,
-          style: { borderRadius: "10px", background: "#333", color: "#fff" },
+          style: { borderRadius: "#333", color: "#fff" },
         }
       );
     } finally {
@@ -477,29 +514,34 @@ const Form = () => {
               )}
             </div>
           </div>
-          <div className="w-full md:w-3/4">
-            <div className="flex items-center">
-              <input
-                id="verified"
-                type="checkbox"
-                name="verified"
-                checked={formData.verified}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                className="w-4 h-4 border-gray-300 rounded mr-3"
-              />
-              <label htmlFor="verified" className="text-black">
-                I acknowledge and agree to the{" "}
-                <a className="decoration-none text-blue-800">
-                  Terms and conditions.
-                </a>
-              </label>
-            </div>
-            {errors.verified && (
-              <div className="mt-2 rounded-md border border-red-200 bg-red-50 text-red-800 text-sm px-3 py-2">
-                {errors.verified}
+          {/* reCAPTCHA v3 Badge and Notice */}
+          <div className="w-full md:w-3/4 text-center">
+            <div className="flex justify-center">
+              <div className="recaptcha-badge-container">
+                <GoogleReCaptcha onVerify={() => {}} />
               </div>
-            )}
+            </div>
+            <p className="text-xs text-gray-600">
+              This site is protected by reCAPTCHA v3 and the Google{" "}
+              <a
+                href="https://policies.google.com/privacy"
+                className="text-blue-600 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Privacy Policy
+              </a>{" "}
+              and{" "}
+              <a
+                href="https://policies.google.com/terms"
+                className="text-blue-600 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Terms of Service
+              </a>{" "}
+              apply.
+            </p>
           </div>
           <button
             type="submit"
