@@ -12,9 +12,9 @@ const Content = () => {
             </div>
             <div className="w-full container mx-auto lg:w-auto h-[400px] bg-white border border-blue-800 rounded-3xl shadow-lg shadow-blue-900/5 p-8 mt-14">
       {/* Heading */}
-      <h2 className="text-2xl md:text-3xl font-extrabold text-blue-900 mb-6 text-center md:text-left">
+      <h1 className="text-2xl md:text-3xl font-extrabold text-black mb-6 text-center md:text-left">
         Contact Info
-      </h2>
+      </h1>
 
       {/* Content */}
       <div className="space-y-4 text-blue-800">

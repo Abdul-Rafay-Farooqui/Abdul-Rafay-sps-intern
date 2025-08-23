@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { Toaster, toast } from "react-hot-toast";
 import { useGoogleReCaptcha, GoogleReCaptcha } from "react-google-recaptcha-v3";
+import ThankYouModal from "../partials/ThankYouModal";
 
 const InputIcon = ({ icon, error, ...props }) => (
   <div className="relative">
@@ -31,6 +32,7 @@ const Form = () => {
     date: "",
     terms: false,
   });
+  const [showThankYouModal, setShowThankYouModal] = useState(false);
 
   const [isClient, setIsClient] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -247,13 +249,7 @@ const Form = () => {
       });
       setErrors({});
 
-      toast.success(
-        "Thank you! Your consultation request has been submitted.",
-        {
-          duration: 3000,
-          style: { borderRadius: "10px", background: "#333", color: "#fff" },
-        }
-      );
+      setShowThankYouModal(true);
     } catch (error) {
       console.error("Form submission error:", error);
       toast.error(
@@ -604,6 +600,14 @@ const Form = () => {
           </button>
         </form>
       </div>
+
+      {/* Thank You Modal */}
+      <ThankYouModal
+        isOpen={showThankYouModal}
+        onClose={() => setShowThankYouModal(false)}
+        title="Thank You!"
+        message="Thank you! Your consultation request has been submitted. We'll get back to you soon!"
+      />
     </section>
   );
 };
