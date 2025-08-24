@@ -52,6 +52,7 @@ const Content = () => {
             className="p-3 bg-blue-100 hover:bg-blue-200 rounded-full text-blue-700 transition"
           >
             <FaTwitter size={20} />
+              <span className="sr-only">Follow us on Twitter</span>
           </a>
           <a
             href="https://facebook.com"
@@ -60,6 +61,7 @@ const Content = () => {
             className="p-3 bg-blue-100 hover:bg-blue-200 rounded-full text-blue-700 transition"
           >
             <FaFacebookF size={20} />
+            <span className="sr-only">Follow us on Facebook</span>
           </a>
         </div>
       </div>

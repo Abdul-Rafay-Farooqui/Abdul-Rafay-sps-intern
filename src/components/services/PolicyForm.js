@@ -290,11 +290,11 @@ export default function PolicyFormSection() {
                 <GoogleReCaptcha onVerify={() => {}} />
               </div>
             </div>
-            <p className="text-xs text-gray-600">
+            <p className="text-xs text-gray-800">
               This site is protected by reCAPTCHA v3 and the Google{" "}
               <a
                 href="https://policies.google.com/privacy"
-                className="text-blue-600 hover:underline"
+                className="text-blue-900 underline hover:no-underline hover:text-blue-700"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -303,7 +303,7 @@ export default function PolicyFormSection() {
               and{" "}
               <a
                 href="https://policies.google.com/terms"
-                className="text-blue-600 hover:underline"
+                className="text-blue-900 underline hover:no-underline hover:text-blue-700"
                 target="_blank"
                 rel="noopener noreferrer"
               >
