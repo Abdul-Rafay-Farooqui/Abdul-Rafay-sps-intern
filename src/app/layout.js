@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "../components/partials/Navbar";
 import Footer from "../components/partials/Footer";
 import ClientWrapper from "@/components/partials/ClientWrapper";
+import Script from "next/script"; 
 
 const rubik = Rubik({
   variable: "--font-rubik",
@@ -47,6 +48,19 @@ export default function RootLayout({ children }) {
         className={`${rubik.variable} antialiased`}
         suppressHydrationWarning={true}
       >
+        {/* ✅ Google Analytics Scripts */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-PKD7MH30HP"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-PKD7MH30HP');
+          `}
+        </Script>
         <ClientWrapper>
           <Navbar />
           {children}
