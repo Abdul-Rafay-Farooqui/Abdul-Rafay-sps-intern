@@ -61,6 +61,17 @@ export default function RootLayout({ children }) {
             gtag('config', 'G-PKD7MH30HP');
           `}
         </Script>
+        <Script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "NEPRA Cybersecurity Compliance",
+          "url": "https://nepra.netlify.app"
+        }),
+      }}
+    />
         <ClientWrapper>
           <Navbar />
           {children}
