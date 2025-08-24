@@ -1,5 +1,5 @@
 import React from 'react'
-import Form from '../pricing/Form'
+import Form from '../products/Form'
 import { FaTwitter, FaFacebookF } from "react-icons/fa";
 
 

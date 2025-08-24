@@ -1,5 +1,5 @@
 import React from "react";
-import Form from "./Form";
+import Form from "../products/Form";
 
 const Pricing = ({ content, heading }) => {
   return (

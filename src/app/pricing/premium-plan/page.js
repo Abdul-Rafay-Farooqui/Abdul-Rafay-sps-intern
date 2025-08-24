@@ -15,7 +15,7 @@ const page = () => {
         paragraph:
           "Work with our team to design a customized compliance strategy tailored to your specific needs, challenges, and timelines.",
       },
-      {
+      {         
         title: "Dedicated Security Experts",
         paragraph:
           "Collaborate with a team of cybersecurity experts who will work closely with your organization to address critical compliance areas, including:",

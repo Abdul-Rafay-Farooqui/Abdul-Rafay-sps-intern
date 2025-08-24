@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Toaster, toast } from "react-hot-toast";
 import { useGoogleReCaptcha, GoogleReCaptcha } from "react-google-recaptcha-v3";
 import ThankYouModal from "../partials/ThankYouModal";
+import { sendEmails } from "../../components/contact-us/Email";
 
 const InputIcon = ({ icon, error, ...props }) => (
   <div className="relative">
@@ -213,55 +214,64 @@ const Form = () => {
     }
 
     try {
-      // Send form data to API endpoint
-      const submissionData = {
-        ...formData,
-        captchaToken: gRecaptchaToken,
-      };
+    // Send form data to API endpoint
+    const submissionData = {
+      ...formData,
+      captchaToken: gRecaptchaToken,
+    };
 
-      console.log("Form submitted:", submissionData);
+    console.log("Form submitted:", submissionData);
 
-      // Call the API endpoint
-      const response = await fetch("/api/submit-form", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(submissionData),
-      });
+    // Call the API endpoint
+    const response = await fetch("/api/submit-form", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(submissionData),
+    });
 
-      const result = await response.json();
+    const result = await response.json();
 
-      if (!response.ok) {
-        throw new Error(result.message || "Form submission failed");
-      }
-
-      // Reset form
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        company: "",
-        job: "",
-        time: "",
-        date: "",
-        terms: false,
-      });
-      setErrors({});
-
-      setShowThankYouModal(true);
-    } catch (error) {
-      console.error("Form submission error:", error);
-      toast.error(
-        "There was an error submitting your request. Please try again.",
-        {
-          duration: 3000,
-          style: { borderRadius: "10px", background: "#333", color: "#fff" },
-        }
-      );
-    } finally {
-      setIsSubmitting(false);
+    if (!response.ok) {
+      throw new Error(result.message || "Form submission failed");
     }
+
+    // Send emails using the email service
+    const emailResult = await sendEmails(formData);
+    
+    if (!emailResult.success) {
+      console.warn("Emails not sent successfully:", emailResult.errors);
+      // You might want to show a warning or log this to your monitoring service
+      // But don't fail the form submission since the data was saved
+    }
+
+    // Reset form
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      company: "",
+      job: "",
+      time: "",
+      date: "",
+      terms: false,
+    });
+    setErrors({});
+
+    setShowThankYouModal(true);
+  } catch (error) {
+    console.error("Form submission error:", error);
+    toast.error(
+      "There was an error submitting your request. Please try again.",
+      {
+        duration: 3000,
+        style: { borderRadius: "10px", background: "#333", color: "#fff" },
+      }
+    );
+  } finally {
+    setIsSubmitting(false);
+  }
   };
 
   // Don't render form until client-side to prevent hydration issues
@@ -486,6 +496,9 @@ const Form = () => {
               </div>
             )}
           </div>
+            <h2 className="text-black">
+            What date and time work best for you to meet with our consultant?
+          </h2>
           <div className="flex flex-col md:flex-row gap-4 w-full md:w-3/4">
             <div className="w-full md:w-1/2">
               <label htmlFor="time" className="sr-only">
