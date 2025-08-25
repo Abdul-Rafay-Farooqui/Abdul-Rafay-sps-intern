@@ -2,7 +2,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Toaster, toast } from "react-hot-toast";
 import { useGoogleReCaptcha, GoogleReCaptcha } from "react-google-recaptcha-v3";
-import ThankYouModal from "../partials/ThankYouModal";
+import { useRouter, usePathname } from "next/navigation";
 
 export default function PolicyFormSection() {
   const [formData, setFormData] = useState({
@@ -13,10 +13,11 @@ export default function PolicyFormSection() {
   });
 
   const [errors, setErrors] = useState({});
-  const [showThankYouModal, setShowThankYouModal] = useState(false);
   const toastTimerRef = useRef(null);
   const fileInputRef = useRef(null);
   const { executeRecaptcha } = useGoogleReCaptcha();
+    const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
     return () => {
@@ -149,7 +150,7 @@ export default function PolicyFormSection() {
     if (fileInputRef.current) {
       fileInputRef.current.value = "";
     }
-    setShowThankYouModal(true);
+    router.push(`/thank-you?returnUrl=${encodeURIComponent(pathname)}`);
   };
 
   return (
@@ -324,14 +325,6 @@ export default function PolicyFormSection() {
           </div>
         </form>
       </div>
-
-      {/* Thank You Modal */}
-      <ThankYouModal
-        isOpen={showThankYouModal}
-        onClose={() => setShowThankYouModal(false)}
-        title="Thank You!"
-        message="Your policy has been submitted for review. We'll analyze it and get back to you soon!"
-      />
     </section>
   );
 }
